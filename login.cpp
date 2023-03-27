@@ -164,9 +164,10 @@ void login::on_pushButton_4_clicked()
 
            p.exec("INSERT INTO person VALUES('"+user+"','"+pass+"','"+phone+"')");
 
-           ui->groupBox_2->close();
-           ui->groupBox->show();
-            QMessageBox::information(this,"notic","Your account has been successfully created");
+           ui->groupBox_2->hide();
+           login::hide();
+           code * w3=new code;
+           w3->show();
            }
            else
              QMessageBox::warning(this,"notic","This username has been used");
@@ -289,8 +290,7 @@ void login::on_pushButton_2_clicked()
 
    if(q.first()){
        login::close();
-       code * w3=new code;
-    w3->show();
+
 
    }
    else
