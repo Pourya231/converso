@@ -2,6 +2,8 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+#include "captcha.h"
+#include <QPaintEvent>
 
 namespace Ui {
 class login;
@@ -44,8 +46,12 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_pushButton_7_clicked();
+
 private:
     Ui::login *ui;
+protected:
+    virtual void paintEvent(QPaintEvent *);
 };
 
 #endif // LOGIN_H

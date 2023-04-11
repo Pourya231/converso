@@ -20,10 +20,10 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>-20</y>
+      <x>-10</x>
+      <y>-50</y>
       <width>761</width>
-      <height>641</height>
+      <height>621</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -39,10 +39,10 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>251</width>
-      <height>561</height>
+      <x>10</x>
+      <y>-10</y>
+      <width>241</width>
+      <height>601</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -71,11 +71,14 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLineEdit" name="lineEdit_3">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>140</y>
-       <width>211</width>
+       <x>19</x>
+       <y>190</y>
+       <width>201</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="toolTip">
+      <string>username must not contain special symbol</string>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(0, 0, 0);</string>
@@ -90,47 +93,13 @@ color: rgb(0, 0, 0);</string>
       <string>Username</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>180</y>
-       <width>211</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="inputMask">
-      <string/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>7</number>
-     </property>
-     <property name="frame">
-      <bool>true</bool>
-     </property>
-     <property name="echoMode">
-      <enum>QLineEdit::Password</enum>
-     </property>
-     <property name="cursorPosition">
-      <number>0</number>
-     </property>
-     <property name="placeholderText">
-      <string>Password</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>290</y>
-       <width>131</width>
-       <height>41</height>
+       <x>10</x>
+       <y>330</y>
+       <width>151</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -159,7 +128,7 @@ color: rgb(0, 0, 0);</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>340</y>
+       <y>410</y>
        <width>201</width>
        <height>24</height>
       </rect>
@@ -178,8 +147,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>75</x>
-       <y>380</y>
+       <x>70</x>
+       <y>440</y>
        <width>80</width>
        <height>25</height>
       </rect>
@@ -197,8 +166,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLineEdit" name="lineEdit_6">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>220</y>
+       <x>130</x>
+       <y>270</y>
        <width>91</width>
        <height>24</height>
       </rect>
@@ -220,7 +189,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>220</y>
+       <y>270</y>
        <width>81</width>
        <height>24</height>
       </rect>
@@ -293,8 +262,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>2</x>
-       <y>148</y>
+       <x>3</x>
+       <y>196</y>
        <width>16</width>
        <height>16</height>
       </rect>
@@ -306,43 +275,11 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>3</x>
-       <y>189</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/lock.png);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_5">
-     <property name="geometry">
-      <rect>
-       <x>204</x>
-       <y>188</y>
-       <width>21</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/eye2.jpg);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit_7">
      <property name="geometry">
       <rect>
-       <x>107</x>
-       <y>220</y>
+       <x>100</x>
+       <y>270</y>
        <width>31</width>
        <height>24</height>
       </rect>
@@ -361,7 +298,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>297</y>
+       <y>370</y>
        <width>51</width>
        <height>41</height>
       </rect>
@@ -391,12 +328,81 @@ background-color: rgb(255, 255, 255);</string>
       <string/>
      </property>
     </widget>
+    <widget class="QLineEdit" name="lineEdit_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>200</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="maxLength">
+      <number>8</number>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Password</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>2</x>
+       <y>235</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/lock.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>192</x>
+       <y>235</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/eye2.jpg);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>lineEdit_8</zorder>
+    <zorder>label_3</zorder>
+    <zorder>lineEdit_3</zorder>
+    <zorder>label_4</zorder>
+    <zorder>lineEdit_5</zorder>
+    <zorder>pushButton_4</zorder>
+    <zorder>lineEdit_6</zorder>
+    <zorder>comboBox</zorder>
+    <zorder>label_5</zorder>
+    <zorder>lineEdit_7</zorder>
+    <zorder>pushButton_6</zorder>
+    <zorder>label_10</zorder>
+    <zorder>label_11</zorder>
+    <zorder>pushButton_7</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>235</x>
-      <y>0</y>
+      <x>231</x>
+      <y>-10</y>
       <width>281</width>
       <height>601</height>
      </rect>

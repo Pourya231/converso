@@ -8,12 +8,23 @@
 #include <QSqlDriver>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include <QPainterPath>
+#include <QPainter>
+#include <QtMath>
+#include <qgraphicsscene.h>
+#include <QImage>
+#include <QGraphicsPixmapItem>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/qnetworkreply.h>
+#include <QtNetwork/QNetworkRequest>
 using namespace std;
 login::login(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::login)
 {
 
+////hi every body
+///
     QSqlDatabase db;
     db=QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("C:/Users/pourya/Desktop/qt/telegram/database.db");
@@ -33,14 +44,16 @@ login::login(QWidget *parent) :
          ui->pushButton_2->setStyleSheet("background-color: rgb(85, 88, 255);");
    }
 
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_4->text()==""||ui->lineEdit_6->text()==""){
+    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""){
        ui->pushButton_4->setEnabled(false);
        ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
    }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_4->text()==""||ui->lineEdit_6->text()=="")){
+    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()=="")){
         ui->pushButton_4->setEnabled(true);
          ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
    }
+
+
 
 }
 
@@ -87,7 +100,7 @@ void login::on_pushButton_clicked()
 
 
 
-
+ Captcha cp;
 
 
 void login::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
@@ -118,13 +131,13 @@ void login::on_lineEdit_2_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_pushButton_5_clicked()
 {
-    if(ui->lineEdit_4->echoMode()==QLineEdit::Normal){
-          ui->pushButton_5->setStyleSheet("image: url(:/new/prefix1/eye2.jpg);");
-          ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+    if(ui->lineEdit_8->echoMode()==QLineEdit::Normal){
+          ui->pushButton_7->setStyleSheet("image: url(:/new/prefix1/eye2.jpg);");
+          ui->lineEdit_8->setEchoMode(QLineEdit::Password);
     }
     else{
-         ui->pushButton_5->setStyleSheet("image: url(:/new/prefix1/eye1.jpg);");
-        ui->lineEdit_4->setEchoMode(QLineEdit::Normal);
+         ui->pushButton_7->setStyleSheet("image: url(:/new/prefix1/eye1.jpg);");
+        ui->lineEdit_8->setEchoMode(QLineEdit::Normal);
     }
 }
 
@@ -133,23 +146,36 @@ void login::on_pushButton_3_clicked()
 {
       cap=captcha(5);
     ui->groupBox->hide();
-    ui->groupBox_2->move(250,100);
-    ui->lineEdit_4->setText("");
+    ui->groupBox_2->move(240,0);
+    ui->lineEdit_8->setText("");
      ui->lineEdit_3->setText("");
       ui->lineEdit_6->setText("");
        ui->lineEdit_5->setText("");
       ui->comboBox->setCurrentIndex(0);
     ui->label_4->setText(cap);
+    QPainter painter(this);
+    cp.randomize();
+    cp.setDifficulty(4);
+    //cp.loadDictionary("dictionary.txt");
+   // cp.setTextGeneration(Captcha::TextGeneration_Dictionary);
+    cp.generateText();
+    cp.captchaText();
+    QImage img(cp.captchaImage());
+    ui->label_4->setPixmap(QPixmap::fromImage((img)));
+
 }
 
 
 void login::on_pushButton_4_clicked()
 {
 
-    if(!(ui->lineEdit_4->text()==""||ui->lineEdit_3->text()==""||ui->lineEdit_6->text()=="")){
+    if(!(ui->lineEdit_8->text()==""||ui->lineEdit_3->text()==""||ui->lineEdit_6->text()=="")){
        if(check_user(ui->lineEdit_3->text())==0){
-        if(check_user(ui->lineEdit_4->text())){
-          if(ui->lineEdit_5->text()==cap){
+        if(check_user(ui->lineEdit_8->text())){
+            if(ui->lineEdit_8->text()==ui->lineEdit_8->text()){
+
+
+          if(ui->lineEdit_5->text()==cp.captchaText()){
 
            QSqlQuery p;
             QSqlQuery q;
@@ -157,7 +183,7 @@ void login::on_pushButton_4_clicked()
            QString pass;
             QString phone;
            user=ui->lineEdit_3->text();
-           pass=ui->lineEdit_4->text();
+           pass=ui->lineEdit_8->text();
            phone=ui->lineEdit_6->text();
            q.exec("SELECT username FROM person WHERE username='"+user+"' ");
            if(!(q.first())){
@@ -175,6 +201,9 @@ void login::on_pushButton_4_clicked()
           else{
              QMessageBox::warning(this,"notic","incorrect code");
           }
+            }
+            else
+                QMessageBox::warning(this,"notic","password not match");
         }
        else
               QMessageBox::warning(this,"notic","Your password must contain special symbols");
@@ -182,8 +211,9 @@ void login::on_pushButton_4_clicked()
        else
              QMessageBox::warning(this,"notic","Your username should not contain special symbols");
     }
-    cap=captcha(5);
-     ui->label_4->setText(cap);
+       cp.generateText();
+       QImage img(cp.captchaImage());
+       ui->label_4->setPixmap(QPixmap::fromImage((img)));
 }
 
 
@@ -244,11 +274,11 @@ void login::on_comboBox_activated(int index)
 
 void login::on_lineEdit_3_cursorPositionChanged(int arg1, int arg2)
 {
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_4->text()==""||ui->lineEdit_6->text()==""){
+    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""){
        ui->pushButton_4->setEnabled(false);
        ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
    }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_4->text()==""||ui->lineEdit_6->text()=="")){
+    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()=="")){
         ui->pushButton_4->setEnabled(true);
          ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
    }
@@ -257,11 +287,11 @@ void login::on_lineEdit_3_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_lineEdit_4_cursorPositionChanged(int arg1, int arg2)
 {
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_4->text()==""||ui->lineEdit_6->text()==""){
+    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""){
        ui->pushButton_4->setEnabled(false);
        ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
    }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_4->text()==""||ui->lineEdit_6->text()=="")){
+    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()=="")){
         ui->pushButton_4->setEnabled(true);
          ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
    }
@@ -270,11 +300,11 @@ void login::on_lineEdit_4_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_lineEdit_6_cursorPositionChanged(int arg1, int arg2)
 {
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_4->text()==""||ui->lineEdit_6->text()==""){
+    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""){
        ui->pushButton_4->setEnabled(false);
        ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
    }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_4->text()==""||ui->lineEdit_6->text()=="")){
+    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()=="")){
         ui->pushButton_4->setEnabled(true);
          ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
    }
@@ -302,5 +332,46 @@ void login::on_pushButton_6_clicked()
 {
      cap=captcha(5);
       ui->label_4->setText(cap);
+      QPainter painter(this);
+      cp.randomize();
+      cp.setDifficulty(4);
+      //cp.loadDictionary("dictionary.txt");
+      //cp.setTextGeneration(Captcha::TextGeneration_Dictionary);
+      cp.generateText();
+      QImage img(cp.captchaImage());
+    //  painter.drawImage(0,0, cp.captchaImage());
+      //setStyleSheet("background-image: url(:img);")
+
+      ui->label_4->setPixmap(QPixmap::fromImage((img)));
+
+}
+
+
+void login::on_pushButton_7_clicked()
+{
+    if(ui->lineEdit_8->echoMode()==QLineEdit::Normal){
+          ui->pushButton_7->setStyleSheet("image: url(:/new/prefix1/eye2.jpg);");
+          ui->lineEdit_8->setEchoMode(QLineEdit::Password);
+    }
+    else{
+         ui->pushButton_7->setStyleSheet("image: url(:/new/prefix1/eye1.jpg);");
+        ui->lineEdit_8->setEchoMode(QLineEdit::Normal);
+    }
+}
+
+void login::paintEvent(QPaintEvent *)
+{
+    /*QPainter painter(this);
+    cp.randomize();
+    cp.setDifficulty(2);
+    cp.loadDictionary("dictionary.txt");
+    cp.setTextGeneration(Captcha::TextGeneration_Dictionary);
+    cp.generateText();
+    cp.captchaText();
+    QImage img(cp.captchaImage());
+  //  painter.drawImage(0,0, cp.captchaImage());
+    //setStyleSheet("background-image: url(:img);")
+
+    ui->label_4->setPixmap(QPixmap::fromImage((img)));*/
 }
 
