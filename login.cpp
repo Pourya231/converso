@@ -64,7 +64,7 @@ login::~login()
 }
 
 int login::check_user(QString str){
-        if (str.contains("&")||str.contains("$")||str.contains("#")||str.contains("%")||str.contains("@")||str.contains("^")||str.contains("*"))
+        if (str.contains("&")||str.contains("$")||str.contains("#")||str.contains("%")||str.contains("@")||str.contains("^")||str.contains("*")||str.contains("!"))
                 return 1;
         else
                 return 0;
