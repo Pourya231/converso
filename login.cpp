@@ -155,7 +155,7 @@ void login::on_pushButton_3_clicked()
     ui->label_4->setText(cap);
     QPainter painter(this);
     cp.randomize();
-    cp.setDifficulty(4);
+    cp.setDifficulty(2);
     //cp.loadDictionary("dictionary.txt");
    // cp.setTextGeneration(Captcha::TextGeneration_Dictionary);
     cp.generateText();
@@ -334,7 +334,7 @@ void login::on_pushButton_6_clicked()
       ui->label_4->setText(cap);
       QPainter painter(this);
       cp.randomize();
-      cp.setDifficulty(4);
+      cp.setDifficulty(2);
       //cp.loadDictionary("dictionary.txt");
       //cp.setTextGeneration(Captcha::TextGeneration_Dictionary);
       cp.generateText();
