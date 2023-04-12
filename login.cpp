@@ -116,7 +116,7 @@ void login::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
     }
 }
 
-
+// the two functions below belogs to make the sign in push button enabled only when the field are filled.
 void login::on_lineEdit_2_cursorPositionChanged(int arg1, int arg2)
 {
     if(ui->lineEdit->text()==""||ui->lineEdit_2->text()=="")
@@ -130,8 +130,6 @@ void login::on_lineEdit_2_cursorPositionChanged(int arg1, int arg2)
         ui->pushButton_2->setStyleSheet("background-color: rgb(85, 88, 255);");
     }
 }
-
-
 void login::on_pushButton_5_clicked()
 {
     if(ui->lineEdit_8->echoMode()==QLineEdit::Normal)
@@ -169,7 +167,6 @@ void login::on_pushButton_3_clicked()
     ui->label_4->setPixmap(QPixmap::fromImage((img)));
 }
 
-// at this very part my code cleaning is visible:
 void login::on_pushButton_4_clicked()
 {
     if(!(ui->lineEdit_8->text()==""||ui->lineEdit_3->text()==""||ui->lineEdit_6->text()==""))
@@ -222,7 +219,7 @@ void login::on_pushButton_4_clicked()
     ui->label_4->setPixmap(QPixmap::fromImage((img)));
 }
 
-
+// the comboBox below belogs to sign up page when the number is asked.
 void login::on_comboBox_activated(int index)
 {
     switch (index)
@@ -233,47 +230,47 @@ void login::on_comboBox_activated(int index)
             ui->lineEdit_7->setMaxLength(10);
             break;
         case 1:
-        //china
-            ui->lineEdit_7->setText("+86"); break;
-        case 2:
-        //USA
-            ui->lineEdit_7->setText("+1"); break;
-        case 3:
         //canada
             ui->lineEdit_7->setText("+1"); break;
-        case 4:
+        case 2:
+        //china
+            ui->lineEdit_7->setText("+86"); break;
+        case 3:
         //egypt
             ui->lineEdit_7->setText("+20"); break;
-        case 5:
+        case 4:
         //germany
             ui->lineEdit_7->setText("+49"); break;
-        case 6:
+        case 5:
         //india
             ui->lineEdit_7->setText("+91"); break;
-        case 7:
+        case 6:
         //iraq
             ui->lineEdit_7->setText("+964"); break;
-        case 8:
+        case 7:
         //japan
             ui->lineEdit_7->setText("+81"); break;
-        case 9:
+        case 8:
         //spain
             ui->lineEdit_7->setText("+34"); break;
-        case 10:
+        case 9:
         //Turkey
             ui->lineEdit_7->setText("+90"); break;
+        case 10:
+        //USA
+            ui->lineEdit_7->setText("+1"); break;
     }
 }
 
-
+// the 4 functions below belogs to make the sign up push button enabled only when the field are filled.
 void login::on_lineEdit_3_cursorPositionChanged(int arg1, int arg2)
 {
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()=="")
+    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()=="")
     {
         ui->pushButton_4->setEnabled(false);
         ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
     }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""))
+    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""))
     {
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
