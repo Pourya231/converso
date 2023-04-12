@@ -78,7 +78,7 @@ color: rgb(0, 0, 0);</string>
       </rect>
      </property>
      <property name="toolTip">
-      <string>username must not contain special symbol</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;username must not contain special symbol&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(0, 0, 0);</string>
@@ -337,6 +337,9 @@ background-color: rgb(255, 255, 255);</string>
        <height>28</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;username must contain special symbol&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
      <property name="styleSheet">
       <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(0, 0, 0);</string>
@@ -401,8 +404,8 @@ color: rgb(0, 0, 0);</string>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>231</x>
-      <y>-10</y>
+      <x>240</x>
+      <y>-20</y>
       <width>281</width>
       <height>601</height>
      </rect>
@@ -442,6 +445,9 @@ color: rgb(0, 0, 0);</string>
        <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(0, 0, 0);</string>

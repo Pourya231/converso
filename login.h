@@ -48,6 +48,10 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void on_lineEdit_5_textChanged(const QString &arg1);
+
+    void on_lineEdit_5_cursorPositionChanged(int arg1, int arg2);
+
 private:
     Ui::login *ui;
 protected:
