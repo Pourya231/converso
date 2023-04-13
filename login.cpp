@@ -441,3 +441,10 @@ void login::paintEvent(QPaintEvent *)
 }
 
 
+
+void login::on_backlogin_clicked()
+{
+    ui->groupBox->show();
+    ui->groupBox_2->hide();
+}
+
