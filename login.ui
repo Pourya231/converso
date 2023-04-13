@@ -167,7 +167,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>270</y>
+       <y>300</y>
        <width>91</width>
        <height>24</height>
       </rect>
@@ -189,7 +189,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>270</y>
+       <y>300</y>
        <width>81</width>
        <height>24</height>
       </rect>
@@ -279,7 +279,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>270</y>
+       <y>300</y>
        <width>31</width>
        <height>24</height>
       </rect>
@@ -386,6 +386,64 @@ color: rgb(0, 0, 0);</string>
       <string/>
      </property>
     </widget>
+    <widget class="QLineEdit" name="lineEdit_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>265</y>
+       <width>200</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;username must contain special symbol&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="maxLength">
+      <number>8</number>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Repeat Password</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>2</x>
+       <y>270</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/lock.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="geometry">
+      <rect>
+       <x>192</x>
+       <y>270</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/eye2.jpg);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
     <zorder>lineEdit_8</zorder>
     <zorder>label_3</zorder>
     <zorder>lineEdit_3</zorder>
@@ -400,6 +458,9 @@ color: rgb(0, 0, 0);</string>
     <zorder>label_10</zorder>
     <zorder>label_11</zorder>
     <zorder>pushButton_7</zorder>
+    <zorder>lineEdit_9</zorder>
+    <zorder>label_12</zorder>
+    <zorder>pushButton_8</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
@@ -631,7 +692,7 @@ background-color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>730</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

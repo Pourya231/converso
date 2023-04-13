@@ -52,6 +52,10 @@ private slots:
 
     void on_lineEdit_5_cursorPositionChanged(int arg1, int arg2);
 
+    void on_pushButton_8_clicked();
+
+    void on_lineEdit_9_cursorPositionChanged(int arg1, int arg2);
+
 private:
     Ui::login *ui;
 protected:
