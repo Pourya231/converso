@@ -40,9 +40,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>10</y>
-      <width>241</width>
-      <height>601</height>
+      <y>0</y>
+      <width>280</width>
+      <height>600</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -54,9 +54,9 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>87</x>
+       <x>100</x>
        <y>80</y>
-       <width>81</width>
+       <width>80</width>
        <height>31</height>
       </rect>
      </property>
@@ -65,15 +65,15 @@
 color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Signup</string>
+      <string>Sign up</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit_3">
      <property name="geometry">
       <rect>
-       <x>19</x>
-       <y>190</y>
-       <width>201</width>
+       <x>40</x>
+       <y>170</y>
+       <width>220</width>
        <height>31</height>
       </rect>
      </property>
@@ -96,7 +96,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>50</x>
        <y>330</y>
        <width>151</width>
        <height>71</height>
@@ -127,7 +127,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLineEdit" name="lineEdit_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>50</x>
        <y>410</y>
        <width>201</width>
        <height>24</height>
@@ -147,8 +147,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>440</y>
+       <x>100</x>
+       <y>490</y>
        <width>80</width>
        <height>25</height>
       </rect>
@@ -166,9 +166,9 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLineEdit" name="lineEdit_6">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>300</y>
-       <width>91</width>
+       <x>160</x>
+       <y>290</y>
+       <width>100</width>
        <height>24</height>
       </rect>
      </property>
@@ -188,9 +188,9 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>300</y>
-       <width>81</width>
+       <x>40</x>
+       <y>290</y>
+       <width>91</width>
        <height>24</height>
       </rect>
      </property>
@@ -262,8 +262,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>3</x>
-       <y>196</y>
+       <x>15</x>
+       <y>175</y>
        <width>16</width>
        <height>16</height>
       </rect>
@@ -278,8 +278,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLineEdit" name="lineEdit_7">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>300</y>
+       <x>130</x>
+       <y>290</y>
        <width>31</width>
        <height>24</height>
       </rect>
@@ -297,8 +297,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="pushButton_6">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>370</y>
+       <x>200</x>
+       <y>360</y>
        <width>51</width>
        <height>41</height>
       </rect>
@@ -313,8 +313,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>10</y>
+       <x>40</x>
+       <y>20</y>
        <width>201</width>
        <height>61</height>
       </rect>
@@ -331,9 +331,9 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="lineEdit_8">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>230</y>
-       <width>200</width>
+       <x>40</x>
+       <y>210</y>
+       <width>220</width>
        <height>28</height>
       </rect>
      </property>
@@ -357,8 +357,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>2</x>
-       <y>235</y>
+       <x>15</x>
+       <y>216</y>
        <width>16</width>
        <height>16</height>
       </rect>
@@ -373,8 +373,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="pushButton_7">
      <property name="geometry">
       <rect>
-       <x>192</x>
-       <y>235</y>
+       <x>232</x>
+       <y>216</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -389,9 +389,9 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLineEdit" name="lineEdit_9">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>265</y>
-       <width>200</width>
+       <x>40</x>
+       <y>250</y>
+       <width>220</width>
        <height>28</height>
       </rect>
      </property>
@@ -415,8 +415,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>2</x>
-       <y>270</y>
+       <x>15</x>
+       <y>254</y>
        <width>16</width>
        <height>16</height>
       </rect>
@@ -431,8 +431,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="pushButton_8">
      <property name="geometry">
       <rect>
-       <x>192</x>
-       <y>270</y>
+       <x>232</x>
+       <y>255</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -447,7 +447,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="backlogin">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>100</x>
        <y>520</y>
        <width>80</width>
        <height>25</height>
@@ -459,6 +459,51 @@ background-color: rgb(0, 170, 255);</string>
      </property>
      <property name="text">
       <string>back to login</string>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radioButton">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>450</y>
+       <width>201</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>I agree privacy policy terms.</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_9">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>447</y>
+       <width>71</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
+</string>
+     </property>
+     <property name="text">
+      <string>learn more</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
      </property>
     </widget>
     <zorder>lineEdit_8</zorder>
@@ -479,14 +524,16 @@ background-color: rgb(0, 170, 255);</string>
     <zorder>label_12</zorder>
     <zorder>pushButton_8</zorder>
     <zorder>backlogin</zorder>
+    <zorder>radioButton</zorder>
+    <zorder>pushButton_9</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>240</x>
       <y>-20</y>
-      <width>281</width>
-      <height>601</height>
+      <width>280</width>
+      <height>600</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -743,7 +790,7 @@ font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>730</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

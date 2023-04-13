@@ -58,6 +58,10 @@ private slots:
 
     void on_backlogin_clicked();
 
+    void on_pushButton_9_clicked();
+
+    void on_radioButton_clicked();
+
 private:
     Ui::login *ui;
 protected:

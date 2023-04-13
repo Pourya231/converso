@@ -73,6 +73,9 @@ login::login(QWidget *parent) :
        ui->lineEdit_2->setText(pass);
        ui->checkBox->setChecked(true);
        }
+
+      ui->pushButton_9->setStyleSheet("QPushButton { border: none; }");
+      ui->pushButton_9->setStyleSheet("QPushButton { color: blue; text-decoration: underline; }");
 }
 
 login::~login()
@@ -133,7 +136,7 @@ void login::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
     }
 }
 
-// the two functions below belogs to make the sign in push button enabled only when the field are filled.
+// the two functions below belogs to make the sign in fields visible only when the push buttons are clicked.
 void login::on_lineEdit_2_cursorPositionChanged(int arg1, int arg2)
 {
     if(ui->lineEdit->text()==""||ui->lineEdit_2->text()=="")
@@ -448,3 +451,19 @@ void login::on_backlogin_clicked()
     ui->groupBox_2->hide();
 }
 
+// the push button 9 belongs to the privacy policy.
+void login::on_pushButton_9_clicked()
+{
+    QMessageBox::information(this, "Privacy Policy", "Terms of Service"
+                             "By signing up for Converso, you accept our Privacy Policy and agree not to:"
+                             "<ul><br><li>Use our service to send spam or scam users.</li>"
+                             "<br><li>Promote violence on publicly viewable Telegram channels, bots, etc.</li>"
+                             "<br><li>Post illegal pornographic content on publicly viewable Telegram channels, bots, etc.</li>"
+                             "<br><li>We reserve the right to update these Terms of Service later.</li>"
+                             "<br><li>Citizens of EU countries and the United Kingdom must be at least 16 years old to sign up.</li></ul>");
+}
+
+void login::on_radioButton_clicked()
+{
+
+}
