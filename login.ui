@@ -610,6 +610,37 @@ background-color: rgb(255, 255, 255);</string>
       <string/>
      </property>
     </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>32</x>
+       <y>350</y>
+       <width>131</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string>rember my account</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox">
+     <property name="geometry">
+      <rect>
+       <x>149</x>
+       <y>350</y>
+       <width>21</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
     <zorder>lineEdit_2</zorder>
     <zorder>label</zorder>
     <zorder>lineEdit</zorder>
@@ -620,6 +651,8 @@ background-color: rgb(255, 255, 255);</string>
     <zorder>label_9</zorder>
     <zorder>pushButton</zorder>
     <zorder>label_6</zorder>
+    <zorder>label_7</zorder>
+    <zorder>checkBox</zorder>
    </widget>
    <zorder>graphicsView</zorder>
    <zorder>groupBox</zorder>

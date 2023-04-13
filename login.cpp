@@ -27,7 +27,7 @@ login::login(QWidget *parent) :
 /// this comment belongs Amir
     QSqlDatabase db;
     db=QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/Users/pourya/Desktop/qt/telegram/database.db");
+    db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
     db.open();
 
     ui->setupUi(this);
@@ -56,6 +56,23 @@ login::login(QWidget *parent) :
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
     }
+      QSqlQuery z;
+      QSqlQuery T;
+         z.exec("SELECT username FROM person WHERE c=1 ");
+       if(z.next()){
+      QString name=z.value(0).toString();
+       //QString pass=z.value(1).toString();
+       ui->lineEdit->setText(name);
+      // ui->lineEdit_2->setText(pass);
+       }
+       T.exec("SELECT password FROM person WHERE c=1 ");
+       if(T.next()){
+
+       QString pass=T.value(0).toString();
+
+       ui->lineEdit_2->setText(pass);
+       ui->checkBox->setChecked(true);
+       }
 }
 
 login::~login()
@@ -194,7 +211,7 @@ void login::on_pushButton_4_clicked()
 
                         if(!(q.first()))
                         {
-                            p.exec("INSERT INTO person VALUES('"+user+"','"+pass+"','"+phone+"')");
+                            p.exec("INSERT INTO person VALUES('"+user+"','"+pass+"','"+phone+"',0)");
                             ui->groupBox_2->hide();
                             login::hide();
                             code * w3=new code;
@@ -331,10 +348,19 @@ void login::on_pushButton_2_clicked()
     QSqlQuery q;
     QString U=ui->lineEdit->text();
     QString P=ui->lineEdit_2->text();
+      QSqlQuery R;
+      QSqlQuery p;
+        QSqlQuery z;
     q.exec("SELECT username FROM person WHERE username= '"+U+"'  AND password= '"+P+"' ");
 
     if(q.first())
     {
+        if(ui->checkBox->isChecked()){
+        p.exec("UPDATE person SET c='1'  WHERE username= '"+U+"' ");
+        z.exec("UPDATE person SET c='0'  WHERE username!='"+U+"' ");
+        }
+        else
+            R.exec("UPDATE person SET c='0'");
         login::close();
     }
     else
