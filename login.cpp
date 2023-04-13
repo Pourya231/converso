@@ -162,6 +162,7 @@ void login::on_pushButton_5_clicked()
 }
 
 QString cap;
+
 void login::on_pushButton_3_clicked()
 {
       cap=captcha(5);
