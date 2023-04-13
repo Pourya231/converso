@@ -22,7 +22,7 @@ login::login(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::login)
 {
-
+//converso app
 ////hi every body
 /// this comment belongs Amir
     QSqlDatabase db;
