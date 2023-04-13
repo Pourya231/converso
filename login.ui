@@ -304,7 +304,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/re.png);</string>
+      <string notr="true">image: url(:/new/prefix1/re.png);
+</string>
      </property>
      <property name="text">
       <string/>
@@ -380,7 +381,8 @@ color: rgb(0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/eye2.jpg);</string>
+      <string notr="true">image: url(:/new/prefix1/eye2.jpg);
+border:none;</string>
      </property>
      <property name="text">
       <string/>
@@ -438,7 +440,8 @@ color: rgb(0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/eye2.jpg);</string>
+      <string notr="true">image: url(:/new/prefix1/eye2.jpg);
+border:none;</string>
      </property>
      <property name="text">
       <string/>
@@ -447,15 +450,15 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="backlogin">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>94</x>
        <y>520</y>
-       <width>80</width>
+       <width>91</width>
        <height>25</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(0, 170, 255);</string>
+      <string notr="true">color: rgb(0, 0, 255);
+font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="text">
       <string>back to login</string>
@@ -712,7 +715,8 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/eye2.jpg);</string>
+      <string notr="true">image: url(:/new/prefix1/eye2.jpg);
+border:none;</string>
      </property>
      <property name="text">
       <string/>
@@ -790,7 +794,7 @@ font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>730</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
