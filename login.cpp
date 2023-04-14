@@ -17,6 +17,7 @@
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/qnetworkreply.h>
 #include <QtNetwork/QNetworkRequest>
+
 using namespace std;
 login::login(QWidget *parent) :
     QMainWindow(parent),
@@ -180,6 +181,9 @@ void login::on_pushButton_3_clicked()
     ui->lineEdit_5->setText("");
     ui->lineEdit_9->setText("");
     ui->comboBox->setCurrentIndex(0);
+    ui->radioButton->setChecked(false);
+      ui->pushButton_8->setStyleSheet("QPushButton{image: url(:/new/prefix1/eye2.jpg); border: none; }");
+        ui->pushButton_7->setStyleSheet("QPushButton{image: url(:/new/prefix1/eye2.jpg); border: none; }");
     ui->label_4->setText(cap);
     QPainter painter(this);
     cp.randomize();
