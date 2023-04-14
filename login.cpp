@@ -181,6 +181,7 @@ void login::on_pushButton_3_clicked()
     ui->lineEdit_5->setText("");
     ui->lineEdit_9->setText("");
     ui->comboBox->setCurrentIndex(0);
+    ui->lineEdit_7->setText("+98");
     ui->radioButton->setChecked(false);
       ui->pushButton_8->setStyleSheet("QPushButton{image: url(:/new/prefix1/eye2.jpg); border: none; }");
         ui->pushButton_7->setStyleSheet("QPushButton{image: url(:/new/prefix1/eye2.jpg); border: none; }");
@@ -457,6 +458,13 @@ void login::on_backlogin_clicked()
 {
     ui->groupBox->show();
     ui->groupBox_2->hide();
+     ui->pushButton->setStyleSheet("QPushButton{image: url(:/new/prefix1/eye2.jpg); border: none; }");
+     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+     if(!(ui->checkBox->isChecked())){
+         ui->lineEdit->setText("");
+         ui->lineEdit_2->setText("");
+     }
+
 }
 
 // the push button 9 belongs to the privacy policy.
