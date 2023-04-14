@@ -492,6 +492,9 @@ font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <height>28</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
 </string>
@@ -794,7 +797,7 @@ font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>730</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
