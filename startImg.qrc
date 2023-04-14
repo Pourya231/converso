@@ -1,2 +1,8 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>adsFree.png</file>
+        <file>fast.png</file>
+        <file>freeApp.png</file>
+        <file>secure.png</file>
+    </qresource>
+</RCC>

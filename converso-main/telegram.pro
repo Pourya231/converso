@@ -42,5 +42,4 @@ RESOURCES += \
     img4.qrc \
     img5.qrc \
     img5.qrc \
-    logo.qrc \
-    startImg.qrc
+    logo.qrc

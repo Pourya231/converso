@@ -6,8 +6,6 @@ start::start(QWidget *parent)
     , ui(new Ui::start)
 {
     ui->setupUi(this);
-    //ui->groupBox->hide();
-
 }
 
 start::~start()
