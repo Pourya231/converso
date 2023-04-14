@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1713</width>
-    <height>1348</height>
+    <width>529</width>
+    <height>656</height>
    </rect>
   </property>
-  <property name="minimumSize">
+  <property name="maximumSize">
    <size>
     <width>1713</width>
-    <height>0</height>
+    <height>800</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -26,14 +26,23 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>0</y>
       <width>511</width>
       <height>641</height>
      </rect>
     </property>
+    <property name="maximumSize">
+     <size>
+      <width>541</width>
+      <height>641</height>
+     </size>
+    </property>
     <property name="title">
      <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
@@ -150,6 +159,9 @@ color: rgb(255, 255, 255);</string>
     <property name="title">
      <string/>
     </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
     <widget class="QGraphicsView" name="graphicsView_6">
      <property name="geometry">
       <rect>
@@ -239,6 +251,9 @@ color: rgb(255, 255, 255);</string>
     </property>
     <property name="title">
      <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
     <widget class="QGraphicsView" name="graphicsView_5">
      <property name="geometry">
@@ -330,6 +345,9 @@ color: rgb(255, 255, 255);</string>
     <property name="title">
      <string/>
     </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
     <widget class="QGraphicsView" name="graphicsView_4">
      <property name="geometry">
       <rect>
@@ -420,6 +438,9 @@ color: rgb(255, 255, 255);</string>
     <property name="title">
      <string/>
     </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
     <widget class="QGraphicsView" name="graphicsView_3">
      <property name="geometry">
       <rect>
@@ -504,7 +525,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1713</width>
+     <width>529</width>
      <height>26</height>
     </rect>
    </property>
