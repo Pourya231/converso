@@ -20,8 +20,8 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>-50</y>
+      <x>-20</x>
+      <y>-30</y>
       <width>761</width>
       <height>691</height>
      </rect>
@@ -99,9 +99,9 @@ padding-left:10px;</string>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>44</x>
        <y>330</y>
-       <width>151</width>
+       <width>152</width>
        <height>71</height>
       </rect>
      </property>
@@ -360,7 +360,7 @@ border: 1px solid #7e7e7e;
 padding-left:10px;</string>
      </property>
      <property name="maxLength">
-      <number>8</number>
+      <number>14</number>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
@@ -422,7 +422,7 @@ border: 1px solid #7e7e7e;
 padding-left:10px;</string>
      </property>
      <property name="maxLength">
-      <number>8</number>
+      <number>14</number>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
@@ -529,6 +529,59 @@ font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>207</x>
+       <y>212</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(170, 0, 0);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string>☻</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>207</x>
+       <y>251</y>
+       <width>22</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(170, 0, 0);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string>☻</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>227</x>
+       <y>174</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(170, 0, 0);
+font: 13pt &quot;MS Shell Dlg 2&quot;;
+</string>
+     </property>
+     <property name="text">
+      <string>☻</string>
+     </property>
+    </widget>
     <zorder>lineEdit_8</zorder>
     <zorder>label_3</zorder>
     <zorder>lineEdit_3</zorder>
@@ -549,6 +602,9 @@ font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <zorder>backlogin</zorder>
     <zorder>radioButton</zorder>
     <zorder>pushButton_9</zorder>
+    <zorder>label_14</zorder>
+    <zorder>label_15</zorder>
+    <zorder>label_13</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">

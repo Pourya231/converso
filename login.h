@@ -1,9 +1,12 @@
 #ifndef LOGIN_H
 #define LOGIN_H
 
+
+
 #include <QMainWindow>
 #include "captcha.h"
 #include <QPaintEvent>
+#include <QString>
 
 namespace Ui {
 class login;
@@ -61,6 +64,12 @@ private slots:
     void on_pushButton_9_clicked();
 
     void on_radioButton_clicked();
+
+
+
+
+
+    void on_lineEdit_8_cursorPositionChanged(int arg1, int arg2);
 
 private:
     Ui::login *ui;

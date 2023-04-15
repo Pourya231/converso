@@ -57,6 +57,9 @@ login::login(QWidget *parent) :
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
     }
+    ui->label_13->hide();
+    ui->label_14->hide();
+     ui->label_15->hide();
       QSqlQuery z;
       QSqlQuery T;
          z.exec("SELECT username FROM person WHERE c=1 ");
@@ -221,7 +224,7 @@ void login::on_pushButton_4_clicked()
 
                         if(!(q.first()))
                         {
-                            p.exec("INSERT INTO person VALUES('"+user+"','"+pass+"','"+phone+"',0)");
+                                p.exec("INSERT INTO person VALUES('"+user+"','"+pass+"','"+phone+"',0)");
                             ui->groupBox_2->hide();
                             login::hide();
                             code * w3=new code;
@@ -296,6 +299,17 @@ void login::on_comboBox_activated(int index)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void login::on_lineEdit_3_cursorPositionChanged(int arg1, int arg2)
 {
+    if(ui->lineEdit_3->text()=="")
+        ui->label_13->hide();
+    else if(ui->lineEdit_3->text().length()<8){
+        ui->label_13->show();
+        ui->label_13->setStyleSheet("color: rgb(170, 0, 0);font: 13pt;");
+    }
+    else{
+        ui->label_13->show();
+        ui->label_13->setStyleSheet("color: rgb(0, 170, 0);font: 13pt;");
+    }
+
     if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
@@ -355,6 +369,16 @@ void login::on_lineEdit_6_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_lineEdit_9_cursorPositionChanged(int arg1, int arg2)
 {
+    if(ui->lineEdit_9->text()=="")
+        ui->label_15->hide();
+    else if(ui->lineEdit_9->text().length()<8){
+        ui->label_15->show();
+        ui->label_15->setStyleSheet("color: rgb(170, 0, 0);font: 13pt;");
+    }
+    else{
+        ui->label_15->show();
+        ui->label_15->setStyleSheet("color: rgb(0, 170, 0);font: 13pt;");
+    }
     if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
@@ -366,6 +390,7 @@ void login::on_lineEdit_9_cursorPositionChanged(int arg1, int arg2)
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
     }
 }
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void login::on_pushButton_2_clicked()
@@ -492,3 +517,33 @@ void login::on_radioButton_clicked()
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
     }
 }
+
+
+
+
+
+
+void login::on_lineEdit_8_cursorPositionChanged(int arg1, int arg2)
+{
+    if(ui->lineEdit_8->text()=="")
+        ui->label_14->hide();
+    else if(ui->lineEdit_8->text().length()<8){
+        ui->label_14->show();
+        ui->label_14->setStyleSheet("color: rgb(170, 0, 0);font: 13pt;");
+    }
+    else{
+        ui->label_14->show();
+        ui->label_14->setStyleSheet("color: rgb(0, 170, 0);font: 13pt;");
+    }
+    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
+    {
+        ui->pushButton_4->setEnabled(false);
+        ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
+    }
+    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
+    {
+        ui->pushButton_4->setEnabled(true);
+        ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
+    }
+}
+
