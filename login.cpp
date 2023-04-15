@@ -310,12 +310,12 @@ void login::on_lineEdit_3_cursorPositionChanged(int arg1, int arg2)
         ui->label_13->setStyleSheet("color: rgb(0, 170, 0);font: 13pt;");
     }
 
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
+    if(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
         ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
     }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
+    if(!(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
     {
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
@@ -325,12 +325,12 @@ void login::on_lineEdit_3_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_lineEdit_4_cursorPositionChanged(int arg1, int arg2)
 {
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
+    if(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
         ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
     }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
+    if(!(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
     {
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
@@ -340,12 +340,12 @@ void login::on_lineEdit_4_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_lineEdit_5_cursorPositionChanged(int arg1, int arg2)
 {
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
+    if(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
         ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
     }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
+    if(!(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
     {
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
@@ -355,12 +355,12 @@ void login::on_lineEdit_5_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_lineEdit_6_cursorPositionChanged(int arg1, int arg2)
 {
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
+    if(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
         ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
     }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
+    if(!(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
     {
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
@@ -379,12 +379,12 @@ void login::on_lineEdit_9_cursorPositionChanged(int arg1, int arg2)
         ui->label_15->show();
         ui->label_15->setStyleSheet("color: rgb(0, 170, 0);font: 13pt;");
     }
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
+    if(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
         ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
     }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
+    if(!(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
     {
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
@@ -506,12 +506,12 @@ void login::on_pushButton_9_clicked()
 
 void login::on_radioButton_clicked()
 {
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
+    if(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
         ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
     }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
+    if(!(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
     {
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
@@ -535,12 +535,12 @@ void login::on_lineEdit_8_cursorPositionChanged(int arg1, int arg2)
         ui->label_14->show();
         ui->label_14->setStyleSheet("color: rgb(0, 170, 0);font: 13pt;");
     }
-    if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
+    if(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked())
     {
         ui->pushButton_4->setEnabled(false);
         ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
     }
-    if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
+    if(!(ui->lineEdit_8->text().length()<8||ui->lineEdit_3->text().length()<8||ui->lineEdit_9->text().length()<8||ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""||!ui->radioButton->isChecked()))
     {
         ui->pushButton_4->setEnabled(true);
         ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
