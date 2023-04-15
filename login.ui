@@ -23,7 +23,7 @@
       <x>-10</x>
       <y>-50</y>
       <width>761</width>
-      <height>621</height>
+      <height>691</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -42,7 +42,7 @@
       <x>0</x>
       <y>0</y>
       <width>280</width>
-      <height>600</height>
+      <height>611</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -81,7 +81,10 @@ color: rgb(0, 0, 0);</string>
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;username must not contain special symbol&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0);</string>
+      <string notr="true">color: rgb(0, 0, 0);
+border-radius:15px;
+border: 1px solid #7e7e7e;
+padding-left:10px;</string>
      </property>
      <property name="text">
       <string/>
@@ -127,7 +130,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLineEdit" name="lineEdit_5">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>40</x>
        <y>410</y>
        <width>201</width>
        <height>24</height>
@@ -135,7 +138,11 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(0, 0, 0);
-font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
+font: 9pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);
+border-radius:12px;
+border: 1px solid #7e7e7e;
+padding-left:10px;</string>
      </property>
      <property name="maxLength">
       <number>5</number>
@@ -173,7 +180,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0);</string>
+      <string notr="true">color: rgb(0, 0, 0);
+border: 1px solid #000000;</string>
      </property>
      <property name="text">
       <string/>
@@ -196,6 +204,9 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #000000;</string>
      </property>
      <property name="editable">
       <bool>true</bool>
@@ -343,7 +354,10 @@ background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-radius:14px;
+border: 1px solid #7e7e7e;
+padding-left:10px;</string>
      </property>
      <property name="maxLength">
       <number>8</number>
@@ -402,7 +416,10 @@ border:none;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-radius:14px;
+border: 1px solid #7e7e7e;
+padding-left:10px;</string>
      </property>
      <property name="maxLength">
       <number>8</number>
@@ -539,7 +556,7 @@ font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
       <x>240</x>
       <y>-20</y>
       <width>280</width>
-      <height>600</height>
+      <height>661</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -582,7 +599,10 @@ color: rgb(0, 0, 0);</string>
       <string/>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0);</string>
+      <string notr="true">color: rgb(0, 0, 0);
+border-radius:15px;
+border: 1px solid #7e7e7e;
+padding-left:10px;</string>
      </property>
      <property name="text">
       <string/>
@@ -605,6 +625,9 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(0, 0, 0);
+border-radius:15px;
+border: 1px solid #7e7e7e;;
+padding-left:10px;
 </string>
      </property>
      <property name="text">
@@ -791,17 +814,6 @@ font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
    <zorder>groupBox</zorder>
    <zorder>groupBox_2</zorder>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>730</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections>

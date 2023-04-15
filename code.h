@@ -24,6 +24,8 @@ private slots:
 
     void on_lineEdit_4_cursorPositionChanged(int arg1, int arg2);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::code *ui;
 };
