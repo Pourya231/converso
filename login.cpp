@@ -39,23 +39,23 @@ login::login(QWidget *parent) :
     if(ui->lineEdit->text()==""||ui->lineEdit_2->text()=="")
     {
         ui->pushButton_2->setEnabled(false);
-        ui->pushButton_2->setStyleSheet("background-color: rgb(183, 194, 255);");
+        ui->pushButton_2->setStyleSheet("background-color: rgb(183, 194, 255);font: 75 10pt ;");
     }
     if(!(ui->lineEdit->text()==""||ui->lineEdit_2->text()==""))
     {
         ui->pushButton_2->setEnabled(true);
-        ui->pushButton_2->setStyleSheet("background-color: rgb(85, 88, 255);");
+        ui->pushButton_2->setStyleSheet("background-color: rgb(85, 88, 255);font: 75 10pt ;");
     }
 
     if(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()=="")
     {
         ui->pushButton_4->setEnabled(false);
-        ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);");
+        ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);font: 75 10pt ;");
     }
     if(!(ui->lineEdit_3->text()==""||ui->lineEdit_8->text()==""||ui->lineEdit_6->text()==""||ui->lineEdit_5->text()==""||ui->lineEdit_9->text()==""))
     {
         ui->pushButton_4->setEnabled(true);
-        ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);");
+        ui->pushButton_4->setStyleSheet("background-color: rgb(85, 88, 255);font: 75 10pt ;");
     }
     ui->label_13->hide();
     ui->label_14->hide();
@@ -134,12 +134,12 @@ void login::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
     if(ui->lineEdit->text()==""||ui->lineEdit_2->text()=="")
     {
         ui->pushButton_2->setEnabled(false);
-        ui->pushButton_2->setStyleSheet("background-color: rgb(183, 194, 255);");
+        ui->pushButton_2->setStyleSheet("background-color: rgb(183, 194, 255);font: 75 10pt ;");
     }
     if(!(ui->lineEdit->text()==""||ui->lineEdit_2->text()==""))
     {
         ui->pushButton_2->setEnabled(true);
-        ui->pushButton_2->setStyleSheet("background-color: rgb(85, 88, 255);");
+        ui->pushButton_2->setStyleSheet("background-color: rgb(85, 88, 255);font: 75 10pt ;");
     }
 }
 
@@ -149,12 +149,12 @@ void login::on_lineEdit_2_cursorPositionChanged(int arg1, int arg2)
     if(ui->lineEdit->text()==""||ui->lineEdit_2->text()=="")
     {
         ui->pushButton_2->setEnabled(false);
-        ui->pushButton_2->setStyleSheet("background-color: rgb(183, 194, 255);");
+        ui->pushButton_2->setStyleSheet("background-color: rgb(183, 194, 255);font: 75 10pt ;");
     }
     if(!(ui->lineEdit->text()==""||ui->lineEdit_2->text()==""))
     {
         ui->pushButton_2->setEnabled(true);
-        ui->pushButton_2->setStyleSheet("background-color: rgb(85, 88, 255);");
+        ui->pushButton_2->setStyleSheet("background-color: rgb(85, 88, 255);font: 75 10pt ;");
     }
 }
 void login::on_pushButton_5_clicked()
@@ -177,7 +177,7 @@ void login::on_pushButton_3_clicked()
 {
       cap=captcha(5);
     ui->groupBox->hide();
-    ui->groupBox_2->move(240,0);
+    ui->groupBox_2->move(320,0);
     ui->lineEdit_8->setText("");
     ui->lineEdit_3->setText("");
     ui->lineEdit_6->setText("");
