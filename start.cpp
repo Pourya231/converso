@@ -2,6 +2,10 @@
 #include "ui_start.h"
 #include "login.h"
 #include "QPropertyAnimation"
+#include "QMovie"
+#include "QTimer"
+#include <QDebug>
+
 
 start::start(QWidget *parent)
     : QMainWindow(parent)
@@ -12,6 +16,72 @@ start::start(QWidget *parent)
     ui->groupBox_3->hide();
     ui->groupBox_4->hide();
     ui->groupBox_5->hide();
+
+    QMovie *movie= new QMovie ("C:/Users/user/Desktop/project/converso-main/Loading.gif");
+    ui->label_6->setMovie(movie);
+    movie->start();
+    ui->label_6->show();
+
+    /*QPropertyAnimation *animation = new QPropertyAnimation(ui->groupBox_6, "geometry");     /// the group box page that enters.
+    //QTimer *timer = new QTimer (this);
+    //connect(timer,SIGNAL(timeout()),this,SLOT(update()));
+
+    QEventLoop loop;
+    QTimer::singleShot(5000,&loop,SLOT(quit()));*/
+
+    /*/// Create a QTimer object and set an interval of 5000 milliseconds (5 seconds)
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(5000);
+
+    /// Connect the timer to a lambda function that stops the event loop
+    connect(timer, &QTimer::timeout, [this](){
+        timer->stop();
+        QCoreApplication::quit();
+    });
+
+    // Start the timer and enter the event loop
+    timer->start();
+    QCoreApplication::exec();*/
+
+
+    /*// ایجاد یک شیء QTimer جدید
+    QTimer *timer = new QTimer();
+
+    // تنظیم زمان تایمر به 5000 میلی ثانیه (5 ثانیه)
+    timer->setInterval(5000);
+
+    // تابعی که باید پس از پایان تایمر اجرا شود را تعیین کنید
+    QObject::connect(timer, &QTimer::timeout, []()
+    {
+
+        ui->groupBox_6->hide();
+        ui->groupBox->show();
+
+    });
+
+    // */
+
+
+    /*animation->setDuration(500);
+    animation->setStartValue(QRect(0, 0, 0, 0));
+    animation->setEndValue(QRect(10, 0, 511, 641));
+    animation->setEasingCurve(QEasingCurve::InOutQuad);
+
+
+    animation->start();
+    ui->groupBox->hide();*/
+
+    //timer->start();
+
+    //loop.exec();
+    //timer->start(10000);
+
+
+
+
+
+
+
 }
 
 start::~start()
@@ -110,4 +180,25 @@ void start::on_pushButton_clicked()
 {
     login * w1=new login;
     w1->show();
+}
+
+/// after the timer is getting ready , this function below has to be deleted.
+void start::on_pushButton_2_clicked()
+{
+    QPropertyAnimation *animation = new QPropertyAnimation(ui->groupBox, "geometry");     /// the group box page that enters.
+    QPropertyAnimation *animation2 = new QPropertyAnimation(ui->groupBox_6, "geometry");  /// the group box page that gets removes.
+
+    animation2->setDuration(500);
+    animation2->setStartValue(QRect(100, 0, 511, 641));
+    animation2->setEndValue(QRect(860, 0, 511, 641));
+    animation2->setEasingCurve(QEasingCurve::InOutQuad);
+    animation2->start();
+
+    animation->setDuration(500);
+    animation->setStartValue(QRect(-490, 0, 511, 641));
+    animation->setEndValue(QRect(10, 0, 511, 641));
+    animation->setEasingCurve(QEasingCurve::InOutQuad);
+    animation->start();
+
+    ui->groupBox->show();
 }
