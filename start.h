@@ -2,10 +2,14 @@
 #define START_H
 
 #include <QMainWindow>
-
+#include <QObject>
 QT_BEGIN_NAMESPACE
 namespace Ui { class start; }
 QT_END_NAMESPACE
+
+
+
+
 
 class start : public QMainWindow
 {
@@ -27,6 +31,7 @@ private slots:
     void on_pushButton_5_clicked();
 
     void on_pushButton_2_clicked();
+
 
 private:
     Ui::start *ui;

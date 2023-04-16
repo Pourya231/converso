@@ -39,6 +39,7 @@ RESOURCES += \
     bac2.qrc \
     background.qrc \
     eyes.qrc \
+    icon.qrc \
     img.qrc \
     img2.qrc \
     img3.qrc \

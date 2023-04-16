@@ -5,7 +5,7 @@
 #include "QMovie"
 #include "QTimer"
 #include <QDebug>
-
+#include <QObject>
 
 start::start(QWidget *parent)
     : QMainWindow(parent)
@@ -17,17 +17,17 @@ start::start(QWidget *parent)
     ui->groupBox_4->hide();
     ui->groupBox_5->hide();
 
-    QMovie *movie= new QMovie ("C:/Users/user/Desktop/project/converso-main/Loading.gif");
+    QMovie *movie= new QMovie ("D:/project2/converso/Loading.gif");
     ui->label_6->setMovie(movie);
     movie->start();
     ui->label_6->show();
 
-    /*QPropertyAnimation *animation = new QPropertyAnimation(ui->groupBox_6, "geometry");     /// the group box page that enters.
-    //QTimer *timer = new QTimer (this);
-    //connect(timer,SIGNAL(timeout()),this,SLOT(update()));
+    QPropertyAnimation *animation = new QPropertyAnimation(ui->groupBox_6, "geometry");     /// the group box page that enters.
+    QTimer *timer = new QTimer (this);
+   //connect(timer,SIGNAL(timeout()),this,SLOT(update()));
 
     QEventLoop loop;
-    QTimer::singleShot(5000,&loop,SLOT(quit()));*/
+    QTimer::singleShot(5000,&loop,SLOT(quit()));
 
     /*/// Create a QTimer object and set an interval of 5000 milliseconds (5 seconds)
     QTimer *timer = new QTimer(this);
@@ -44,21 +44,36 @@ start::start(QWidget *parent)
     QCoreApplication::exec();*/
 
 
-    /*// ایجاد یک شیء QTimer جدید
-    QTimer *timer = new QTimer();
+    // ایجاد یک شیء QTimer جدید
+    QTimer *Timer= new QTimer() ;
+    ui->pushButton_2->hide();
+    Timer->setInterval(5000);
 
-    // تنظیم زمان تایمر به 5000 میلی ثانیه (5 ثانیه)
-    timer->setInterval(5000);
-
-    // تابعی که باید پس از پایان تایمر اجرا شود را تعیین کنید
-    QObject::connect(timer, &QTimer::timeout, []()
+   QObject::connect(Timer, &QTimer::timeout, [=]()
     {
 
         ui->groupBox_6->hide();
+        QPropertyAnimation *animation = new QPropertyAnimation(ui->groupBox, "geometry");     /// the group box page that enters.
+        QPropertyAnimation *animation2 = new QPropertyAnimation(ui->groupBox_6, "geometry");  /// the group box page that gets removes.
+
+        animation2->setDuration(500);
+        animation2->setStartValue(QRect(100, 0, 511, 641));
+        animation2->setEndValue(QRect(860, 0, 511, 641));
+        animation2->setEasingCurve(QEasingCurve::InOutQuad);
+        animation2->start();
+
+        animation->setDuration(500);
+        animation->setStartValue(QRect(-490, 0, 511, 641));
+        animation->setEndValue(QRect(10, 0, 511, 641));
+        animation->setEasingCurve(QEasingCurve::InOutQuad);
+        animation->start();
+
         ui->groupBox->show();
+        Timer->stop();
 
     });
 
+     Timer->start();
     // */
 
 
@@ -88,6 +103,7 @@ start::~start()
 {
     delete ui;
 }
+
 
 // the very beggining push button:
 // here is the order of push buttons: 6->3 , 3->4 , 4->5 , 5->0
