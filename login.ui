@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:0, y2:0, stop:0.211538 rgba(157, 33, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     <string notr="true">background-image: url(:/new/prefix1/backk.jpg);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -73,7 +73,7 @@ color: rgb(0, 0, 0);</string>
       <rect>
        <x>40</x>
        <y>203</y>
-       <width>261</width>
+       <width>271</width>
        <height>41</height>
       </rect>
      </property>
@@ -102,7 +102,7 @@ padding-left:10px;</string>
       <rect>
        <x>60</x>
        <y>440</y>
-       <width>141</width>
+       <width>151</width>
        <height>91</height>
       </rect>
      </property>
@@ -312,7 +312,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="pushButton_6">
      <property name="geometry">
       <rect>
-       <x>213</x>
+       <x>220</x>
        <y>500</y>
        <width>51</width>
        <height>41</height>
@@ -329,7 +329,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>54</x>
        <y>20</y>
        <width>231</width>
        <height>81</height>
@@ -349,7 +349,7 @@ background-color: rgb(255, 255, 255);</string>
       <rect>
        <x>40</x>
        <y>256</y>
-       <width>261</width>
+       <width>271</width>
        <height>41</height>
       </rect>
      </property>
@@ -392,7 +392,7 @@ padding-left:10px;</string>
     <widget class="QPushButton" name="pushButton_7">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>271</x>
        <y>266</y>
        <width>31</width>
        <height>21</height>
@@ -411,7 +411,7 @@ border:none;</string>
       <rect>
        <x>40</x>
        <y>310</y>
-       <width>261</width>
+       <width>269</width>
        <height>41</height>
       </rect>
      </property>
@@ -454,7 +454,7 @@ padding-left:10px;</string>
     <widget class="QPushButton" name="pushButton_8">
      <property name="geometry">
       <rect>
-       <x>258</x>
+       <x>269</x>
        <y>320</y>
        <width>31</width>
        <height>21</height>
@@ -539,7 +539,7 @@ font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>253</x>
        <y>268</y>
        <width>15</width>
        <height>15</height>
@@ -556,7 +556,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_15">
      <property name="geometry">
       <rect>
-       <x>239</x>
+       <x>252</x>
        <y>320</y>
        <width>15</width>
        <height>15</height>
@@ -573,9 +573,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>273</x>
+       <x>283</x>
        <y>213</y>
-       <width>16</width>
+       <width>14</width>
        <height>21</height>
       </rect>
      </property>
@@ -632,7 +632,7 @@ font: 13pt &quot;MS Shell Dlg 2&quot;;
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>115</x>
        <y>180</y>
        <width>111</width>
        <height>51</height>
@@ -817,7 +817,7 @@ border:none;</string>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>42</x>
        <y>20</y>
        <width>241</width>
        <height>131</height>
