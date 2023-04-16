@@ -176,6 +176,9 @@ QString cap;
 void login::on_pushButton_3_clicked()
 {
       cap=captcha(5);
+      ui->label_13->hide();
+      ui->label_14->hide();
+      ui->label_15->hide();
     ui->groupBox->hide();
     ui->groupBox_2->move(320,0);
     ui->lineEdit_8->setText("");

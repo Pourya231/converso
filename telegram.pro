@@ -35,6 +35,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    bac2.qrc \
     background.qrc \
     eyes.qrc \
     img.qrc \
@@ -44,4 +45,5 @@ RESOURCES += \
     img5.qrc \
     img5.qrc \
     logo.qrc \
+    logo_icon.qrc \
     startImg.qrc
