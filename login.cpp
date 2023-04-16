@@ -80,6 +80,7 @@ login::login(QWidget *parent) :
 
       ui->pushButton_9->setStyleSheet("QPushButton { border: none; }");
       ui->pushButton_9->setStyleSheet("QPushButton { color: blue; text-decoration: underline; }");
+
 }
 
 login::~login()
@@ -379,7 +380,7 @@ void login::on_lineEdit_9_cursorPositionChanged(int arg1, int arg2)
 {
     if(ui->lineEdit_9->text()=="")
         ui->label_15->hide();
-    else if(ui->lineEdit_9->text().length()<8||!check_user(ui->lineEdit_9->text())){
+    else if(ui->lineEdit_9->text().length()<8||!check_user(ui->lineEdit_9->text())||ui->lineEdit_9->text()!=ui->lineEdit_8->text()){
         ui->label_15->show();
         ui->label_15->setStyleSheet("color: rgb(170, 0, 0);font: 13pt;");
     }
