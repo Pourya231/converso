@@ -11,7 +11,7 @@ setname::setname(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->PushButton,SIGNAL(clicked()),this,SLOT(openimage()));
       ui->PushButton->setStyleSheet("QPushButton { border: none; }");
-     ui->PushButton->setStyleSheet("QPushButton {border:none;background-color: rgb(106, 77, 243);  font: 11pt;}");
+     ui->PushButton->setStyleSheet("QPushButton {border:none;background-color: rgb(108, 66, 234);;  font: 11pt;}");
 }
 
 setname::~setname()
