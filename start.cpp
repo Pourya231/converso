@@ -39,7 +39,7 @@ start::start(QWidget *parent)
 
       QObject::connect(timer, &QTimer::timeout, [=]()
        {
-          QMovie *movie= new QMovie ("D:/project2/converso/Loading.gif");
+          QMovie *movie= new QMovie ("C:/Users/user/Desktop/project/converso-main/Loading.gif");
           ui->label_6->setMovie(movie);
           movie->start();
           ui->label_6->show();

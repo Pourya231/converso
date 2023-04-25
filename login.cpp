@@ -28,7 +28,7 @@ login::login(QWidget *parent) :
 /// this comment belongs Amir
     QSqlDatabase db;
     db=QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
+    db.setDatabaseName("C:/Users/user/Desktop/project/converso-main/database.db");
     db.open();
 
     ui->setupUi(this);
