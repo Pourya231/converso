@@ -52,4 +52,4 @@ RESOURCES += \
     logo.qrc \
     logo_icon.qrc \
     startImg.qrc \
-    user-prof.qrc
+    user_prof.qrc
