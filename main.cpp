@@ -1,11 +1,12 @@
 #include "start.h"
-
+#include "QTcpServer"
+#include "QTcpSocket"
 #include <QApplication>
-
+#include "login.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    start w;
+    login w;
     w.show();
     return a.exec();
 }

@@ -17,7 +17,7 @@
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/qnetworkreply.h>
 #include <QtNetwork/QNetworkRequest>
-
+#include "setname.h"
 using namespace std;
 login::login(QWidget *parent) :
     QMainWindow(parent),
@@ -421,7 +421,9 @@ void login::on_pushButton_2_clicked()
         }
         else
             R.exec("UPDATE person SET c='0'");
-        login::close();
+        setname * NAME=new setname;
+        login::hide();
+        NAME->show();
     }
     else
        QMessageBox::warning(this,"notice","inccorect passowrd or user");
