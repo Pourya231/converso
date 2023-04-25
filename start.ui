@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>554</width>
-    <height>653</height>
+    <width>537</width>
+    <height>657</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -398,9 +398,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QGroupBox" name="groupBox_6">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>21</x>
       <y>10</y>
-      <width>521</width>
+      <width>491</width>
       <height>621</height>
      </rect>
     </property>
@@ -422,9 +422,9 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>66</x>
        <y>140</y>
-       <width>351</width>
+       <width>344</width>
        <height>271</height>
       </rect>
      </property>
@@ -451,7 +451,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>61</x>
        <y>11</y>
        <width>361</width>
        <height>161</height>
@@ -523,7 +523,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>-17</x>
        <y>10</y>
        <width>544</width>
        <height>212</height>
@@ -557,9 +557,9 @@ font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QGraphicsView" name="graphicsView">
      <property name="geometry">
       <rect>
-       <x>29</x>
-       <y>10</y>
-       <width>481</width>
+       <x>10</x>
+       <y>0</y>
+       <width>491</width>
        <height>620</height>
       </rect>
      </property>
@@ -567,8 +567,8 @@ font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="pushButton_6">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>530</y>
+       <x>170</x>
+       <y>520</y>
        <width>161</width>
        <height>51</height>
       </rect>
@@ -601,7 +601,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>554</width>
+     <width>537</width>
      <height>25</height>
     </rect>
    </property>

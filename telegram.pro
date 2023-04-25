@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql network
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -16,17 +16,20 @@ SOURCES += \
     code.cpp \
     login.cpp \
     main.cpp \
+    setname.cpp \
     start.cpp
 
 HEADERS += \
     captcha.h \
     code.h \
     login.h \
+    setname.h \
     start.h
 
 FORMS += \
     code.ui \
     login.ui \
+    setname.ui \
     start.ui
 
 # Default rules for deployment.
@@ -48,4 +51,5 @@ RESOURCES += \
     img5.qrc \
     logo.qrc \
     logo_icon.qrc \
-    startImg.qrc
+    startImg.qrc \
+    user-prof.qrc
