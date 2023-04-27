@@ -18,6 +18,8 @@
 #include <QtNetwork/qnetworkreply.h>
 #include <QtNetwork/QNetworkRequest>
 #include "setname.h"
+#include "QFile"
+#include "QTextStream"
 using namespace std;
 login::login(QWidget *parent) :
     QMainWindow(parent),
@@ -30,6 +32,7 @@ login::login(QWidget *parent) :
     db=QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
     db.open();
+
 
     ui->setupUi(this);
     ui->groupBox_2->hide();
@@ -220,6 +223,7 @@ void login::on_pushButton_4_clicked()
                       {
                         QSqlQuery p;
                         QSqlQuery q;
+                           QSqlQuery qq;
                         QString user;
                         QString pass;
                         QString phone;
@@ -230,7 +234,11 @@ void login::on_pushButton_4_clicked()
 
                         if(!(q.first()))
                         {
-                                p.exec("INSERT INTO person VALUES('"+user+"','"+pass+"','"+phone+"',0)");
+                        qq.exec("SELECT ID FROM person ORDER BY ID DESC LIMIT 1");
+                        int id=qq.value(0).toInt()+1;
+                       QString ID=QString::number(id);
+                               p.exec("INSERT INTO person VALUES(58,'"+user+"','"+pass+"','"+phone+"',0,'"+ID+"')");
+                             //  p.bindValue(":id",id);
                             ui->groupBox_2->hide();
                             login::hide();
                             code * w3=new code;
@@ -405,6 +413,16 @@ void login::on_lineEdit_9_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_pushButton_2_clicked()
 {
+    QString filepath="D:/project2/converso/user.txt";
+    QFile file(filepath);
+
+    if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
+    {
+      exit(1);
+
+    }
+    QTextStream in(&file);
+    file.resize(0);
     QSqlQuery q;
     QString U=ui->lineEdit->text();
     QString P=ui->lineEdit_2->text();
@@ -422,6 +440,7 @@ void login::on_pushButton_2_clicked()
         else
             R.exec("UPDATE person SET c='0'");
         setname * NAME=new setname;
+        in<<U;
         login::hide();
         NAME->show();
     }

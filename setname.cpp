@@ -4,6 +4,7 @@
 #include "QHBoxLayout"
 #include "QBitmap"
 #include "QPainter"
+#include "chatroom.h"
 setname::setname(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::setname)
@@ -20,7 +21,7 @@ setname::~setname()
 }
 void setname::openimage(){
     QStringList filters;
-    QString filename =QFileDialog::getOpenFileName(this,tr("Open Image"),".",filters.join(";;"));
+    QString filename =QFileDialog::getOpenFileName(this,tr("Open Image"),".",("File (  *.png *.jpg *.jpeg)"));
     if(!filename.isEmpty()){
         QImage image(filename);
        // QString SET=QString(" border:1px solid black;x;border-radius:100%;background-image:url(%1);").arg(filename);
@@ -33,3 +34,13 @@ void setname::openimage(){
 
     }
 }
+
+void setname::on_pushButton_clicked()
+{
+    if(ui->lineEdit->text().length()>4){
+    chatroom *w1=new chatroom;
+    setname::hide();
+    w1->show();
+    }
+}
+

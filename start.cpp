@@ -32,7 +32,7 @@ start::start(QWidget *parent)
     animation2->setStartValue(QRect(430, 0, 361, 161));
    animation2->setEndValue(QRect(66, 11, 361, 161));
    animation2->setEasingCurve(QEasingCurve::InOutQuad);
-   animation2->start();
+   //animation2->start();
     /// the group box page that enters.
     QTimer *timer = new QTimer (this);
       timer->setInterval(1500);

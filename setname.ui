@@ -14,19 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGraphicsView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>-30</x>
-      <y>-10</y>
-      <width>1131</width>
-      <height>1021</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-image: url(:/new/prefix1/IMG_2241.JPG);</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -110,6 +97,24 @@ color: rgb(0, 0, 0);</string>
      <string>Start Chat</string>
     </property>
    </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>-69</x>
+      <y>-59</y>
+      <width>1171</width>
+      <height>1161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/new/prefix1/IMG_2241.JPG);</string>
+    </property>
+   </widget>
+   <zorder>graphicsView</zorder>
+   <zorder>label</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>PushButton</zorder>
+   <zorder>pushButton</zorder>
   </widget>
  </widget>
  <resources/>
