@@ -13,6 +13,7 @@ TEMPLATE = app
 
 SOURCES += \
     captcha.cpp \
+    chatroom.cpp \
     code.cpp \
     login.cpp \
     main.cpp \
@@ -21,12 +22,14 @@ SOURCES += \
 
 HEADERS += \
     captcha.h \
+    chatroom.h \
     code.h \
     login.h \
     setname.h \
     start.h
 
 FORMS += \
+    chatroom.ui \
     code.ui \
     login.ui \
     setname.ui \

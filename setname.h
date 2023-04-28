@@ -19,6 +19,8 @@ private:
     Ui::setname *ui;
 public slots:
    void openimage();
+private slots:
+   void on_pushButton_clicked();
 };
 
 #endif // SETNAME_H
