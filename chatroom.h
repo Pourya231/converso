@@ -28,7 +28,7 @@ private slots:
 private:
     QTcpSocket *socket;
     int first;
-    quint16     m_nNextBlockSize;
+    quint16  m_nNextBlockSize;
     Ui::chatroom *ui;
 };
 

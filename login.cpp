@@ -1,4 +1,5 @@
 #include "login.h"
+#include "chatroom.h"
 #include "ui_login.h"
 #include "QMessageBox"
 #include "QIntValidator"
@@ -17,9 +18,10 @@
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/qnetworkreply.h>
 #include <QtNetwork/QNetworkRequest>
-#include "setname.h"
+#include "chose_name.h"
 #include "QFile"
 #include "QTextStream"
+
 using namespace std;
 login::login(QWidget *parent) :
     QMainWindow(parent),
@@ -33,7 +35,7 @@ login::login(QWidget *parent) :
     db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
     db.open();
 
-
+    //login::setEnabled(false);
     ui->setupUi(this);
     ui->groupBox_2->hide();
     ui->lineEdit_7->setReadOnly(true);
@@ -64,7 +66,7 @@ login::login(QWidget *parent) :
     ui->label_14->hide();
      ui->label_15->hide();
       QSqlQuery z;
-      QSqlQuery T;
+      //QSqlQuery T;
          z.exec("SELECT username FROM person WHERE c=1 ");
        if(z.next()){
       QString name=z.value(0).toString();
@@ -72,10 +74,10 @@ login::login(QWidget *parent) :
        ui->lineEdit->setText(name);
       // ui->lineEdit_2->setText(pass);
        }
-       T.exec("SELECT password FROM person WHERE c=1 ");
-       if(T.next()){
+       z.exec("SELECT password FROM person WHERE c=1 ");
+       if(z.next()){
 
-       QString pass=T.value(0).toString();
+       QString pass=z.value(0).toString();
 
        ui->lineEdit_2->setText(pass);
        ui->checkBox->setChecked(true);
@@ -233,11 +235,8 @@ void login::on_pushButton_4_clicked()
                         q.exec("SELECT username FROM person WHERE username='"+user+"' ");
 
                         if(!(q.first()))
-                        {
-                        qq.exec("SELECT ID FROM person ORDER BY ID DESC LIMIT 1");
-                        int id=qq.value(0).toInt()+1;
-                       QString ID=QString::number(id);
-                               p.exec("INSERT INTO person VALUES(58,'"+user+"','"+pass+"','"+phone+"',0,'"+ID+"')");
+                        {              
+                               p.exec("INSERT INTO person VALUES('"+user+"','"+pass+"','"+phone+"',0,0)");
                              //  p.bindValue(":id",id);
                             ui->groupBox_2->hide();
                             login::hide();
@@ -246,7 +245,7 @@ void login::on_pushButton_4_clicked()
                         }
                         else
                             QMessageBox::warning(this,"notic","This username has been used");
-                    }
+                  }
                     else
                     {
                         QMessageBox::warning(this,"notic","incorrect code");
@@ -414,7 +413,7 @@ void login::on_lineEdit_9_cursorPositionChanged(int arg1, int arg2)
 void login::on_pushButton_2_clicked()
 {
 
-    QFile file("C:/Users/pourya/desktop/user1.txt");
+    QFile file("C:/Users/pourya/desktop/user.txt");
 
     if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {
@@ -423,26 +422,35 @@ void login::on_pushButton_2_clicked()
     }
     QTextStream in(&file);
     file.resize(0);
-    QSqlQuery q;
+ //   QSqlQuery q;
     QString U=ui->lineEdit->text();
     QString P=ui->lineEdit_2->text();
-      QSqlQuery R;
+    //  QSqlQuery R;
       QSqlQuery p;
-        QSqlQuery z;
-    q.exec("SELECT username FROM person WHERE username= '"+U+"'  AND password= '"+P+"' ");
+       QSqlQuery z;
+       //  QSqlQuery D;
+    p.exec("SELECT username FROM person WHERE username= '"+U+"'  AND password= '"+P+"' ");
 
-    if(q.first())
+    if(p.first())
     {
         if(ui->checkBox->isChecked()){
         p.exec("UPDATE person SET c='1'  WHERE username= '"+U+"' ");
-        z.exec("UPDATE person SET c='0'  WHERE username!='"+U+"' ");
+        p.exec("UPDATE person SET c='0'  WHERE username!='"+U+"' ");
         }
         else
-            R.exec("UPDATE person SET c='0'");
-        setname * NAME=new setname;
-        in<<U;
-        login::hide();
+            p.exec("UPDATE person SET c='0'");
+
+        in<<U<<endl;
+
+         z.exec("SELECT name FROM person WHERE name!= '0' AND username='"+U+"'");
+       chose_name * NAME=new chose_name;
+        chatroom * CHAT=new chatroom;
+       if(z.first())
+         CHAT->show();
+         else
         NAME->show();
+       login::hide();
+       file.close();
     }
     else
        QMessageBox::warning(this,"notice","inccorect passowrd or user");

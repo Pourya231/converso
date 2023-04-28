@@ -16,26 +16,25 @@ chatroom::chatroom(QWidget *parent) :
     ui->lineEdit_2->setReadOnly(true);
     socket = new QTcpSocket(this);
      socket->connectToHost("127.0.0.1", 4563);
-
+        ui->plainTextEdit->setReadOnly(true);
 
 
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
      db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
      db.open();
+     QFile file1("C:/Users/pourya/desktop/user.txt");
 
-   QString filepath="C:/Users/pourya/desktop/user1.txt";
-     QFile file(filepath);
-
-     if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
+     if(!file1.open(QIODevice::ReadWrite | QIODevice::Text))
      {
-       exit(122);
+       exit(1);
 
      }
-     QTextStream out(&file);
+     QTextStream out(&file1);
      QString line;
      line=out.readLine();
      ui->lineEdit_2->setText(line);
+ //  QString filepath;
 
      QString sendmesage;
 
@@ -50,7 +49,10 @@ chatroom::chatroom(QWidget *parent) :
 
      socket->write(arrBlock);
     first=0;
+
     connect(socket, SIGNAL(readyRead()), this, SLOT(newConnection()));
+
+
 }
 
 chatroom::~chatroom()
@@ -82,16 +84,15 @@ void chatroom::newConnection()
           recvmessage += str;
           m_nNextBlockSize = 0;
       }
-      if(first==0)
-      {
-          QString clientIsD=recvmessage.mid(recvmessage.indexOf('=')+1,recvmessage.length()); // äîñòàåì ID èç ñòðîêè
-        //  ui->lineEdit_4->setText(clientID); // îòîáðàæàåì ID â label Your ID
-          first=1;
-      }
-      else
-      {
-          ui->plainTextEdit->appendPlainText(recvmessage); // îòîáðàæàåì ñòðîêó â plainTextEdit
-      }
+      QString clientIsD=recvmessage.mid(0,recvmessage.indexOf(':'));
+      recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
+
+
+    if(first!=0) {
+
+         ui->plainTextEdit->appendPlainText(clientIsD+":"+recvmessage); // îòîáðàæàåì ñòðîêó â plainTextEdit
+     }
+    first=1;
 
 }
 

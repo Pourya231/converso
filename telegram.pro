@@ -14,25 +14,25 @@ TEMPLATE = app
 SOURCES += \
     captcha.cpp \
     chatroom.cpp \
+    chose_name.cpp \
     code.cpp \
     login.cpp \
     main.cpp \
-    setname.cpp \
     start.cpp
 
 HEADERS += \
     captcha.h \
     chatroom.h \
+    chose_name.h \
     code.h \
     login.h \
-    setname.h \
     start.h
 
 FORMS += \
     chatroom.ui \
+    chose_name.ui \
     code.ui \
     login.ui \
-    setname.ui \
     start.ui
 
 # Default rules for deployment.
