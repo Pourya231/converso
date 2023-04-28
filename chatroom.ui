@@ -93,16 +93,6 @@ color: rgb(0, 0, 0);</string>
     <property name="title">
      <string>GroupBox</string>
     </property>
-    <widget class="QPlainTextEdit" name="plainTextEdit">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>20</y>
-       <width>491</width>
-       <height>471</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
       <rect>
@@ -124,6 +114,16 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
       <string>send</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>491</width>
+       <height>471</height>
+      </rect>
      </property>
     </widget>
    </widget>

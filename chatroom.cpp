@@ -1,4 +1,4 @@
-    #include "chatroom.h"
+#include "chatroom.h"
 #include "ui_chatroom.h"
 #include <QByteArray>
 #include <QSqlDatabase>
@@ -10,6 +10,7 @@
 chatroom::chatroom(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::chatroom)
+   , m_nNextBlockSize(0)
 {
     ui->setupUi(this);
     ui->lineEdit_2->setReadOnly(true);
@@ -23,7 +24,7 @@ chatroom::chatroom(QWidget *parent) :
      db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
      db.open();
 
-     QString filepath="D:/project2/converso/user.txt";
+   QString filepath="C:/Users/pourya/desktop/user1.txt";
      QFile file(filepath);
 
      if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
@@ -36,18 +37,18 @@ chatroom::chatroom(QWidget *parent) :
      line=out.readLine();
      ui->lineEdit_2->setText(line);
 
-    QString sendmesage;
+     QString sendmesage;
 
-    sendmesage=line;
+     sendmesage=ui->lineEdit_2->text();
 
-    QByteArray  arrBlock;
-    QDataStream outt(&arrBlock, QIODevice::WriteOnly);
-    outt.setVersion(QDataStream::Qt_4_5);
-    outt << quint16(0) << sendmesage;
-    outt.device()->seek(0);
-    outt << quint16(arrBlock.size() - sizeof(quint16));
+     QByteArray  arrBlock;
+     QDataStream outt(&arrBlock, QIODevice::WriteOnly);
+     outt.setVersion(QDataStream::Qt_5_0);
+     outt << quint16(0) << sendmesage;
+     outt.device()->seek(0);
+     outt << quint16(arrBlock.size() - sizeof(quint16));
 
-    socket->write(arrBlock);
+     socket->write(arrBlock);
     first=0;
     connect(socket, SIGNAL(readyRead()), this, SLOT(newConnection()));
 }
@@ -62,29 +63,35 @@ void chatroom::newConnection()
 {
 
     QString recvmessage = "";
-    QDataStream in(socket);
-    in.setVersion(QDataStream::Qt_4_5);
-    for (;;) {
-        if (!m_nNextBlockSize) {
-            if (socket->bytesAvailable() < sizeof(quint16)) {
-                break;
-            }
-            in >> m_nNextBlockSize;
-        }
+      QDataStream in(socket);
+      in.setVersion(QDataStream::Qt_4_5);
+      for (;;) {
+          if (!m_nNextBlockSize) {
+              if (socket->bytesAvailable() < sizeof(quint16)) {
+                  break;
+              }
+              in >> m_nNextBlockSize;
+          }
 
-        if (socket->bytesAvailable() < m_nNextBlockSize) {
-            break;
-        }
-        QString str;
-        in >> str;
+          if (socket->bytesAvailable() < m_nNextBlockSize) {
+              break;
+          }
+          QString str;
+          in >> str;
 
-        recvmessage += str;
-        m_nNextBlockSize = 0;
-    }
-
-
-
-        ui->plainTextEdit->appendPlainText(recvmessage);
+          recvmessage += str;
+          m_nNextBlockSize = 0;
+      }
+      if(first==0)
+      {
+          QString clientIsD=recvmessage.mid(recvmessage.indexOf('=')+1,recvmessage.length()); // äîñòàåì ID èç ñòðîêè
+        //  ui->lineEdit_4->setText(clientID); // îòîáðàæàåì ID â label Your ID
+          first=1;
+      }
+      else
+      {
+          ui->plainTextEdit->appendPlainText(recvmessage); // îòîáðàæàåì ñòðîêó â plainTextEdit
+      }
 
 }
 
@@ -97,10 +104,11 @@ void chatroom::on_pushButton_clicked()
 
     QByteArray  arrBlock;
     QDataStream out(&arrBlock, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_4_5);
+    out.setVersion(QDataStream::Qt_5_0);
     out << quint16(0) << sendmesage;
     out.device()->seek(0);
     out << quint16(arrBlock.size() - sizeof(quint16));
 
     socket->write(arrBlock);
+    ui->lineEdit->setText("");
 }

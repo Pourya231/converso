@@ -413,8 +413,8 @@ void login::on_lineEdit_9_cursorPositionChanged(int arg1, int arg2)
 
 void login::on_pushButton_2_clicked()
 {
-    QString filepath="D:/project2/converso/user.txt";
-    QFile file(filepath);
+
+    QFile file("C:/Users/pourya/desktop/user1.txt");
 
     if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {
