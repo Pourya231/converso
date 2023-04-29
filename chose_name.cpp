@@ -39,10 +39,21 @@ chose_name::~chose_name()
 
 
 void chose_name::openimage(){
+    QFile file("C:\\Users\\pourya\\desktop\\user.txt");
+
+    if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
+    {
+      exit(1);
+
+    }
+   QTextStream outt(&file);
+   QString line;
+   line=outt.readLine();
     QStringList filters;
     QString filename =QFileDialog::getOpenFileName(this,tr("Open Image"),".",("File (  *.png *.jpg *.jpeg)"));
     if(!filename.isEmpty()){
         QImage image(filename);
+        image.save("D:/project2/converso/image_profile/"+line+".png");
        // QString SET=QString(" border:1px solid black;x;border-radius:100%;background-image:url(%1);").arg(filename);
         // QPainter painter(&pixmap);
        //  painter.setRenderHint(QPainter::Antialiasing,true);
@@ -63,7 +74,7 @@ void chose_name::on_PushButton_clicked()
 
     if(ui->lineEdit->text().length()>4){
 
-        QFile file("C:\\Users\\pourya\\desktop\\user1.txt");
+        QFile file("C:\\Users\\pourya\\desktop\\user.txt");
 
         if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
         {

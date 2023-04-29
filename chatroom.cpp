@@ -16,8 +16,8 @@ chatroom::chatroom(QWidget *parent) :
     ui->lineEdit_2->setReadOnly(true);
     socket = new QTcpSocket(this);
      socket->connectToHost("127.0.0.1", 4563);
-        ui->plainTextEdit->setReadOnly(true);
-        ui->groupBox_2->setEnabled(false);
+       // ui->->setReadOnly(true);
+     //   ui->groupBox_2->setEnabled(false);
         ui->pushButton->hide();
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
@@ -31,7 +31,7 @@ chatroom::chatroom(QWidget *parent) :
 
      }
      QTextStream out(&file1);
-     QString line;
+
      line=out.readLine();
      ui->lineEdit_2->setText(line);
  //  QString filepath;
@@ -50,6 +50,7 @@ chatroom::chatroom(QWidget *parent) :
      socket->write(arrBlock);
     first=0;
      ui->listWidget->setIconSize(QSize(60,60));
+         ui->listWidget_2->setIconSize(QSize(80,80));
     connect(socket, SIGNAL(readyRead()), this, SLOT(newConnection()));
 
 
@@ -60,10 +61,12 @@ chatroom::~chatroom()
     socket->close();
     delete ui;
 }
+int NUM=0;
+int doub=0;
 
 void chatroom::newConnection()
 {
-
+      QString clientIsD;
     QString recvmessage = "";
       QDataStream in(socket);
       in.setVersion(QDataStream::Qt_4_5);
@@ -83,16 +86,23 @@ void chatroom::newConnection()
 
           recvmessage += str;
           m_nNextBlockSize = 0;
+
+
       }
-      QString clientIsD=recvmessage.mid(0,recvmessage.indexOf(':'));
-      recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
 
 
-    if(first!=0) {
+      if(doub>1){
 
-         ui->plainTextEdit->appendPlainText(clientIsD+":"+recvmessage); // îòîáðàæàåì ñòðîêó â plainTextEdit
-     }
-    first=1;
+          clientIsD=ui->listWidget->currentItem()->text();
+         recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
+         ui->listWidget_2->addItem(recvmessage);
+         ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
+         NUM++;
+      }
+      doub++;
+
+
+
 
 }
 
@@ -111,8 +121,10 @@ void chatroom::on_pushButton_clicked()
     out << quint16(0) << sendmesage;
     out.device()->seek(0);
     out << quint16(arrBlock.size() - sizeof(quint16));
-
     socket->write(arrBlock);
+    ui->listWidget_2->addItem(sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
+    ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
+    NUM++;
     ui->lineEdit->setText("");
 }
 int num=-1;
@@ -144,7 +156,7 @@ void chatroom::on_pushButton_2_clicked()
 
 void chatroom::on_listWidget_currentRowChanged(int currentRow)
 {
-   ui->plainTextEdit->clear();
+   ui->listWidget_2->clear();
 }
 
 

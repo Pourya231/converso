@@ -137,27 +137,19 @@ color: rgb(0, 0, 0);</string>
       <string/>
      </property>
     </widget>
-    <widget class="QPlainTextEdit" name="plainTextEdit">
+    <widget class="QListWidget" name="listWidget_2">
      <property name="geometry">
       <rect>
-       <x>7</x>
-       <y>0</y>
+       <x>10</x>
+       <y>1</y>
        <width>911</width>
-       <height>601</height>
+       <height>581</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">background-image: url(:/new/prefix1/chatbackground.jpg);
-color: rgb(255, 255, 255);
-font: 75 20pt &quot;MS Shell Dlg 2&quot;;
-
-</string>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Sunken</enum>
-     </property>
-     <property name="plainText">
-      <string/>
+font: 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </widget>

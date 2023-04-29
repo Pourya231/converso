@@ -31,6 +31,7 @@ private:
     int first;
     quint16  m_nNextBlockSize;
     Ui::chatroom *ui;
+       QString line;
 };
 
 #endif // CHATROOM_H
