@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>751</width>
-    <height>533</height>
+    <width>1189</width>
+    <height>674</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,11 +20,11 @@
       <x>0</x>
       <y>0</y>
       <width>271</width>
-      <height>531</height>
+      <height>681</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="title">
      <string/>
@@ -32,65 +32,74 @@
     <widget class="QLineEdit" name="lineEdit_2">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>30</y>
+       <x>140</x>
+       <y>60</y>
        <width>121</width>
        <height>41</height>
       </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>40</y>
-       <width>31</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string>ID:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>100</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string>send to:</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit_3">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>90</y>
+       <x>30</x>
+       <y>10</y>
        <width>121</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="placeholderText">
+      <string>sreach ID</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>10</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(110, 0, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>connect</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="listWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>301</width>
+       <height>631</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
      </property>
     </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>260</x>
       <y>0</y>
-      <width>491</width>
-      <height>531</height>
+      <width>921</width>
+      <height>671</height>
      </rect>
     </property>
     <property name="title">
@@ -99,42 +108,56 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>490</y>
-       <width>381</width>
-       <height>41</height>
+       <x>8</x>
+       <y>600</y>
+       <width>911</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>490</y>
-       <width>101</width>
-       <height>41</height>
+       <x>860</x>
+       <y>619</y>
+       <width>31</width>
+       <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/new/prefix1/send.png);</string>
+     </property>
      <property name="text">
-      <string>send</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="plainTextEdit">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>7</x>
        <y>0</y>
-       <width>481</width>
-       <height>491</height>
+       <width>911</width>
+       <height>601</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 127);
-f
-font: 63 14pt &quot;Yu Gothic UI Semibold&quot;;</string>
+      <string notr="true">background-image: url(:/new/prefix1/chatbackground.jpg);
+color: rgb(255, 255, 255);
+font: 75 20pt &quot;MS Shell Dlg 2&quot;;
+
+</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="plainText">
+      <string/>
      </property>
     </widget>
    </widget>

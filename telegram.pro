@@ -44,6 +44,7 @@ RESOURCES += \
     Loading.qrc \
     bac2.qrc \
     background.qrc \
+    chatbackground.qrc \
     eyes.qrc \
     icon.qrc \
     img.qrc \
@@ -54,5 +55,6 @@ RESOURCES += \
     img5.qrc \
     logo.qrc \
     logo_icon.qrc \
+    send_symbol.qrc \
     startImg.qrc \
     user_prof.qrc
