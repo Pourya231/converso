@@ -19,17 +19,19 @@ public:
 
 public slots:
     void newConnection();
-
+      void on_pushButton_2_clicked();
 private slots:
     void on_pushButton_clicked();
+    void on_listWidget_currentRowChanged(int currentRow);
 
-    void on_pushButton_2_clicked();
+    void on_lineEdit_cursorPositionChanged(int arg1, int arg2);
 
 private:
     QTcpSocket *socket;
     int first;
-    quint16     m_nNextBlockSize;
+    quint16  m_nNextBlockSize;
     Ui::chatroom *ui;
+       QString line;
 };
 
 #endif // CHATROOM_H

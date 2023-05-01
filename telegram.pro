@@ -14,25 +14,25 @@ TEMPLATE = app
 SOURCES += \
     captcha.cpp \
     chatroom.cpp \
+    chose_name.cpp \
     code.cpp \
     login.cpp \
     main.cpp \
-    setname.cpp \
     start.cpp
 
 HEADERS += \
     captcha.h \
     chatroom.h \
+    chose_name.h \
     code.h \
     login.h \
-    setname.h \
     start.h
 
 FORMS += \
     chatroom.ui \
+    chose_name.ui \
     code.ui \
     login.ui \
-    setname.ui \
     start.ui
 
 # Default rules for deployment.
@@ -44,6 +44,7 @@ RESOURCES += \
     Loading.qrc \
     bac2.qrc \
     background.qrc \
+    chatbackground.qrc \
     eyes.qrc \
     icon.qrc \
     img.qrc \
@@ -54,5 +55,6 @@ RESOURCES += \
     img5.qrc \
     logo.qrc \
     logo_icon.qrc \
+    send_symbol.qrc \
     startImg.qrc \
     user_prof.qrc

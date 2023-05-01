@@ -16,26 +16,25 @@ chatroom::chatroom(QWidget *parent) :
     ui->lineEdit_2->setReadOnly(true);
     socket = new QTcpSocket(this);
      socket->connectToHost("127.0.0.1", 4563);
-
-
-
+       // ui->->setReadOnly(true);
+     //   ui->groupBox_2->setEnabled(false);
+        ui->pushButton->hide();
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
      db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
      db.open();
+     QFile file1("C:/Users/pourya/desktop/user.txt");
 
-   QString filepath="C:/Users/pourya/desktop/user1.txt";
-     QFile file(filepath);
-
-     if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
+     if(!file1.open(QIODevice::ReadWrite | QIODevice::Text))
      {
-       exit(122);
+       exit(1);
 
      }
-     QTextStream out(&file);
-     QString line;
+     QTextStream out(&file1);
+
      line=out.readLine();
      ui->lineEdit_2->setText(line);
+ //  QString filepath;
 
      QString sendmesage;
 
@@ -50,7 +49,11 @@ chatroom::chatroom(QWidget *parent) :
 
      socket->write(arrBlock);
     first=0;
+     ui->listWidget->setIconSize(QSize(60,60));
+         ui->listWidget_2->setIconSize(QSize(80,80));
     connect(socket, SIGNAL(readyRead()), this, SLOT(newConnection()));
+
+
 }
 
 chatroom::~chatroom()
@@ -58,10 +61,12 @@ chatroom::~chatroom()
     socket->close();
     delete ui;
 }
+int NUM=0;
+int doub=0;
 
 void chatroom::newConnection()
 {
-
+      QString clientIsD;
     QString recvmessage = "";
       QDataStream in(socket);
       in.setVersion(QDataStream::Qt_4_5);
@@ -81,26 +86,34 @@ void chatroom::newConnection()
 
           recvmessage += str;
           m_nNextBlockSize = 0;
+
+
       }
-      if(first==0)
-      {
-          QString clientIsD=recvmessage.mid(recvmessage.indexOf('=')+1,recvmessage.length()); // äîñòàåì ID èç ñòðîêè
-        //  ui->lineEdit_4->setText(clientID); // îòîáðàæàåì ID â label Your ID
-          first=1;
+
+
+      if(doub>1){
+
+          clientIsD=ui->listWidget->currentItem()->text();
+         recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
+         ui->listWidget_2->addItem(recvmessage);
+         ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
+         NUM++;
       }
-      else
-      {
-          ui->plainTextEdit->appendPlainText(recvmessage); // îòîáðàæàåì ñòðîêó â plainTextEdit
-      }
+      doub++;
+
+
+
 
 }
 
 void chatroom::on_pushButton_clicked()
 {
     //���������� �����
-    QString sendmesage;
 
-    sendmesage=ui->lineEdit_3->text() + ":" + ui->lineEdit->text(); ;
+    QString sendmesage;
+    QString client_send;
+    client_send=ui->listWidget->currentItem()->text();
+    sendmesage=client_send + ":" + ui->lineEdit->text(); ;
 
     QByteArray  arrBlock;
     QDataStream out(&arrBlock, QIODevice::WriteOnly);
@@ -108,7 +121,51 @@ void chatroom::on_pushButton_clicked()
     out << quint16(0) << sendmesage;
     out.device()->seek(0);
     out << quint16(arrBlock.size() - sizeof(quint16));
-
     socket->write(arrBlock);
+    ui->listWidget_2->addItem(sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
+    ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
+    NUM++;
     ui->lineEdit->setText("");
 }
+int num=-1;
+void chatroom::on_pushButton_2_clicked()
+{
+   bool check=false;
+    QSqlQuery p;
+    QString ID;
+    ID=ui->lineEdit_3->text();
+    p.exec("SELECT username FROM person WHERE username='"+ID+"' ");
+     ui->lineEdit_3->setText("");
+    if (p.first()){
+         for(int i=0;i<ui->listWidget->count();i++){
+             if(ui->listWidget->item(i)->text()==ID){
+                 check=true;
+                 break;
+             }
+         }
+         if(!check){
+        num++;
+        ui->listWidget->addItem(ID);
+        ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
+         ui->groupBox_2->setEnabled(true);
+         }
+    }
+
+}
+
+
+void chatroom::on_listWidget_currentRowChanged(int currentRow)
+{
+   ui->listWidget_2->clear();
+}
+
+
+void chatroom::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
+{
+    if(ui->lineEdit->text()=="")
+        ui->pushButton->hide();
+    else
+        ui->pushButton->show();
+
+}
+
