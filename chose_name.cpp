@@ -16,20 +16,15 @@ chose_name::chose_name(QWidget *parent) :
     ui(new Ui::chose_name)
 {
     ui->setupUi(this);
-     QSqlDatabase db;
+    QSqlDatabase db;
     db=QSqlDatabase::addDatabase("QSQLITE");
-      db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
-      db.open();
-
-
-      connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(openimage()));
-        ui->pushButton->setStyleSheet("QPushButton { border: none; }");
-
-        ui->pushButton->setStyleSheet("QPushButton {border:none;background-color: rgb(108, 66, 234);;  font: 11pt;}");
-
-        chose_name::move(300,20);
-
-
+    //db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
+    db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
+    db.open();
+    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(openimage()));
+    ui->pushButton->setStyleSheet("QPushButton { border: none; }");
+    ui->pushButton->setStyleSheet("QPushButton {border:none;background-color: rgb(108, 66, 234);;  font: 11pt;}");
+    chose_name::move(300,20);
 }
 
 chose_name::~chose_name()
@@ -38,30 +33,30 @@ chose_name::~chose_name()
 }
 
 
-void chose_name::openimage(){
-    QFile file("C:\\Users\\pourya\\desktop\\user.txt");
+void chose_name::openimage()
+{
+    QFile file("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
 
     if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {
       exit(1);
-
     }
-   QTextStream outt(&file);
-   QString line;
-   line=outt.readLine();
+    QTextStream outt(&file);
+    QString line;
+    line=outt.readLine();
     QStringList filters;
     QString filename =QFileDialog::getOpenFileName(this,tr("Open Image"),".",("File (  *.png *.jpg *.jpeg)"));
-    if(!filename.isEmpty()){
+    if(!filename.isEmpty())
+    {
         QImage image(filename);
-        image.save("D:/project2/converso/image_profile/"+line+".png");
-       // QString SET=QString(" border:1px solid black;x;border-radius:100%;background-image:url(%1);").arg(filename);
+        image.save("C:\\Users\\user\\Desktop\\project\\converso-main\\image_profile\\"+line+".png");
+        // QString SET=QString(" border:1px solid black;x;border-radius:100%;background-image:url(%1);").arg(filename);
         // QPainter painter(&pixmap);
-       //  painter.setRenderHint(QPainter::Antialiasing,true);
+        //  painter.setRenderHint(QPainter::Antialiasing,true);
         image=image.scaled(300,300);
         ui->label->setStyleSheet(" border:1px solid black;x;border-radius:100%;border-image:url('"+filename+"');");
         ui->PushButton->setText("change photo");
-       // ui->label->setPixmap(QPixmap(filename));
-
+        // ui->label->setPixmap(QPixmap(filename));
     }
 
 }
@@ -72,28 +67,29 @@ void chose_name::on_PushButton_clicked()
 
  //  ui->label_2->setText(line);
 
-    if(ui->lineEdit->text().length()>4){
+    if(ui->lineEdit->text().length()>4)
+    {
 
-        QFile file("C:\\Users\\pourya\\desktop\\user.txt");
+        //QFile file("C:\\Users\\pourya\\desktop\\user.txt");
+        QFile file("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
 
         if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
         {
           exit(1);
-
         }
-       QTextStream outt(&file);
-       QString line;
-       line=outt.readLine();
+        QTextStream outt(&file);
+        QString line;
+        line=outt.readLine();
 
-       QSqlQuery p;
+        QSqlQuery p;
         QString NAME;
         NAME=ui->lineEdit->text();
         p.exec("UPDATE  person SET name='"+NAME+"'  WHERE username='"+line+"' ");
 
-    chatroom *w1=new chatroom;
-    chose_name::setVisible(false);
-    w1->show();
-}
+        chatroom *w1=new chatroom;
+        chose_name::setVisible(false);
+        w1->show();
+    }
 
 }
 

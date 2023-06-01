@@ -27,18 +27,18 @@ start::start(QWidget *parent)
     animation->setEndValue(QRect(66, 140, 351, 271));
     animation->setEasingCurve(QEasingCurve::InOutQuad);
     animation->start();
-  animation2->setStartValue(QRect());
+    animation2->setStartValue(QRect());
     animation2->setDuration(1000);
     animation2->setStartValue(QRect(430, 0, 361, 161));
-   animation2->setEndValue(QRect(66, 11, 361, 161));
-   animation2->setEasingCurve(QEasingCurve::InOutQuad);
-   //animation2->start();
+    animation2->setEndValue(QRect(66, 11, 361, 161));
+    animation2->setEasingCurve(QEasingCurve::InOutQuad);
+    //animation2->start();
     /// the group box page that enters.
     QTimer *timer = new QTimer (this);
       timer->setInterval(1500);
 
       QObject::connect(timer, &QTimer::timeout, [=]()
-       {
+      {
           QMovie *movie= new QMovie ("C:/Users/user/Desktop/project/converso-main/Loading.gif");
           ui->label_6->setMovie(movie);
           movie->start();
