@@ -12,28 +12,21 @@ chatroom::chatroom(QWidget *parent) :
     ui(new Ui::chatroom)
    , m_nNextBlockSize(0)
 {
-
     ui->setupUi(this);
-
     ui->lineEdit_2->setReadOnly(true);
     socket = new QTcpSocket(this);
-<<<<<<< HEAD
-     socket->connectToHost("87.248.155.130", 15226);
-      // ui->->setReadOnly(true);
-=======
     socket->connectToHost("87.248.155.130", 15226);
        // ui->->setReadOnly(true);
->>>>>>> c2adf839a80abce605af522b5a0903b4f00a2a22
      //   ui->groupBox_2->setEnabled(false);
      ui->pushButton->hide();
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
-     db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
-     ///db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
+    // db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
+     db.setDatabaseName("C:\\Users\\pourya\\Desktop\\1.db");
 
      db.open();
-     QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
-     ///QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
+     //QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
+     QFile file1("C:/Users/pourya/desktop/user.txt");
 
      if(!file1.open(QIODevice::ReadWrite | QIODevice::Text))
      {
@@ -85,42 +78,6 @@ void chatroom::newConnection()
 {
     QString clientIsD;
     QString recvmessage = "";
-<<<<<<< HEAD
-      QDataStream in(socket);
-      in.setVersion(QDataStream::Qt_4_5);
-      for (;;) {
-          if (!m_nNextBlockSize) {
-              if (socket->bytesAvailable() < sizeof(quint16)) {
-                  break;
-              }
-              in >> m_nNextBlockSize;
-          }
-
-          if (socket->bytesAvailable() < m_nNextBlockSize) {
-              break;
-          }
-          QString str;
-          in >> str;
-
-          recvmessage += str;
-          m_nNextBlockSize = 0;
-
-
-      }
-
-
-      if(doub>1){
-
-          clientIsD=ui->listWidget->currentItem()->text();
-         recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
-         ui->listWidget_2->addItem(recvmessage);
-         ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+clientIsD+".png"));
-
-         NUM++;
-      }
-      doub++;
-
-=======
     QDataStream in(socket);
     in.setVersion(QDataStream::Qt_4_5);
     for (;;)
@@ -133,7 +90,6 @@ void chatroom::newConnection()
             }
             in >> m_nNextBlockSize;
         }
->>>>>>> c2adf839a80abce605af522b5a0903b4f00a2a22
 
         if (socket->bytesAvailable() < m_nNextBlockSize)
         {
@@ -151,8 +107,8 @@ void chatroom::newConnection()
         clientIsD=ui->listWidget->currentItem()->text();
         recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
         ui->listWidget_2->addItem(recvmessage);
-        ///ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
-        ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/ali.png"));
+        ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
+       // ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/ali.png"));
         NUM++;
      }
      doub++;
@@ -175,13 +131,8 @@ void chatroom::on_pushButton_clicked()
     out << quint16(arrBlock.size() - sizeof(quint16));
     socket->write(arrBlock);
     ui->listWidget_2->addItem(sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
-<<<<<<< HEAD
     ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
-
-=======
-    ///ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
-    ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
->>>>>>> c2adf839a80abce605af522b5a0903b4f00a2a22
+   // ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
     NUM++;
     ui->lineEdit->setText("");
 }
@@ -211,20 +162,12 @@ void chatroom::on_pushButton_2_clicked()
                  break;
              }
          }
-<<<<<<< HEAD
-         if(!check && p.value(0).toString()!=line){
-        num++;
-        ui->listWidget->addItem(ID);
-        ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+ID+".png"));
-
-=======
          if(!check)
          {
          num++;
          ui->listWidget->addItem(ID);
-         ///ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
-         ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
->>>>>>> c2adf839a80abce605af522b5a0903b4f00a2a22
+         ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
+        // ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
          ui->groupBox_2->setEnabled(true);
          }
     }
@@ -240,7 +183,7 @@ void chatroom::handleEnter_2()
 void chatroom::on_listWidget_currentRowChanged(int currentRow)
 {
    ui->listWidget_2->clear();
-   NUM=0;
+    NUM=0;
 }
 
 
@@ -262,15 +205,16 @@ void chatroom::on_actionlight_triggered()
     ui->actiondark->setChecked(0);
 
     //if (ui->actionlight->isChecked())
-    {
+
         ui->groupBox->setStyleSheet("background-color: rgb(255, 255, 255);");
         ui->groupBox_2->setStyleSheet("background-color: rgb(255, 255, 255);");
         ui->groupBox_3->setStyleSheet("background-color: rgb(255, 255, 255);");
-        //ui->lineEdit_3->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); }");
+        ui->lineEdit_3->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); }");
+        ui->lineEdit->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); }");
+           ui->pushButton->setStyleSheet("border-image: url(:/new/prefix1/send.png);");
+    //  ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);font: 75 10pt ;");
 
-//      ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);font: 75 10pt ;");
 
-    }
     /*else
     {
         ui->groupBox->setStyleSheet("background-color: rgb(0, 0, 0);");
@@ -289,17 +233,18 @@ void chatroom::on_actiondark_triggered()
     ui->actionlight->setChecked(0);
 
     //if ((ui->actiondark->isChecked()))
-    {
+
         ui->groupBox->setStyleSheet("background-color: rgb(0, 0, 0);");
         ui->groupBox_2->setStyleSheet("background-color: rgb(0, 0, 0);");
         ui->groupBox_3->setStyleSheet("background-color: rgb(0, 0, 0);");
         //self.setStyleSheet("")
         //ui->lineEdit_3->setStyleSheet("QLineEdith {color: white;} ");
-        ui->lineEdit_3->setStyleSheet("{color: white;} ");
-        ui->lineEdit_3->setStyleSheet("QLineEdith::placeholder {color: white;}");
-        ui->lineEdit_3->setStyleSheet("QlineEdith:focus {color: white; }");
+        ui->lineEdit_3->setStyleSheet("color: rgb(255, 255, 255);");
+        ui->lineEdit->setStyleSheet("color: rgb(255, 255, 255);");
+        //ui->lineEdit_3->setStyleSheet("QLineEdith::placeholder {color: white;}");
+       // ui->lineEdit_3->setStyleSheet("QlineEdith:focus {color: white; }");
 
-    }
+        ui->pushButton->setStyleSheet("border-image: url(:/new/prefix1/send2.png);");
     /*else
     {
         ui->groupBox->setStyleSheet("background-color: rgb(255, 255, 255);");
@@ -307,4 +252,3 @@ void chatroom::on_actiondark_triggered()
         ui->groupBox_3->setStyleSheet("background-color: rgb(255, 255, 255);");
     }*/
 }
-
