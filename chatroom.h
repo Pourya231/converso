@@ -26,6 +26,10 @@ private slots:
 
     void on_lineEdit_cursorPositionChanged(int arg1, int arg2);
 
+    void on_actionlight_triggered();
+
+    void on_actiondark_triggered();
+
 private:
     QTcpSocket *socket;
     int first;

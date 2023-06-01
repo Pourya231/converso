@@ -56,6 +56,8 @@ chatroom::chatroom(QWidget *parent) :
     ui->listWidget_2->setIconSize(QSize(80,80));
     connect(socket, SIGNAL(readyRead()), this, SLOT(newConnection()));
 
+    ui->actionlight->setChecked(1);
+    ui->actionlight->setDisabled(1);
 
 }
 
@@ -177,5 +179,59 @@ void chatroom::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
     else
         ui->pushButton->show();
 
+}
+
+
+void chatroom::on_actionlight_triggered()
+{
+    ui->actionlight->setDisabled(1);
+    ui->actiondark->setEnabled(1);
+    ui->actionlight->setChecked(1);
+    ui->actiondark->setChecked(0);
+
+    //if (ui->actionlight->isChecked())
+    {
+        ui->groupBox->setStyleSheet("background-color: rgb(255, 255, 255);");
+        ui->groupBox_2->setStyleSheet("background-color: rgb(255, 255, 255);");
+        ui->groupBox_3->setStyleSheet("background-color: rgb(255, 255, 255);");
+        //ui->lineEdit_3->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); }");
+
+//      ui->pushButton_4->setStyleSheet("background-color: rgb(183, 194, 255);font: 75 10pt ;");
+
+    }
+    /*else
+    {
+        ui->groupBox->setStyleSheet("background-color: rgb(0, 0, 0);");
+        ui->groupBox_2->setStyleSheet("background-color: rgb(0, 0, 0);");
+        ui->groupBox_3->setStyleSheet("background-color: rgb(0, 0, 0);");
+    }*/
+
+}
+
+
+void chatroom::on_actiondark_triggered()
+{
+    ui->actiondark->setDisabled(1);
+    ui->actionlight->setEnabled(1);
+    ui->actiondark->setChecked(1);
+    ui->actionlight->setChecked(0);
+
+    //if ((ui->actiondark->isChecked()))
+    {
+        ui->groupBox->setStyleSheet("background-color: rgb(0, 0, 0);");
+        ui->groupBox_2->setStyleSheet("background-color: rgb(0, 0, 0);");
+        ui->groupBox_3->setStyleSheet("background-color: rgb(0, 0, 0);");
+        //ui->lineEdit_3->setStyleSheet("QLineEdith {color: white;} ");
+        ui->lineEdit_3->setStyleSheet("{color: white;} ");
+        ui->lineEdit_3->setStyleSheet("QLineEdith::placeholder {color: white;}");
+        ui->lineEdit_3->setStyleSheet("QlineEdith:focus {color: white; }");
+
+    }
+    /*else
+    {
+        ui->groupBox->setStyleSheet("background-color: rgb(255, 255, 255);");
+        ui->groupBox_2->setStyleSheet("background-color: rgb(255, 255, 255);");
+        ui->groupBox_3->setStyleSheet("background-color: rgb(255, 255, 255);");
+    }*/
 }
 
