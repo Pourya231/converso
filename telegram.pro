@@ -42,6 +42,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Loading.qrc \
+    attachment.qrc \
     bac2.qrc \
     background.qrc \
     chatbackground.qrc \

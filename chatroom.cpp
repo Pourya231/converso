@@ -12,11 +12,13 @@ chatroom::chatroom(QWidget *parent) :
     ui(new Ui::chatroom)
    , m_nNextBlockSize(0)
 {
+
     ui->setupUi(this);
+
     ui->lineEdit_2->setReadOnly(true);
     socket = new QTcpSocket(this);
-     socket->connectToHost("127.0.0.1", 4563);
-       // ui->->setReadOnly(true);
+     socket->connectToHost("87.248.155.130", 15226);
+      // ui->->setReadOnly(true);
      //   ui->groupBox_2->setEnabled(false);
         ui->pushButton->hide();
      QSqlDatabase db;
@@ -96,7 +98,8 @@ void chatroom::newConnection()
           clientIsD=ui->listWidget->currentItem()->text();
          recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
          ui->listWidget_2->addItem(recvmessage);
-         ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
+         ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+clientIsD+".png"));
+
          NUM++;
       }
       doub++;
@@ -124,6 +127,7 @@ void chatroom::on_pushButton_clicked()
     socket->write(arrBlock);
     ui->listWidget_2->addItem(sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
     ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
+
     NUM++;
     ui->lineEdit->setText("");
 }
@@ -143,10 +147,11 @@ void chatroom::on_pushButton_2_clicked()
                  break;
              }
          }
-         if(!check){
+         if(!check && p.value(0).toString()!=line){
         num++;
         ui->listWidget->addItem(ID);
-        ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
+        ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+ID+".png"));
+
          ui->groupBox_2->setEnabled(true);
          }
     }
@@ -157,6 +162,7 @@ void chatroom::on_pushButton_2_clicked()
 void chatroom::on_listWidget_currentRowChanged(int currentRow)
 {
    ui->listWidget_2->clear();
+   NUM=0;
 }
 
 

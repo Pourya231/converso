@@ -42,9 +42,9 @@
     <widget class="QLineEdit" name="lineEdit_3">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>6</x>
        <y>10</y>
-       <width>121</width>
+       <width>141</width>
        <height>41</height>
       </rect>
      </property>
@@ -78,14 +78,14 @@ color: rgb(255, 255, 255);</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>60</y>
+       <y>53</y>
        <width>301</width>
-       <height>631</height>
+       <height>636</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(255, 255, 255);
+background-color: rgb(116, 116, 116);
 color: rgb(0, 0, 0);</string>
      </property>
      <property name="frameShape">
@@ -108,14 +108,17 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
       <rect>
-       <x>8</x>
+       <x>1</x>
        <y>600</y>
-       <width>911</width>
-       <height>71</height>
+       <width>919</width>
+       <height>76</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+      <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);
+
+</string>
      </property>
      <property name="text">
       <string/>
@@ -124,8 +127,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>860</x>
-       <y>619</y>
+       <x>858</x>
+       <y>624</y>
        <width>31</width>
        <height>31</height>
       </rect>
@@ -140,16 +143,32 @@ color: rgb(0, 0, 0);</string>
     <widget class="QListWidget" name="listWidget_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>1</x>
        <y>1</y>
-       <width>911</width>
-       <height>581</height>
+       <width>918</width>
+       <height>601</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">background-image: url(:/new/prefix1/chatbackground.jpg);
 font: 18pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>810</x>
+       <y>620</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/new/prefix1/attachment.png);</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>

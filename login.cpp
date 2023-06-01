@@ -442,7 +442,7 @@ void login::on_pushButton_2_clicked()
 
         in<<U<<endl;
 
-         z.exec("SELECT name FROM person WHERE name!= '0' AND username='"+U+"'");
+       z.exec("SELECT name FROM person WHERE name!= '0' AND username='"+U+"'");
        chose_name * NAME=new chose_name;
         chatroom * CHAT=new chatroom;
        if(z.first())
