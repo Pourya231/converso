@@ -20,11 +20,18 @@ public:
 public slots:
     void newConnection();
       void on_pushButton_2_clicked();
+      void handleEnter();
+      void handleEnter_2();
+
 private slots:
     void on_pushButton_clicked();
     void on_listWidget_currentRowChanged(int currentRow);
 
     void on_lineEdit_cursorPositionChanged(int arg1, int arg2);
+
+    void on_actionlight_triggered();
+
+    void on_actiondark_triggered();
 
 private:
     QTcpSocket *socket;

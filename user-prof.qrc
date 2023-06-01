@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/new/prefix1">
-        <file>C:/Users/pourya/Desktop/client.jpeg</file>
+        <file>../../../../pourya/Desktop/client.jpeg</file>
+        <file>client.jpeg</file>
     </qresource>
     <qresource prefix="/new/prefix2"/>
 </RCC>
