@@ -59,7 +59,11 @@ chatroom::chatroom(QWidget *parent) :
     ui->actionlight->setChecked(1);
     ui->actionlight->setDisabled(1);
 
+    connect(ui->lineEdit,&QLineEdit::returnPressed,this,&chatroom::handleEnter);
+    connect(ui->lineEdit_3,&QLineEdit::returnPressed,this,&chatroom::handleEnter_2);
+
 }
+
 
 chatroom::~chatroom()
 {
@@ -133,6 +137,11 @@ void chatroom::on_pushButton_clicked()
     ui->lineEdit->setText("");
 }
 
+void chatroom::handleEnter()
+{
+    chatroom::on_pushButton_clicked();
+}
+
 int num=-1;
 
 void chatroom::on_pushButton_2_clicked()
@@ -164,6 +173,11 @@ void chatroom::on_pushButton_2_clicked()
     }
 
 }
+void chatroom::handleEnter_2()
+{
+    chatroom::on_pushButton_2_clicked();
+}
+
 
 
 void chatroom::on_listWidget_currentRowChanged(int currentRow)
@@ -221,6 +235,7 @@ void chatroom::on_actiondark_triggered()
         ui->groupBox->setStyleSheet("background-color: rgb(0, 0, 0);");
         ui->groupBox_2->setStyleSheet("background-color: rgb(0, 0, 0);");
         ui->groupBox_3->setStyleSheet("background-color: rgb(0, 0, 0);");
+        //self.setStyleSheet("")
         //ui->lineEdit_3->setStyleSheet("QLineEdith {color: white;} ");
         ui->lineEdit_3->setStyleSheet("{color: white;} ");
         ui->lineEdit_3->setStyleSheet("QLineEdith::placeholder {color: white;}");
