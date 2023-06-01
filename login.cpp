@@ -106,10 +106,10 @@ QString login::captcha(int n)
 {
     time_t t;
     srand((unsigned)time(&t));
-    char *required_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    //char *required_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     QString Captcha = "";
     while(n--)
-        Captcha.push_back(required_chars[rand()%62]);
+        //Captcha.push_back(required_chars[rand()%62]);
     return Captcha;
 }
 
