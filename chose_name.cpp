@@ -18,8 +18,8 @@ chose_name::chose_name(QWidget *parent) :
     ui->setupUi(this);
     QSqlDatabase db;
     db=QSqlDatabase::addDatabase("QSQLITE");
-    //db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
-    db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
+    db.setDatabaseName("C:/Users/pourya/Desktop/database.db");
+    //db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
     db.open();
     connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(openimage()));
     ui->pushButton->setStyleSheet("QPushButton { border: none; }");

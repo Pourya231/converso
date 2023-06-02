@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Emoji.png</file>
+        <file>Emoji_Dark.png</file>
+    </qresource>
+</RCC>

@@ -39,21 +39,21 @@
        <string/>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="1">
-        <widget class="QPushButton" name="pushButton_2">
+       <item row="1" column="0" colspan="2">
+        <widget class="QListWidget" name="listWidget">
          <property name="minimumSize">
           <size>
-           <width>101</width>
-           <height>41</height>
+           <width>301</width>
+           <height>611</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(110, 0, 0);
-color: rgb(255, 255, 255);</string>
+          <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
          </property>
-         <property name="text">
-          <string>connect</string>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
          </property>
         </widget>
        </item>
@@ -74,21 +74,21 @@ color: rgb(0, 0, 0);</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0" colspan="2">
-        <widget class="QListWidget" name="listWidget">
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_2">
          <property name="minimumSize">
           <size>
-           <width>301</width>
-           <height>611</height>
+           <width>101</width>
+           <height>41</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+          <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(110, 0, 0);
+color: rgb(255, 255, 255);</string>
          </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+         <property name="text">
+          <string>connect</string>
          </property>
         </widget>
        </item>
@@ -116,7 +116,7 @@ color: rgb(0, 0, 0);</string>
       <property name="title">
        <string/>
       </property>
-      <layout class="QGridLayout" name="gridLayout_4">
+      <layout class="QGridLayout" name="gridLayout_5">
        <item row="0" column="0">
         <widget class="QListWidget" name="listWidget_2">
          <property name="sizePolicy">
@@ -128,7 +128,7 @@ color: rgb(0, 0, 0);</string>
          <property name="minimumSize">
           <size>
            <width>841</width>
-           <height>581</height>
+           <height>521</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -139,6 +139,140 @@ color: rgb(255, 255, 255);</string>
         </widget>
        </item>
        <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="minimumSize">
+          <size>
+           <width>841</width>
+           <height>52</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>10000</width>
+           <height>10000</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="pushButton_11">
+            <property name="minimumSize">
+             <size>
+              <width>93</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>😂</string>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButton_10">
+            <property name="minimumSize">
+             <size>
+              <width>93</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>🤣</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="pushButton_9">
+            <property name="minimumSize">
+             <size>
+              <width>93</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>🙂</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QPushButton" name="pushButton_8">
+            <property name="minimumSize">
+             <size>
+              <width>93</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>😐</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="pushButton_7">
+            <property name="minimumSize">
+             <size>
+              <width>93</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>😡</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QPushButton" name="pushButton_6">
+            <property name="minimumSize">
+             <size>
+              <width>93</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>😱</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="6">
+           <widget class="QPushButton" name="pushButton_5">
+            <property name="minimumSize">
+             <size>
+              <width>93</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>👎</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="7">
+           <widget class="QPushButton" name="pushButton_4">
+            <property name="minimumSize">
+             <size>
+              <width>93</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>👍</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
         <widget class="QGroupBox" name="groupBox_3">
          <property name="minimumSize">
           <size>
@@ -156,6 +290,28 @@ color: rgb(255, 255, 255);</string>
           <string/>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="minimumSize">
+             <size>
+              <width>31</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/new/prefix1/Emoji.png);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="0">
            <widget class="QLineEdit" name="lineEdit">
             <property name="sizePolicy">
@@ -184,7 +340,7 @@ color: rgb(255, 255, 255);</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
+          <item row="0" column="2">
            <widget class="QPushButton" name="pushButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -221,7 +377,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>1211</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menusetting">

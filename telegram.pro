@@ -46,6 +46,7 @@ RESOURCES += \
     bac2.qrc \
     background.qrc \
     chatbackground.qrc \
+    emoji.qrc \
     eyes.qrc \
     icon.qrc \
     img.qrc \
