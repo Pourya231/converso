@@ -7,6 +7,8 @@
 #include <QSqlQueryModel>
 #include "QFile"
 #include "QTextStream"
+#include "QDate"
+#include "QTime"
 chatroom::chatroom(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::chatroom)
@@ -22,7 +24,7 @@ chatroom::chatroom(QWidget *parent) :
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
     // db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
-     db.setDatabaseName("C:\\Users\\pourya\\Desktop\\1.db");
+     db.setDatabaseName("C:/Users/pourya/desktop/1.db");
 
      db.open();
      //QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
@@ -117,7 +119,15 @@ void chatroom::newConnection()
 void chatroom::on_pushButton_clicked()
 {
     //���������� �����
-
+    QDate tarikh=QDate::currentDate();
+    QTime time=QTime::currentTime();
+    int day=tarikh.day();
+    int month=tarikh.month();
+    int year=tarikh.year();
+    int hour=time.hour();
+    int minute=time.minute();
+    int second=time.second();
+    QSqlQuery s;
     QString sendmesage;
     QString client_send;
     client_send=ui->listWidget->currentItem()->text();
@@ -134,6 +144,10 @@ void chatroom::on_pushButton_clicked()
     ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
    // ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
     NUM++;
+    sendmesage=sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length());
+    QString girande=ui->listWidget->currentItem()->text();
+    s.exec("INSERT INTO message  VALUES('"+line+"','"+girande+"','"+sendmesage+"',"+QString::number(second)+","+QString::number(minute)+","+QString::number(hour)+","+QString::number(day)+","+QString::number(month)+","+QString::number(year)+")");
+
     ui->lineEdit->setText("");
 }
 
@@ -182,8 +196,31 @@ void chatroom::handleEnter_2()
 
 void chatroom::on_listWidget_currentRowChanged(int currentRow)
 {
-   ui->listWidget_2->clear();
+    ui->listWidget_2->clear();
     NUM=0;
+  QSqlQuery p;
+
+   p.exec("SELECT * FROM message WHERE (sender='"+line+"' and recipient='"+ui->listWidget->currentItem()->text()+"') or (sender='"+ui->listWidget->currentItem()->text()+"' and recipient='"+line+"' ) ORDER BY (second+minute*60+hour*3600+day*86400+month*2592000+year*31104000)");
+
+   qDebug()<<p.isSelect();
+   qDebug()<<p.isSelect();
+   qDebug()<<ui->listWidget->currentItem()->text();
+  QSqlQueryModel m;
+  m.setQuery(p);
+ qDebug()<< m.rowCount();
+ QString listmessage[5][1000];
+
+ for(int i=0;i<m.rowCount();i++){
+
+    QString pic;
+     QString s=m.data(m.index(i,2)).toString();
+     ui->listWidget_2->addItem(s);
+      pic=m.data(m.index(i,0)).toString();
+      ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+pic+".png"));
+        NUM++;
+
+ }
+
 }
 
 

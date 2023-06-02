@@ -33,6 +33,8 @@ private slots:
 
     void on_actiondark_triggered();
 
+
+
 private:
     QTcpSocket *socket;
     int first;
