@@ -10,7 +10,7 @@
 #include "QDate"
 #include "QTime"
 #include "QMessageBox"
-
+#include "QFileDialog"
 chatroom::chatroom(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::chatroom)
@@ -19,6 +19,7 @@ chatroom::chatroom(QWidget *parent) :
     ui->setupUi(this);
     ui->pushButton_13->setEnabled(false);
     ui->lineEdit_2->setReadOnly(true);
+     connect(ui->pushButton_12,SIGNAL(clicked()),this,SLOT(openimage()));
     socket = new QTcpSocket(this);
     socket->connectToHost("87.248.155.130", 15226);
        // ui->->setReadOnly(true);
@@ -103,6 +104,21 @@ chatroom::~chatroom()
 
 int NUM=0;
 int doub=0;
+void chatroom::openimage()
+{
+     QString filename =QFileDialog::getOpenFileName(this,tr("Open Image"),".",("File (  *.png *.jpg *.jpeg)"));
+     if(!filename.isEmpty())
+     {
+
+           QImage image(filename);
+           image=image.scaled(300,300);
+           ui->listWidget_2->addItem("");
+           ui->listWidget_2->item(NUM)->setIcon(QIcon(filename));
+           NUM++;
+     }
+
+}
+
 
 void chatroom::newConnection()
 {

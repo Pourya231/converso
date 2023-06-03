@@ -46,7 +46,7 @@ private slots:
     void on_pushButton_13_clicked();
 
     void on_listWidget_2_currentRowChanged(int currentRow);
-
+     void openimage();
 private:
     QTcpSocket *socket;
     int first;
