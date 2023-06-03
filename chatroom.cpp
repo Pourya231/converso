@@ -11,6 +11,7 @@
 #include "QTime"
 #include "QMessageBox"
 #include "QFileDialog"
+int num=-1;
 chatroom::chatroom(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::chatroom)
@@ -92,6 +93,21 @@ chatroom::chatroom(QWidget *parent) :
                                     "background-attachment:fixed;");
 
     connect(ui->listWidget, &QListWidget::currentItemChanged, this, &chatroom::setSelectedLabel);
+
+
+
+    QSqlQuery C;
+    C.exec("SELECT contact FROM contacts WHERE client='"+line+"'");
+    QSqlQueryModel cont;
+    cont.setQuery(C);
+    for(int i=0;i<cont.rowCount();i++){
+        num++;
+        QString s=cont.data(cont.index(i,0)).toString();
+        ui->listWidget->addItem(s);
+        ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
+
+    }
+
 }
 
 int GBS=0;
@@ -102,8 +118,9 @@ chatroom::~chatroom()
     delete ui;
 }
 
-int NUM=0;
+
 int doub=0;
+int NUM=0;
 void chatroom::openimage()
 {
      QString filename =QFileDialog::getOpenFileName(this,tr("Open Image"),".",("File (  *.png *.jpg *.jpeg)"));
@@ -201,7 +218,7 @@ void chatroom::handleEnter()
         chatroom::on_pushButton_clicked();
 }
 
-int num=-1;  // the number of items in listwidget.
+  // the number of items in listwidget.
 
 void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
 {
@@ -223,11 +240,13 @@ void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
          }
          if(!check)
          {
+             QSqlQuery g;
          num++;
          ui->listWidget->addItem(ID);
          ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
          //ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
          ui->groupBox_2->setEnabled(true);
+         g.exec("INSERT INTO contacts VALUES('"+line+"','"+ID+"') ");
          }
     }
 
