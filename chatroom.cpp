@@ -17,6 +17,7 @@ chatroom::chatroom(QWidget *parent) :
    , m_nNextBlockSize(0)
 {
     ui->setupUi(this);
+    ui->pushButton_13->setEnabled(false);
     ui->lineEdit_2->setReadOnly(true);
     socket = new QTcpSocket(this);
     socket->connectToHost("87.248.155.130", 15226);
@@ -25,7 +26,7 @@ chatroom::chatroom(QWidget *parent) :
      ui->pushButton->hide();
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
-  //   db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
+     //db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
      db.setDatabaseName("C:/Users/pourya/desktop/1.db");
 
      db.open();
@@ -84,14 +85,10 @@ chatroom::chatroom(QWidget *parent) :
     connect(ui->pushButton_10,&QPushButton::clicked,this,[this](){ui->lineEdit->insert("🤣");});
     connect(ui->pushButton_11,&QPushButton::clicked,this,[this](){ui->lineEdit->insert("😂");});
 
-<<<<<<< HEAD
-    ui->pushButton_12->setEnabled(false);
-=======
     ui->listWidget_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground_light.png);"
                                     "font: 18pt ""MS Shell Dlg 2"";"
                                     "color: rgb(0, 0, 0);"
                                     "background-attachment:fixed;");
->>>>>>> 02495248ed686a8be2efb1182b453968402f8ede
 }
 
 int GBS=0;
@@ -169,11 +166,11 @@ void chatroom::on_pushButton_clicked() /// belongs to the chat
     out.device()->seek(0);
     out << quint16(arrBlock.size() - sizeof(quint16));
     socket->write(arrBlock);
-    ui->listWidget_2->addItem(line+"("+QString::number(hour)+":"+QString::number(minute)+":"+QString::number(second)+")"+" : "+sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
+    ui->listWidget_2->addItem(sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
     ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
- //   ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
+   // ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
     NUM++;
-    sendmesage=line+"("+QString::number(hour)+":"+QString::number(minute)+":"+QString::number(second)+")"+" : "+sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length());
+    sendmesage=sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length());
     QString girande=ui->listWidget->currentItem()->text();
     s.exec("INSERT INTO message  VALUES('"+line+"','"+girande+"','"+sendmesage+"',"+QString::number(second)+","+QString::number(minute)+","+QString::number(hour)+","+QString::number(day)+","+QString::number(month)+","+QString::number(year)+")");
 
@@ -211,7 +208,7 @@ void chatroom::on_pushButton_2_clicked()
          num++;
          ui->listWidget->addItem(ID);
          ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
-        // ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
+         //ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
          ui->groupBox_2->setEnabled(true);
          }
     }
@@ -248,7 +245,7 @@ void chatroom::on_listWidget_currentRowChanged(int currentRow)
      ui->listWidget_2->addItem(s);
       pic=m.data(m.index(i,0)).toString();
       ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+pic+".png"));
-     // ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png"));
+      //ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png"));
 
         NUM++;
 
@@ -331,25 +328,6 @@ void chatroom::on_pushButton_3_clicked()
 
 }
 
-<<<<<<< HEAD
-
-void chatroom::on_pushButton_12_clicked()
-{
-    QSqlQuery p;
-    p.exec("DELETE FROM message WHERE (sender='"+line+"' and recipient='"+ui->listWidget->currentItem()->text()+"' and mess='"+ui->listWidget_2->currentItem()->text()+"') ");
-    ui->listWidget_2->takeItem(ui->listWidget_2->currentRow());
-    ui->pushButton_12->setEnabled(false);
-  // qDebug()<< ui->listWidget->currentRow();
-
-    NUM--;
-}
-
-
-void chatroom::on_listWidget_2_currentRowChanged(int currentRow)
-{
-
-   ui->pushButton_12->setEnabled(true);
-=======
 void chatroom::on_actionAboutUs_triggered()
 {
      QMessageBox::information(this, "Converso messenger", "Made with honor by <br> <b> AmirHossein Afshar <br> Pourya Alvani</b>"
@@ -358,6 +336,22 @@ void chatroom::on_actionAboutUs_triggered()
                                                       "<br> Unauthorized reproduction or distribution of this program, "
                                                       "or any portion of it, may result in severe civil and criminal penalties,"
                                                       " and will be prosecuted to the maximum extent possible under law.");
->>>>>>> 02495248ed686a8be2efb1182b453968402f8ede
+}
+
+void chatroom::on_pushButton_13_clicked()
+{
+    QSqlQuery p;
+        p.exec("DELETE FROM message WHERE sender='"+line+"' and recipient='"+ui->listWidget->currentItem()->text()+"' and mess='"+ui->listWidget_2->currentItem()->text()+"' ");
+        ui->listWidget_2->takeItem(ui->listWidget_2->currentRow());
+        ui->pushButton_12->setEnabled(false);
+      // qDebug()<< ui->listWidget->currentRow();
+
+        NUM--;
+}
+
+
+void chatroom::on_listWidget_2_currentRowChanged(int currentRow)
+{
+    ui->pushButton_13->setEnabled(true);
 }
 
