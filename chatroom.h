@@ -25,6 +25,8 @@ public slots:
       void handleEnter();
       void handleEnter_2();
       void setSelectedLabel(QListWidgetItem *current, QListWidgetItem *previous);
+      void checkSelectedItem();
+      void updateButtonVisibility();
 
 private slots:
     void on_pushButton_clicked();
@@ -47,6 +49,8 @@ private slots:
 
     void on_listWidget_2_currentRowChanged(int currentRow);
      void openimage();
+     void on_pushButton_14_clicked();
+
 private:
     QTcpSocket *socket;
     int first;
