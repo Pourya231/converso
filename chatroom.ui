@@ -120,7 +120,129 @@ color: rgb(255, 255, 255);</string>
        <string/>
       </property>
       <layout class="QGridLayout" name="gridLayout_5">
-       <item row="0" column="0">
+       <item row="4" column="0">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="minimumSize">
+          <size>
+           <width>841</width>
+           <height>71</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>75</height>
+          </size>
+         </property>
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>500</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>chat here ...</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="minimumSize">
+             <size>
+              <width>31</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/new/prefix1/Emoji.png);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="pushButton_12">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/new/prefix1/attachment_light.png);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QPushButton" name="pushButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/new/prefix1/send.png);
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
         <widget class="QGroupBox" name="groupBox_5">
          <property name="minimumSize">
           <size>
@@ -162,28 +284,7 @@ background-color: rgb(255, 255, 255);</string>
          </widget>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QListWidget" name="listWidget_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>841</width>
-           <height>471</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-image: url(:/new/prefix1/chatbackground_light.png);
-font: 18pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
+       <item row="3" column="0">
         <widget class="QGroupBox" name="groupBox_4">
          <property name="minimumSize">
           <size>
@@ -317,126 +418,32 @@ color: rgb(255, 255, 255);</string>
          </layout>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QGroupBox" name="groupBox_3">
+       <item row="2" column="0">
+        <widget class="QListWidget" name="listWidget_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>841</width>
-           <height>71</height>
+           <height>471</height>
           </size>
          </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>75</height>
-          </size>
+         <property name="styleSheet">
+          <string notr="true">background-image: url(:/new/prefix1/chatbackground_light.png);
+font: 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
          </property>
-         <property name="title">
-          <string/>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="pushButton_13">
+         <property name="text">
+          <string>delete message</string>
          </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0">
-           <widget class="QLineEdit" name="lineEdit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>500</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="sizeIncrement">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string>chat here ...</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QPushButton" name="pushButton_3">
-            <property name="minimumSize">
-             <size>
-              <width>31</width>
-              <height>31</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:/new/prefix1/Emoji.png);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="default">
-             <bool>false</bool>
-            </property>
-            <property name="flat">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QPushButton" name="pushButton_12">
-            <property name="minimumSize">
-             <size>
-              <width>32</width>
-              <height>31</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:/new/prefix1/attachment_light.png);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QPushButton" name="pushButton">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:/new/prefix1/send.png);
-</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </widget>
        </item>
       </layout>
@@ -450,7 +457,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>1211</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menusetting">
