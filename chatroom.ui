@@ -120,7 +120,7 @@ color: rgb(255, 255, 255);</string>
        <string/>
       </property>
       <layout class="QGridLayout" name="gridLayout_5">
-       <item row="3" column="0">
+       <item row="4" column="0">
         <widget class="QGroupBox" name="groupBox_3">
          <property name="minimumSize">
           <size>
@@ -157,6 +157,9 @@ color: rgb(255, 255, 255);</string>
               <width>0</width>
               <height>0</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>chat here ...</string>
             </property>
             <property name="styleSheet">
              <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
@@ -239,7 +242,49 @@ color: rgb(255, 255, 255);</string>
          </layout>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="minimumSize">
+          <size>
+           <width>841</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="title">
+          <string/>
+         </property>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>3</x>
+            <y>2</y>
+            <width>191</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>191</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>191</width>
+            <height>36</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(85, 255, 0);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item row="3" column="0">
         <widget class="QGroupBox" name="groupBox_4">
          <property name="minimumSize">
           <size>
@@ -373,7 +418,7 @@ color: rgb(255, 255, 255);</string>
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="2" column="0">
         <widget class="QListWidget" name="listWidget_2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -384,11 +429,11 @@ color: rgb(255, 255, 255);</string>
          <property name="minimumSize">
           <size>
            <width>841</width>
-           <height>521</height>
+           <height>471</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/new/prefix1/chatbackground.jpg);
+          <string notr="true">background-image: url(:/new/prefix1/chatbackground_light.png);
 font: 18pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 255, 255);</string>
          </property>
