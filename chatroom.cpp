@@ -84,7 +84,10 @@ chatroom::chatroom(QWidget *parent) :
     connect(ui->pushButton_10,&QPushButton::clicked,this,[this](){ui->lineEdit->insert("🤣");});
     connect(ui->pushButton_11,&QPushButton::clicked,this,[this](){ui->lineEdit->insert("😂");});
 
-
+    ui->listWidget_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground_light.png);"
+                                    "font: 18pt ""MS Shell Dlg 2"";"
+                                    "color: rgb(0, 0, 0);"
+                                    "background-attachment:fixed;");
 }
 
 int GBS=0;
@@ -270,11 +273,19 @@ void chatroom::on_actionlight_triggered()
     ui->groupBox_2->setStyleSheet("background-color: rgb(255, 255, 255);");
     ui->groupBox_3->setStyleSheet("background-color: rgb(255, 255, 255);");
     ui->groupBox_4->setStyleSheet("background-color: rgb(255, 255, 255);");
-    ui->lineEdit_3->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); }");
-    ui->lineEdit->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); }");
+    //ui->lineEdit_3->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); } ""font: 11pt ""MS Shell Dlg 2");
+    //ui->lineEdit->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); } ""font: 11pt ""MS Shell Dlg 2");
+    ui->lineEdit_3->setStyleSheet("color: rgb(0,0,0); ""font: 11pt ""MS Shell Dlg 2");
+    ui->lineEdit->setStyleSheet("color: rgb(0,0,0); ""font: 15pt ""MS Shell Dlg 2");
     ui->pushButton->setStyleSheet("border-image: url(:/new/prefix1/send.png);");
     ui->pushButton_3->setStyleSheet("border-image: url(:/new/prefix1/Emoji.png);");
     ui->pushButton_12->setStyleSheet("border-image: url(:/new/prefix1/attachment_light.png);");
+    ui->listWidget_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground_light.png);"
+                                    "font: 18pt ""MS Shell Dlg 2"";"
+                                    "color: rgb(0, 0, 0);"
+                                    "background-attachment:fixed;");
+    ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(255,255,255);color: rgb(0,0,0);");
+
 
 }
 
@@ -289,12 +300,16 @@ void chatroom::on_actiondark_triggered()
     ui->groupBox_2->setStyleSheet("background-color: rgb(0, 0, 0);");
     ui->groupBox_3->setStyleSheet("background-color: rgb(0, 0, 0);");
     ui->groupBox_4->setStyleSheet("background-color: rgb(0, 0, 0);");
-    ui->lineEdit_3->setStyleSheet("color: rgb(255, 255, 255);");
-    ui->lineEdit->setStyleSheet("color: rgb(255, 255, 255);");
+    ui->lineEdit_3->setStyleSheet("color: rgb(255, 255, 255); ""font: 11pt ""MS Shell Dlg 2");
+    ui->lineEdit->setStyleSheet("color: rgb(255, 255, 255); ""font: 15pt ""MS Shell Dlg 2");
     ui->pushButton->setStyleSheet("border-image: url(:/new/prefix1/send2.png);");
     ui->pushButton_3->setStyleSheet("border-image: url(:/new/prefix1/Emoji_Dark.png);");
     ui->pushButton_12->setStyleSheet("border-image: url(:/new/prefix1/attacment_dark.png);");
-
+    ui->listWidget_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground.jpg);"
+                                    "font: 18pt ""MS Shell Dlg 2"";"
+                                    "color: rgb(255, 255, 255);"
+                                    "background-attachment:fixed;");
+    ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(0, 0, 0);color: rgb(255, 255, 255);");
 }
 
 void chatroom::on_pushButton_3_clicked()
