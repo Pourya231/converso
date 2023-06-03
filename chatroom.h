@@ -5,6 +5,8 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <QString>
+#include <QListWidgetItem>
+
 namespace Ui {
 class chatroom;
 }
@@ -22,6 +24,7 @@ public slots:
       void on_pushButton_2_clicked();
       void handleEnter();
       void handleEnter_2();
+      void setSelectedLabel(QListWidgetItem *current, QListWidgetItem *previous);
 
 private slots:
     void on_pushButton_clicked();

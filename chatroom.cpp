@@ -88,6 +88,8 @@ chatroom::chatroom(QWidget *parent) :
                                     "font: 18pt ""MS Shell Dlg 2"";"
                                     "color: rgb(0, 0, 0);"
                                     "background-attachment:fixed;");
+
+    connect(ui->listWidget, &QListWidget::currentItemChanged, this, &chatroom::setSelectedLabel);
 }
 
 int GBS=0;
@@ -182,9 +184,9 @@ void chatroom::handleEnter()
         chatroom::on_pushButton_clicked();
 }
 
-int num=-1;
+int num=-1;  // the number of items in listwidget.
 
-void chatroom::on_pushButton_2_clicked()
+void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
 {
    bool check=false;
     QSqlQuery p;
@@ -194,7 +196,7 @@ void chatroom::on_pushButton_2_clicked()
     ui->lineEdit_3->setText("");
     if (p.first())
     {
-         for(int i=0;i<ui->listWidget->count();i++)
+         for(int i=0 ; i<ui->listWidget->count() ; i++)  //checks if the Id already exist or not.
          {
              if(ui->listWidget->item(i)->text()==ID)
              {
@@ -211,6 +213,22 @@ void chatroom::on_pushButton_2_clicked()
          ui->groupBox_2->setEnabled(true);
          }
     }
+
+    /*for (int i=0;i<num;i++)
+    {
+        ui->listWidget->item(i)->setText("h");
+    }*/
+
+    /*for (int i=0 ; i<(ui->listWidget->count()) ; i++)
+    {
+        if (ui->listWidget->item(i)->isSelected())
+        {
+            QString name;
+            name = ui->listWidget->item(i)->text();
+            ui->label->setText(name);
+        }
+    }*/
+
 
 }
 void chatroom::handleEnter_2() /// this is related to pushButton 2
@@ -337,3 +355,10 @@ void chatroom::on_actionAboutUs_triggered()
                                                       " and will be prosecuted to the maximum extent possible under law.");
 }
 
+void chatroom::setSelectedLabel(QListWidgetItem *current, QListWidgetItem *previous)
+{
+    if (current != nullptr)
+    {
+        ui->label->setText(current->text());
+    }
+}
