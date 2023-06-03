@@ -113,6 +113,9 @@ color: rgb(255, 255, 255);</string>
         <height>681</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="title">
        <string/>
       </property>
@@ -240,7 +243,7 @@ color: rgb(255, 255, 255);</string>
             <property name="minimumSize">
              <size>
               <width>93</width>
-              <height>31</height>
+              <height>27</height>
              </size>
             </property>
             <property name="text">
@@ -256,7 +259,7 @@ color: rgb(255, 255, 255);</string>
             <property name="minimumSize">
              <size>
               <width>93</width>
-              <height>31</height>
+              <height>27</height>
              </size>
             </property>
             <property name="text">
@@ -269,7 +272,7 @@ color: rgb(255, 255, 255);</string>
             <property name="minimumSize">
              <size>
               <width>93</width>
-              <height>31</height>
+              <height>27</height>
              </size>
             </property>
             <property name="text">
@@ -282,7 +285,7 @@ color: rgb(255, 255, 255);</string>
             <property name="minimumSize">
              <size>
               <width>93</width>
-              <height>31</height>
+              <height>27</height>
              </size>
             </property>
             <property name="text">
@@ -295,7 +298,7 @@ color: rgb(255, 255, 255);</string>
             <property name="minimumSize">
              <size>
               <width>93</width>
-              <height>31</height>
+              <height>27</height>
              </size>
             </property>
             <property name="text">
@@ -308,7 +311,7 @@ color: rgb(255, 255, 255);</string>
             <property name="minimumSize">
              <size>
               <width>93</width>
-              <height>31</height>
+              <height>27</height>
              </size>
             </property>
             <property name="text">
@@ -321,7 +324,7 @@ color: rgb(255, 255, 255);</string>
             <property name="minimumSize">
              <size>
               <width>93</width>
-              <height>31</height>
+              <height>27</height>
              </size>
             </property>
             <property name="text">
@@ -334,7 +337,7 @@ color: rgb(255, 255, 255);</string>
             <property name="minimumSize">
              <size>
               <width>93</width>
-              <height>31</height>
+              <height>27</height>
              </size>
             </property>
             <property name="text">
@@ -371,6 +374,109 @@ color: rgb(255, 255, 255);</string>
          <property name="text">
           <string>delete message</string>
          </property>
+<<<<<<< HEAD
+=======
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>500</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="minimumSize">
+             <size>
+              <width>31</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/new/prefix1/Emoji.png);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="pushButton_12">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/new/prefix1/attachment_light.png);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QPushButton" name="pushButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/new/prefix1/send.png);
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+>>>>>>> 02495248ed686a8be2efb1182b453968402f8ede
         </widget>
        </item>
       </layout>
@@ -403,10 +509,10 @@ color: rgb(255, 255, 255);</string>
    </widget>
    <widget class="QMenu" name="menuabout">
     <property name="title">
-     <string>about</string>
+     <string>help</string>
     </property>
     <addaction name="actioncontact_us"/>
-    <addaction name="actionrefer_a_freind"/>
+    <addaction name="actionAboutUs"/>
    </widget>
    <addaction name="menusetting"/>
    <addaction name="menuabout"/>
@@ -416,9 +522,9 @@ color: rgb(255, 255, 255);</string>
     <string>contact us</string>
    </property>
   </action>
-  <action name="actionrefer_a_freind">
+  <action name="actionAboutUs">
    <property name="text">
-    <string>refer a freind</string>
+    <string>about us</string>
    </property>
   </action>
   <action name="actionlight">

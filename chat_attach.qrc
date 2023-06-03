@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>attachment_light.png</file>
+        <file>attacment_dark.png</file>
+    </qresource>
+</RCC>
