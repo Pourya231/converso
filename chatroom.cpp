@@ -96,40 +96,44 @@ chatroom::chatroom(QWidget *parent) :
     ui->pushButton_14->hide();
 
 
-
+    /////////////////////////////// this part updates the contacts.
     QSqlQuery C;
     C.exec("SELECT contact FROM contacts WHERE client='"+line+"'");
     QSqlQueryModel cont;
     cont.setQuery(C);
-    for(int i=0;i<cont.rowCount();i++){
+    for(int i=0;i<cont.rowCount();i++)
+    {
         num++;
         QString s=cont.data(cont.index(i,0)).toString();
         ui->listWidget->addItem(s);
         //ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
         ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
-
     }
+    ////////////////////////////////////////////////////////////////
 
+    /// more option for chat setting signals are here.
     ui->groupBox_6->hide();
     connect(ui->listWidget_2, &QListWidget::itemClicked, this, &chatroom::checkSelectedItem);
     connect(ui->listWidget_2, &QListWidget::itemSelectionChanged, this, &chatroom::updateButtonVisibility);
-
-    bool anyItemSelected = !ui->listWidget_2->selectedItems().isEmpty();
-    ui->pushButton_14->setVisible(anyItemSelected);
+    /*connect(ui->groupBox_6, &QListWidget::itemClicked, this, &chatroom::checkSelectedItem);
+    connect(ui->groupBox_6, &QGroupBox:: this, &chatroom::updateButtonVisibility);*/
 
 
 
 }
 
-int GBS=0; // flag for emoji status.
-int GBS_2=0; // flag for moreOptions status.
+
+int GBS=0; /// flag for emoji status.
+int GBS_2=0; /// flag for moreOptions for chat setting status.
 
 chatroom::~chatroom()
 {
     socket->close();
+    removeEventFilter(this);
     delete ui;
 }
 
+/// the number of items in listwidget.
 
 int doub=0;
 int NUM=0;
@@ -230,8 +234,6 @@ void chatroom::handleEnter()
         chatroom::on_pushButton_clicked();
 }
 
-  // the number of items in listwidget.
-
 void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
 {
    bool check=false;
@@ -242,7 +244,7 @@ void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
     ui->lineEdit_3->setText("");
     if (p.first())
     {
-         for(int i=0 ; i<ui->listWidget->count() ; i++)  //checks if the Id already exist or not.
+         for(int i=0 ; i<ui->listWidget->count() ; i++)  ///checks if the Id already exist or not.
          {
              if(ui->listWidget->item(i)->text()==ID)
              {
@@ -436,15 +438,14 @@ void chatroom::on_pushButton_14_clicked()
 void chatroom::checkSelectedItem()
 
 {
-      bool anyItemSelected = !ui->listWidget_2->selectedItems().isEmpty();
-      // Update the visibility of the push button based on selection
-      ui->pushButton_14->setVisible(anyItemSelected);
+    bool anyItemSelected = !ui->listWidget_2->selectedItems().isEmpty();
+    ui->pushButton_14->setVisible(anyItemSelected);
+    ui->groupBox_6->setVisible(anyItemSelected);
 }
 
 void chatroom::updateButtonVisibility()
 {
-    // Check whether any item in QListWidget is selected
     bool anyItemSelected = !ui->listWidget_2->selectedItems().isEmpty();
-    // Update the visibility of the push button based on selection
     ui->pushButton_14->setVisible(anyItemSelected);
+    ui->groupBox_6->setVisible(anyItemSelected);
 }

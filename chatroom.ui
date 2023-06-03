@@ -194,19 +194,44 @@ color: rgb(255, 255, 255);</string>
          <property name="title">
           <string/>
          </property>
-         <widget class="QPushButton" name="pushButton_13">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>10</y>
-            <width>99</width>
-            <height>28</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>delete message</string>
-          </property>
-         </widget>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="pushButton_13">
+            <property name="styleSheet">
+             <string notr="true">font: 8 pt &quot;MS Shell Dlg 2&quot;;
+
+</string>
+            </property>
+            <property name="text">
+             <string>delete message</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButton_15">
+            <property name="styleSheet">
+             <string notr="true">font: 8 pt &quot;MS Shell Dlg 2&quot;;
+
+</string>
+            </property>
+            <property name="text">
+             <string>edith message</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="pushButton_16">
+            <property name="styleSheet">
+             <string notr="true">font: 8pt &quot;MS Shell Dlg 2&quot;;
+
+</string>
+            </property>
+            <property name="text">
+             <string>pin message</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item row="3" column="0">
