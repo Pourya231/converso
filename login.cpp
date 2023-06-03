@@ -32,8 +32,8 @@ login::login(QWidget *parent) :
 /// this comment belongs Amir
     QSqlDatabase db;
     db=QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
-    //db.setDatabaseName("C:\\Users\\pourya\\Desktop\\1.db");
+   // db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
+    db.setDatabaseName("C:\\Users\\pourya\\Desktop\\1.db");
     db.open();
 
     //login::setEnabled(false);
@@ -414,8 +414,8 @@ void login::on_lineEdit_9_cursorPositionChanged(int arg1, int arg2)
 void login::on_pushButton_2_clicked()
 {
 
-    QFile file("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
-     //QFile file("C:/Users/pourya/desktop/user.txt");
+   // QFile file("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
+     QFile file("C:/Users/pourya/desktop/user.txt");
 
     if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {

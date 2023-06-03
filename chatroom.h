@@ -37,6 +37,10 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_12_clicked();
+
+    void on_listWidget_2_currentRowChanged(int currentRow);
+
 private:
     QTcpSocket *socket;
     int first;
