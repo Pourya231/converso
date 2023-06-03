@@ -154,7 +154,7 @@ color: rgb(255, 255, 255);</string>
           </property>
           <property name="styleSheet">
            <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(85, 255, 0);</string>
+background-color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
            <string/>

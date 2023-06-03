@@ -214,22 +214,6 @@ void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
          }
     }
 
-    /*for (int i=0;i<num;i++)
-    {
-        ui->listWidget->item(i)->setText("h");
-    }*/
-
-    /*for (int i=0 ; i<(ui->listWidget->count()) ; i++)
-    {
-        if (ui->listWidget->item(i)->isSelected())
-        {
-            QString name;
-            name = ui->listWidget->item(i)->text();
-            ui->label->setText(name);
-        }
-    }*/
-
-
 }
 void chatroom::handleEnter_2() /// this is related to pushButton 2
 {
@@ -303,6 +287,7 @@ void chatroom::on_actionlight_triggered()
                                     "color: rgb(0, 0, 0);"
                                     "background-attachment:fixed;");
     ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(255,255,255);color: rgb(0,0,0);");
+    ui->label->setStyleSheet("background-color: rgb(255,255,255); color: rgb(0, 0, 0); ""font: 13pt ""MS Shell Dlg 2 ");
 
 
 }
@@ -328,6 +313,7 @@ void chatroom::on_actiondark_triggered()
                                     "color: rgb(255, 255, 255);"
                                     "background-attachment:fixed;");
     ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(0, 0, 0);color: rgb(255, 255, 255);");
+    ui->label->setStyleSheet("background-color: rgb(0, 0, 0); color: rgb(255,255,255); ""font: 13pt ""MS Shell Dlg 2 ");
 }
 
 void chatroom::on_pushButton_3_clicked()
