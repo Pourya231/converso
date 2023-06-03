@@ -9,6 +9,8 @@
 #include "QTextStream"
 #include "QDate"
 #include "QTime"
+#include "QMessageBox"
+
 chatroom::chatroom(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::chatroom)
@@ -65,14 +67,14 @@ chatroom::chatroom(QWidget *parent) :
     connect(ui->lineEdit,&QLineEdit::returnPressed,this,&chatroom::handleEnter);
     connect(ui->lineEdit_3,&QLineEdit::returnPressed,this,&chatroom::handleEnter_2);
 
-    ui->pushButton_4->setStyleSheet("font: 75 17pt ;");
-    ui->pushButton_5->setStyleSheet("font: 75 17pt ;");
-    ui->pushButton_6->setStyleSheet("font: 75 17pt ;");
-    ui->pushButton_7->setStyleSheet("font: 75 17pt ;");
-    ui->pushButton_8->setStyleSheet("font: 75 17pt ;");
-    ui->pushButton_9->setStyleSheet("font: 75 17pt ;");
-    ui->pushButton_10->setStyleSheet("font: 75 17pt ;");
-    ui->pushButton_11->setStyleSheet("font: 75 17pt ;");
+    ui->pushButton_4->setStyleSheet("font: 75 17pt ; border-radius: 5pt;");
+    ui->pushButton_5->setStyleSheet("font: 75 17pt ; border-radius: 5px;");
+    ui->pushButton_6->setStyleSheet("font: 75 17pt ; border-radius: 5px;");
+    ui->pushButton_7->setStyleSheet("font: 75 17pt ; border-radius: 5px;");
+    ui->pushButton_8->setStyleSheet("font: 75 17pt ; border-radius: 5px;");
+    ui->pushButton_9->setStyleSheet("font: 75 17pt ; border-radius: 5px;");
+    ui->pushButton_10->setStyleSheet("font: 75 17pt ; border-radius: 5px;");
+    ui->pushButton_11->setStyleSheet("font: 75 17pt ; border-radius: 5px;");
     connect(ui->pushButton_4,&QPushButton::clicked,this,[this](){ui->lineEdit->insert("👍");});
     connect(ui->pushButton_5,&QPushButton::clicked,this,[this](){ui->lineEdit->insert("👎");});
     connect(ui->pushButton_6,&QPushButton::clicked,this,[this](){ui->lineEdit->insert("😱");});
@@ -267,10 +269,12 @@ void chatroom::on_actionlight_triggered()
     ui->groupBox->setStyleSheet("background-color: rgb(255, 255, 255);");
     ui->groupBox_2->setStyleSheet("background-color: rgb(255, 255, 255);");
     ui->groupBox_3->setStyleSheet("background-color: rgb(255, 255, 255);");
+    ui->groupBox_4->setStyleSheet("background-color: rgb(255, 255, 255);");
     ui->lineEdit_3->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); }");
     ui->lineEdit->setStyleSheet("QLineEdith { color: rgb(0,0,0); } QLineEdith::placeholder { color: rgb(0,0,0); }");
     ui->pushButton->setStyleSheet("border-image: url(:/new/prefix1/send.png);");
     ui->pushButton_3->setStyleSheet("border-image: url(:/new/prefix1/Emoji.png);");
+    ui->pushButton_12->setStyleSheet("border-image: url(:/new/prefix1/attachment_light.png);");
 
 }
 
@@ -284,10 +288,12 @@ void chatroom::on_actiondark_triggered()
     ui->groupBox->setStyleSheet("background-color: rgb(0, 0, 0);");
     ui->groupBox_2->setStyleSheet("background-color: rgb(0, 0, 0);");
     ui->groupBox_3->setStyleSheet("background-color: rgb(0, 0, 0);");
+    ui->groupBox_4->setStyleSheet("background-color: rgb(0, 0, 0);");
     ui->lineEdit_3->setStyleSheet("color: rgb(255, 255, 255);");
     ui->lineEdit->setStyleSheet("color: rgb(255, 255, 255);");
     ui->pushButton->setStyleSheet("border-image: url(:/new/prefix1/send2.png);");
     ui->pushButton_3->setStyleSheet("border-image: url(:/new/prefix1/Emoji_Dark.png);");
+    ui->pushButton_12->setStyleSheet("border-image: url(:/new/prefix1/attacment_dark.png);");
 
 }
 
@@ -304,5 +310,15 @@ void chatroom::on_pushButton_3_clicked()
         GBS=0;
     }
 
+}
+
+void chatroom::on_actionAboutUs_triggered()
+{
+     QMessageBox::information(this, "Converso messenger", "Made with honor by <br> <b> AmirHossein Afshar <br> Pourya Alvani</b>"
+                                                          "<br> Warning:<br> This computer program is protected by copyright"
+                                                      " laws and international treaties."
+                                                      "<br> Unauthorized reproduction or distribution of this program, "
+                                                      "or any portion of it, may result in severe civil and criminal penalties,"
+                                                      " and will be prosecuted to the maximum extent possible under law.");
 }
 
