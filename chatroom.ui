@@ -39,24 +39,6 @@
        <string/>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="0" colspan="2">
-        <widget class="QListWidget" name="listWidget">
-         <property name="minimumSize">
-          <size>
-           <width>301</width>
-           <height>611</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QLineEdit" name="lineEdit_3">
          <property name="minimumSize">
@@ -71,6 +53,24 @@ color: rgb(0, 0, 0);</string>
          </property>
          <property name="placeholderText">
           <string>sreach ID</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QListWidget" name="listWidget">
+         <property name="minimumSize">
+          <size>
+           <width>301</width>
+           <height>611</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
          </property>
         </widget>
        </item>
@@ -91,6 +91,9 @@ color: rgb(255, 255, 255);</string>
           <string>connect</string>
          </property>
         </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="lineEdit_4"/>
        </item>
       </layout>
       <widget class="QLineEdit" name="lineEdit_2">

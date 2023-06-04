@@ -35,7 +35,7 @@ chatroom::chatroom(QWidget *parent) :
 
 
 
-   //  db.open();
+    db.open();
     // QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
      QFile file1("C:/Users/pourya/desktop/user.txt");
 
@@ -212,6 +212,11 @@ void chatroom::newConnection()
 void chatroom::on_pushButton_clicked() /// belongs to the chat
 {
     //���������� �����
+   // ui->lineEdit->setFont(font);
+//    QPalette palatte;
+ //   palatte.setColor(QPalette::WindowText,Qt::red);
+  // ui->lineEdit->setPalette(palatte);
+
     QDate tarikh=QDate::currentDate();
     QTime time=QTime::currentTime();
     int day=tarikh.day();
@@ -480,8 +485,10 @@ void chatroom::updateButtonVisibility()
 void chatroom::onStyleChanged(QFont &font, QColor &color){
     ui->lineEdit->setFont(font);
     QPalette palatte;
-    palatte.setColor(QPalette::WindowText,color);
-   ui->lineEdit->setPalette(palatte);
+
+   ui->lineEdit->setStyleSheet(QString("color:%1").arg(color.name()));
+    ui->listWidget_2->setFont(font);
+    ui->listWidget_2->setStyleSheet(QString("color:%1").arg(color.name()));
 
 
 }
