@@ -304,19 +304,17 @@ void chatroom::handleEnter_2() /// this is related to pushButton 2
 
 void chatroom::on_listWidget_currentRowChanged(int currentRow)
 {
-    ui->listWidget_2->clear();
+ui->listWidget_2->blockSignals(true);
     NUM=0;
+ ui->listWidget_2->clear();
   QSqlQuery p;
 
    p.exec("SELECT * FROM message WHERE (sender='"+line+"' and recipient='"+ui->listWidget->currentItem()->text()+"') or (sender='"+ui->listWidget->currentItem()->text()+"' and recipient='"+line+"' ) ORDER BY (second+minute*60+hour*3600+day*86400+month*2592000+year*31104000)");
 
-   qDebug()<<p.isSelect();
-   qDebug()<<p.isSelect();
-   qDebug()<<ui->listWidget->currentItem()->text();
+
+
   QSqlQueryModel m;
   m.setQuery(p);
- qDebug()<< m.rowCount();
- QString listmessage[5][1000];
 
  for(int i=0;i<m.rowCount();i++){
 
@@ -438,14 +436,13 @@ void chatroom::on_pushButton_13_clicked()
 void chatroom::on_listWidget_2_currentRowChanged(int currentRow)
 {
 
-    QString message=ui->listWidget_2->currentItem()->text();
-    qDebug()<<message.mid(0,message.indexOf(":")-1);
-    qDebug()<<ui->listWidget->currentItem()->text();
-    if(message.mid(0,message.indexOf(":")-1)==ui->listWidget->currentItem()->text()){
-     ui->pushButton_13->setEnabled(false);
-    }
-    else
+   QString mess=ui->listWidget_2->currentItem()->text();
+    if(mess.mid(0,mess.indexOf(":")-1)==ui->listWidget->currentItem()->text()){
+    ui->pushButton_13->setEnabled(false);
+   }
+   else
         ui->pushButton_13->setEnabled(true);
+
 }
 
 
