@@ -29,25 +29,20 @@ chatroom::chatroom(QWidget *parent) :
      ui->pushButton->hide();
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
-<<<<<<< HEAD
+
   //   db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
      db.setDatabaseName("C:/Users/pourya/desktop/1.db");
 
-     db.open();
- //    QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
-     QFile file1("C:/Users/pourya/desktop/user.txt");
-=======
-     db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
-     //db.setDatabaseName("C:/Users/pourya/desktop/1.db");
 
-     db.open();
-     QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
-     //QFile file1("C:/Users/pourya/desktop/user.txt");
->>>>>>> 5be3078a61c583135b3b46fb6e91492fd6fbb731
+
+   //  db.open();
+    // QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
+     QFile file1("C:/Users/pourya/desktop/user.txt");
+
 
      if(!file1.open(QIODevice::ReadWrite | QIODevice::Text))
      {
-       exit(1);
+       exit(11);
      }
 
      QTextStream out(&file1);
@@ -108,11 +103,10 @@ chatroom::chatroom(QWidget *parent) :
     connect(ui->actionstyle, SIGNAL(triggered(bool)),
             &dlg, SLOT(open()));
 
-<<<<<<< HEAD
+
     connect(&dlg, SIGNAL(styleChanged(QFont&,QColor&)),
             this, SLOT(onStyleChanged(QFont&,QColor&)));
-=======
->>>>>>> 5be3078a61c583135b3b46fb6e91492fd6fbb731
+
     /////////////////////////////// this part updates the contacts.
     QSqlQuery C;
     C.exec("SELECT contact FROM contacts WHERE client='"+line+"'");
@@ -123,13 +117,13 @@ chatroom::chatroom(QWidget *parent) :
         num++;
         QString s=cont.data(cont.index(i,0)).toString();
         ui->listWidget->addItem(s);
-<<<<<<< HEAD
+
         ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
       //  ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
-=======
+
         //ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
         ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
->>>>>>> 5be3078a61c583135b3b46fb6e91492fd6fbb731
+
     }
     ////////////////////////////////////////////////////////////////
 
@@ -240,13 +234,13 @@ void chatroom::on_pushButton_clicked() /// belongs to the chat
     out << quint16(arrBlock.size() - sizeof(quint16));
     socket->write(arrBlock);
     ui->listWidget_2->addItem(sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
-<<<<<<< HEAD
+
     ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
     //ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
-=======
+
     //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
     ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
->>>>>>> 5be3078a61c583135b3b46fb6e91492fd6fbb731
+
     NUM++;
     sendmesage=sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length());
     QString girande=ui->listWidget->currentItem()->text();
@@ -284,13 +278,13 @@ void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
              QSqlQuery g;
          num++;
          ui->listWidget->addItem(ID);
-<<<<<<< HEAD
+
          ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
        //  ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
-=======
+
          //ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
          ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
->>>>>>> 5be3078a61c583135b3b46fb6e91492fd6fbb731
+
          ui->groupBox_2->setEnabled(true);
          g.exec("INSERT INTO contacts VALUES('"+line+"','"+ID+"') ");
          }
@@ -481,7 +475,7 @@ void chatroom::updateButtonVisibility()
     ui->pushButton_14->setVisible(anyItemSelected);
     ui->groupBox_6->setVisible(anyItemSelected);
 }
-<<<<<<< HEAD
+
 
 void chatroom::onStyleChanged(QFont &font, QColor &color){
     ui->lineEdit->setFont(font);
@@ -491,5 +485,4 @@ void chatroom::onStyleChanged(QFont &font, QColor &color){
 
 
 }
-=======
->>>>>>> 5be3078a61c583135b3b46fb6e91492fd6fbb731
+

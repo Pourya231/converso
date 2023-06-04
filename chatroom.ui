@@ -453,12 +453,7 @@ color: rgb(255, 255, 255);</string>
              <string>chat here ...</string>
             </property>
             <property name="styleSheet">
-<<<<<<< HEAD
-             <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;
-</string>
-=======
              <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
->>>>>>> 5be3078a61c583135b3b46fb6e91492fd6fbb731
             </property>
             <property name="text">
              <string/>
@@ -549,7 +544,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>1211</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menusetting">

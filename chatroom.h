@@ -53,11 +53,10 @@ private slots:
     void on_listWidget_2_currentRowChanged(int currentRow);
      void openimage();
      void on_pushButton_14_clicked();
-<<<<<<< HEAD
-      void onStyleChanged(QFont &font, QColor &color);
-=======
 
->>>>>>> 5be3078a61c583135b3b46fb6e91492fd6fbb731
+      void onStyleChanged(QFont &font, QColor &color);
+
+
 private:
 
     QTcpSocket *socket;
