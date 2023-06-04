@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>more_options.png</file>
+        <file>more_options_dark.png</file>
+    </qresource>
+</RCC>

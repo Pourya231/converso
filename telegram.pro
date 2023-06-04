@@ -61,6 +61,7 @@ RESOURCES += \
     img5.qrc \
     logo.qrc \
     logo_icon.qrc \
+    more_option.qrc \
     send_symbol.qrc \
     senddark.qrc \
     startImg.qrc \
