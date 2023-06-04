@@ -118,11 +118,9 @@ chatroom::chatroom(QWidget *parent) :
         QString s=cont.data(cont.index(i,0)).toString();
         ui->listWidget->addItem(s);
 
-        ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
-      //  ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
 
-        //ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
-        ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
+        ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
+        //ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
 
     }
     ////////////////////////////////////////////////////////////////
@@ -202,8 +200,8 @@ void chatroom::newConnection()
         clientIsD=ui->listWidget->currentItem()->text();
         recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
         ui->listWidget_2->addItem(recvmessage);
-        //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
-        ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/ali.png"));
+        ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
+        //ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/ali.png"));
         NUM++;
      }
      doub++;
@@ -238,16 +236,16 @@ void chatroom::on_pushButton_clicked() /// belongs to the chat
     out.device()->seek(0);
     out << quint16(arrBlock.size() - sizeof(quint16));
     socket->write(arrBlock);
-    ui->listWidget_2->addItem(sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
+    ui->listWidget_2->addItem(line+" : "+sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
 
     ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
     //ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
 
-    //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
-    ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
+    ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
+   // ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
 
     NUM++;
-    sendmesage=sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length());
+    sendmesage=line+" : "+sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length());
     QString girande=ui->listWidget->currentItem()->text();
     s.exec("INSERT INTO message  VALUES('"+line+"','"+girande+"','"+sendmesage+"',"+QString::number(second)+","+QString::number(minute)+","+QString::number(hour)+","+QString::number(day)+","+QString::number(month)+","+QString::number(year)+")");
 
@@ -287,8 +285,8 @@ void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
          ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
        //  ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
 
-         //ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
-         ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
+        ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
+      //   ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
 
          ui->groupBox_2->setEnabled(true);
          g.exec("INSERT INTO contacts VALUES('"+line+"','"+ID+"') ");
@@ -326,8 +324,8 @@ void chatroom::on_listWidget_currentRowChanged(int currentRow)
      QString s=m.data(m.index(i,2)).toString();
      ui->listWidget_2->addItem(s);
       pic=m.data(m.index(i,0)).toString();
-      //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+pic+".png"));
-      ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png"));
+      ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+pic+".png"));
+   //   ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png"));
 
         NUM++;
 
@@ -439,8 +437,17 @@ void chatroom::on_pushButton_13_clicked()
 
 void chatroom::on_listWidget_2_currentRowChanged(int currentRow)
 {
-    ui->pushButton_13->setEnabled(true);
+
+    QString message=ui->listWidget_2->currentItem()->text();
+    qDebug()<<message.mid(0,message.indexOf(":")-1);
+    qDebug()<<ui->listWidget->currentItem()->text();
+    if(message.mid(0,message.indexOf(":")-1)==ui->listWidget->currentItem()->text()){
+     ui->pushButton_13->setEnabled(false);
+    }
+    else
+        ui->pushButton_13->setEnabled(true);
 }
+
 
 
 void chatroom::setSelectedLabel(QListWidgetItem *current, QListWidgetItem *previous)
