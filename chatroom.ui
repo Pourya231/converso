@@ -178,6 +178,7 @@ background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="styleSheet">
           <string notr="true">background-image: url(:/new/prefix1/chatbackground_light.png);
+
 font: 18pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 255, 255);</string>
          </property>
@@ -561,6 +562,7 @@ color: rgb(255, 255, 255);</string>
     </widget>
     <addaction name="menudark_light_mood"/>
     <addaction name="actionstyle"/>
+    <addaction name="actionbackground"/>
    </widget>
    <widget class="QMenu" name="menuabout">
     <property name="title">
@@ -601,6 +603,11 @@ color: rgb(255, 255, 255);</string>
   <action name="actionstyle">
    <property name="text">
     <string>style</string>
+   </property>
+  </action>
+  <action name="actionbackground">
+   <property name="text">
+    <string>background</string>
    </property>
   </action>
  </widget>
