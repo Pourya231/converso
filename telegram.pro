@@ -18,7 +18,8 @@ SOURCES += \
     code.cpp \
     login.cpp \
     main.cpp \
-    start.cpp
+    start.cpp \
+    styledialog.cpp
 
 HEADERS += \
     captcha.h \
@@ -26,14 +27,16 @@ HEADERS += \
     chose_name.h \
     code.h \
     login.h \
-    start.h
+    start.h \
+    styledialog.h
 
 FORMS += \
     chatroom.ui \
     chose_name.ui \
     code.ui \
     login.ui \
-    start.ui
+    start.ui \
+    styledialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

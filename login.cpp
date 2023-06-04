@@ -32,10 +32,21 @@ login::login(QWidget *parent) :
 /// this comment belongs Amir
     QSqlDatabase db;
     db=QSqlDatabase::addDatabase("QSQLITE");
+  //  QSqlDatabase::drivers()
     //db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
-    db.setDatabaseName("C:\\Users\\pourya\\Desktop\\1.db");
-    db.open();
+  db.setDatabaseName("C:\\Users\\pourya\\Desktop\\1.db");
+   // db.open();
+   // db.setHostName("127.0.0.1");
+   // db.setPort(15226);
+  //  db.setDatabaseName("C:\\Users\\pourya\\Desktop\\converso.mwb");
+  //  db.setUserName("root");
+  //  db.setPassword("Pouryaalvani98!");
 
+    if(db.open()){
+        qDebug()<<"yesss";
+    }
+    else
+        qDebug()<<"sheeet";
     //login::setEnabled(false);
     ui->setupUi(this);
     ui->groupBox_2->hide();

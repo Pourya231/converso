@@ -6,6 +6,9 @@
 #include <QDebug>
 #include <QString>
 #include <QListWidgetItem>
+#include <styledialog.h>
+#include <QStyle>
+//#include "userlist.h"
 
 namespace Ui {
 class chatroom;
@@ -25,6 +28,8 @@ public slots:
       void handleEnter();
       void handleEnter_2();
       void setSelectedLabel(QListWidgetItem *current, QListWidgetItem *previous);
+      void checkSelectedItem();
+      void updateButtonVisibility();
 
 private slots:
     void on_pushButton_clicked();
@@ -47,12 +52,18 @@ private slots:
 
     void on_listWidget_2_currentRowChanged(int currentRow);
      void openimage();
+     void on_pushButton_14_clicked();
+      void onStyleChanged(QFont &font, QColor &color);
 private:
+
     QTcpSocket *socket;
     int first;
     quint16  m_nNextBlockSize;
     Ui::chatroom *ui;
        QString line;
+         StyleDialog dlg;
+
+
 };
 
 #endif // CHATROOM_H

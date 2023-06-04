@@ -11,6 +11,7 @@
 #include "QTime"
 #include "QMessageBox"
 #include "QFileDialog"
+#include <QStyle>
 int num=-1;
 chatroom::chatroom(QWidget *parent) :
     QMainWindow(parent),
@@ -28,11 +29,11 @@ chatroom::chatroom(QWidget *parent) :
      ui->pushButton->hide();
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
-     //db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
+  //   db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
      db.setDatabaseName("C:/Users/pourya/desktop/1.db");
 
      db.open();
-    // QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
+ //    QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
      QFile file1("C:/Users/pourya/desktop/user.txt");
 
      if(!file1.open(QIODevice::ReadWrite | QIODevice::Text))
@@ -93,31 +94,51 @@ chatroom::chatroom(QWidget *parent) :
                                     "background-attachment:fixed;");
 
     connect(ui->listWidget, &QListWidget::currentItemChanged, this, &chatroom::setSelectedLabel);
+    ui->pushButton_14->hide();
 
+    connect(ui->actionstyle, SIGNAL(triggered(bool)),
+            &dlg, SLOT(open()));
 
-
+    connect(&dlg, SIGNAL(styleChanged(QFont&,QColor&)),
+            this, SLOT(onStyleChanged(QFont&,QColor&)));
+    /////////////////////////////// this part updates the contacts.
     QSqlQuery C;
     C.exec("SELECT contact FROM contacts WHERE client='"+line+"'");
     QSqlQueryModel cont;
     cont.setQuery(C);
-    for(int i=0;i<cont.rowCount();i++){
+    for(int i=0;i<cont.rowCount();i++)
+    {
         num++;
         QString s=cont.data(cont.index(i,0)).toString();
         ui->listWidget->addItem(s);
         ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
-
+      //  ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
     }
+    ////////////////////////////////////////////////////////////////
+
+    /// more option for chat setting signals are here.
+    ui->groupBox_6->hide();
+    connect(ui->listWidget_2, &QListWidget::itemClicked, this, &chatroom::checkSelectedItem);
+    connect(ui->listWidget_2, &QListWidget::itemSelectionChanged, this, &chatroom::updateButtonVisibility);
+    /*connect(ui->groupBox_6, &QListWidget::itemClicked, this, &chatroom::checkSelectedItem);
+    connect(ui->groupBox_6, &QGroupBox:: this, &chatroom::updateButtonVisibility);*/
+
+
 
 }
 
-int GBS=0;
+
+int GBS=0; /// flag for emoji status.
+int GBS_2=0; /// flag for moreOptions for chat setting status.
 
 chatroom::~chatroom()
 {
     socket->close();
+    removeEventFilter(this);
     delete ui;
 }
 
+/// the number of items in listwidget.
 
 int doub=0;
 int NUM=0;
@@ -170,8 +191,8 @@ void chatroom::newConnection()
         clientIsD=ui->listWidget->currentItem()->text();
         recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
         ui->listWidget_2->addItem(recvmessage);
-        ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
-      //  ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/ali.png"));
+        //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
+        ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/ali.png"));
         NUM++;
      }
      doub++;
@@ -203,7 +224,7 @@ void chatroom::on_pushButton_clicked() /// belongs to the chat
     socket->write(arrBlock);
     ui->listWidget_2->addItem(sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
     ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
-   // ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
+    //ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
     NUM++;
     sendmesage=sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length());
     QString girande=ui->listWidget->currentItem()->text();
@@ -218,8 +239,6 @@ void chatroom::handleEnter()
         chatroom::on_pushButton_clicked();
 }
 
-  // the number of items in listwidget.
-
 void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
 {
    bool check=false;
@@ -230,7 +249,7 @@ void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
     ui->lineEdit_3->setText("");
     if (p.first())
     {
-         for(int i=0 ; i<ui->listWidget->count() ; i++)  //checks if the Id already exist or not.
+         for(int i=0 ; i<ui->listWidget->count() ; i++)  ///checks if the Id already exist or not.
          {
              if(ui->listWidget->item(i)->text()==ID)
              {
@@ -244,7 +263,7 @@ void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
          num++;
          ui->listWidget->addItem(ID);
          ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
-         //ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
+       //  ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
          ui->groupBox_2->setEnabled(true);
          g.exec("INSERT INTO contacts VALUES('"+line+"','"+ID+"') ");
          }
@@ -324,6 +343,7 @@ void chatroom::on_actionlight_triggered()
                                     "background-attachment:fixed;");
     ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(255,255,255);color: rgb(0,0,0);");
     ui->label->setStyleSheet("background-color: rgb(255,255,255); color: rgb(0, 0, 0); ""font: 13pt ""MS Shell Dlg 2 ");
+    ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/more_options.png);");
 
 
 }
@@ -350,6 +370,7 @@ void chatroom::on_actiondark_triggered()
                                     "background-attachment:fixed;");
     ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(0, 0, 0);color: rgb(255, 255, 255);");
     ui->label->setStyleSheet("background-color: rgb(0, 0, 0); color: rgb(255,255,255); ""font: 13pt ""MS Shell Dlg 2 ");
+    ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/more_options_dark.png);");
 }
 
 void chatroom::on_pushButton_3_clicked()
@@ -404,3 +425,41 @@ void chatroom::setSelectedLabel(QListWidgetItem *current, QListWidgetItem *previ
     }
 }
 
+
+void chatroom::on_pushButton_14_clicked()
+{
+    if (GBS_2==0)
+    {
+        GBS_2=1;
+        ui->groupBox_6->show();
+    }
+    else
+    {
+        GBS_2=0;
+        ui->groupBox_6->hide();
+    }
+}
+
+void chatroom::checkSelectedItem()
+
+{
+    bool anyItemSelected = !ui->listWidget_2->selectedItems().isEmpty();
+    ui->pushButton_14->setVisible(anyItemSelected);
+    ui->groupBox_6->setVisible(anyItemSelected);
+}
+
+void chatroom::updateButtonVisibility()
+{
+    bool anyItemSelected = !ui->listWidget_2->selectedItems().isEmpty();
+    ui->pushButton_14->setVisible(anyItemSelected);
+    ui->groupBox_6->setVisible(anyItemSelected);
+}
+
+void chatroom::onStyleChanged(QFont &font, QColor &color){
+    ui->lineEdit->setFont(font);
+    QPalette palatte;
+    palatte.setColor(QPalette::WindowText,color);
+   ui->lineEdit->setPalette(palatte);
+
+
+}
