@@ -590,7 +590,15 @@ color: rgb(255, 255, 255);</string>
     <addaction name="actioncontact_us"/>
     <addaction name="actionAboutUs"/>
    </widget>
+   <widget class="QMenu" name="menunew">
+    <property name="title">
+     <string>new</string>
+    </property>
+    <addaction name="actiongroup"/>
+    <addaction name="actionchannel"/>
+   </widget>
    <addaction name="menusetting"/>
+   <addaction name="menunew"/>
    <addaction name="menuabout"/>
   </widget>
   <action name="actioncontact_us">
@@ -627,6 +635,16 @@ color: rgb(255, 255, 255);</string>
   <action name="actionbackground">
    <property name="text">
     <string>background</string>
+   </property>
+  </action>
+  <action name="actiongroup">
+   <property name="text">
+    <string>group</string>
+   </property>
+  </action>
+  <action name="actionchannel">
+   <property name="text">
+    <string>channel</string>
    </property>
   </action>
  </widget>

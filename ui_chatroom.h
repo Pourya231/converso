@@ -34,6 +34,8 @@ public:
     QAction *actiondark;
     QAction *actionstyle;
     QAction *actionbackground;
+    QAction *actiongroup;
+    QAction *actionchannel;
     QWidget *centralwidget;
     QGridLayout *gridLayout_3;
     QGroupBox *groupBox;
@@ -74,6 +76,7 @@ public:
     QMenu *menusetting;
     QMenu *menudark_light_mood;
     QMenu *menuabout;
+    QMenu *menunew;
 
     void setupUi(QMainWindow *chatroom)
     {
@@ -95,6 +98,10 @@ public:
         actionstyle->setObjectName(QString::fromUtf8("actionstyle"));
         actionbackground = new QAction(chatroom);
         actionbackground->setObjectName(QString::fromUtf8("actionbackground"));
+        actiongroup = new QAction(chatroom);
+        actiongroup->setObjectName(QString::fromUtf8("actiongroup"));
+        actionchannel = new QAction(chatroom);
+        actionchannel->setObjectName(QString::fromUtf8("actionchannel"));
         centralwidget = new QWidget(chatroom);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_3 = new QGridLayout(centralwidget);
@@ -354,9 +361,12 @@ public:
         menudark_light_mood->setObjectName(QString::fromUtf8("menudark_light_mood"));
         menuabout = new QMenu(menuBar);
         menuabout->setObjectName(QString::fromUtf8("menuabout"));
+        menunew = new QMenu(menuBar);
+        menunew->setObjectName(QString::fromUtf8("menunew"));
         chatroom->setMenuBar(menuBar);
 
         menuBar->addAction(menusetting->menuAction());
+        menuBar->addAction(menunew->menuAction());
         menuBar->addAction(menuabout->menuAction());
         menusetting->addAction(menudark_light_mood->menuAction());
         menusetting->addAction(actionstyle);
@@ -366,6 +376,8 @@ public:
         menudark_light_mood->addSeparator();
         menuabout->addAction(actioncontact_us);
         menuabout->addAction(actionAboutUs);
+        menunew->addAction(actiongroup);
+        menunew->addAction(actionchannel);
 
         retranslateUi(chatroom);
 
@@ -384,6 +396,8 @@ public:
         actiondark->setText(QApplication::translate("chatroom", "dark", nullptr));
         actionstyle->setText(QApplication::translate("chatroom", "style", nullptr));
         actionbackground->setText(QApplication::translate("chatroom", "background", nullptr));
+        actiongroup->setText(QApplication::translate("chatroom", "group", nullptr));
+        actionchannel->setText(QApplication::translate("chatroom", "channel", nullptr));
         groupBox->setTitle(QString());
         lineEdit_3->setPlaceholderText(QApplication::translate("chatroom", "sreach ID", nullptr));
         pushButton_2->setText(QApplication::translate("chatroom", "connect", nullptr));
@@ -416,6 +430,7 @@ public:
         menusetting->setTitle(QApplication::translate("chatroom", "setting", nullptr));
         menudark_light_mood->setTitle(QApplication::translate("chatroom", "dark/light mood", nullptr));
         menuabout->setTitle(QApplication::translate("chatroom", "help", nullptr));
+        menunew->setTitle(QApplication::translate("chatroom", "new", nullptr));
     } // retranslateUi
 
 };
