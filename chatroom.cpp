@@ -131,6 +131,8 @@ chatroom::chatroom(QWidget *parent) :
 
     /// more option for chat setting signals are here.
     ui->groupBox_6->hide();
+    ui->label_2->hide();
+
     connect(ui->listWidget_2, &QListWidget::itemClicked, this, &chatroom::checkSelectedItem);
     connect(ui->listWidget_2, &QListWidget::itemSelectionChanged, this, &chatroom::updateButtonVisibility);
     /*connect(ui->groupBox_6, &QListWidget::itemClicked, this, &chatroom::checkSelectedItem);
@@ -143,6 +145,7 @@ chatroom::chatroom(QWidget *parent) :
 
 int GBS=0; /// flag for emoji status.
 int GBS_2=0; /// flag for moreOptions for chat setting status.
+int LS=1;
 
 chatroom::~chatroom()
 {
@@ -387,6 +390,10 @@ void chatroom::on_actionlight_triggered()
                                     "font: 18pt ""MS Shell Dlg 2"";"
                                     "color: rgb(0, 0, 0);"
                                     "background-attachment:fixed;");
+    ui->label_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground_light.png);"
+                               "font: 18pt ""MS Shell Dlg 2"";"
+                               "color: rgb(0, 0, 0);"
+                               "background-attachment:fixed;");
     ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(255,255,255);color: rgb(0,0,0);");
     ui->label->setStyleSheet("background-color: rgb(255,255,255); color: rgb(0, 0, 0); ""font: 13pt ""MS Shell Dlg 2 ");
     ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/more_options.png);");
@@ -414,6 +421,11 @@ void chatroom::on_actiondark_triggered()
                                     "font: 18pt ""MS Shell Dlg 2"";"
                                     "color: rgb(255, 255, 255);"
                                     "background-attachment:fixed;");
+    ui->label_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground.jpg);"
+                               "font: 18pt ""MS Shell Dlg 2"";"
+                               "color: rgb(255, 255, 255);"
+                               "background-attachment:fixed;");
+
     ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(0, 0, 0);color: rgb(255, 255, 255);");
     ui->label->setStyleSheet("background-color: rgb(0, 0, 0); color: rgb(255,255,255); ""font: 13pt ""MS Shell Dlg 2 ");
     ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/more_options_dark.png);");
@@ -515,14 +527,24 @@ QColor c;
 void chatroom::onStyleChanged(QFont &font, QColor &color)
 {
     ui->lineEdit->setFont(font);
+    ui->label_2->setFont(font);
+
         QPalette palatte;
 
         if (ui->actiondark->isChecked())
+        {
             ui->listWidget_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground.jpg);"
                                             "background-attachment:fixed;"+QString("color:%1").arg(color.name()));
+            ui->label_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground.jpg);"
+                                       "background-attachment:fixed;"+QString("color:%1").arg(color.name()));
+        }
         else
+        {
             ui->listWidget_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground_light.png);"
                                             "background-attachment:fixed;"+QString("color:%1").arg(color.name()));
+            ui->label_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground_light.png);"
+                                       "background-attachment:fixed;"+QString("color:%1").arg(color.name()));
+        }
 
         ui->lineEdit->setStyleSheet(QString("color:%1").arg(color.name()));
         ui->listWidget_2->setFont(font);
@@ -541,3 +563,19 @@ void chatroom::on_actionbackground_triggered()
         NUM++;
     }
 }
+
+void chatroom::on_pushButton_16_clicked()
+{
+    if (LS==1)
+    {
+        LS=0;
+        ui->label_2->show();
+        ui->label_2->setText(ui->listWidget_2->currentItem()->text());
+    }
+    else
+    {
+        LS=1;
+        ui->label_2->hide();
+    }
+}
+
