@@ -30,14 +30,14 @@ chatroom::chatroom(QWidget *parent) :
      QSqlDatabase db;
      db=QSqlDatabase::addDatabase("QSQLITE");
 
-  //   db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
-     db.setDatabaseName("C:/Users/pourya/desktop/1.db");
+     db.setDatabaseName("C:\\Users\\user\\Desktop\\project\\converso-main\\1.db");
+    // db.setDatabaseName("C:/Users/pourya/desktop/1.db");
 
 
 
     db.open();
-    // QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
-     QFile file1("C:/Users/pourya/desktop/user.txt");
+     QFile file1("C:\\Users\\user\\Desktop\\project\\converso-main\\user.txt");
+     //QFile file1("C:/Users/pourya/desktop/user.txt");
 
 
      if(!file1.open(QIODevice::ReadWrite | QIODevice::Text))
@@ -119,8 +119,8 @@ chatroom::chatroom(QWidget *parent) :
         ui->listWidget->addItem(s);
 
 
-        ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
-        //ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
+        //ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
+        ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
 
     }
     ////////////////////////////////////////////////////////////////
@@ -200,8 +200,8 @@ void chatroom::newConnection()
         clientIsD=ui->listWidget->currentItem()->text();
         recvmessage=recvmessage.mid(recvmessage.indexOf(':')+1,recvmessage.length());
         ui->listWidget_2->addItem(recvmessage);
-        ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
-        //ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/ali.png"));
+        //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/ali.png"));
+        ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/ali.png"));
         NUM++;
      }
      doub++;
@@ -238,11 +238,11 @@ void chatroom::on_pushButton_clicked() /// belongs to the chat
     socket->write(arrBlock);
     ui->listWidget_2->addItem(line+" : "+sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length())); // îòîáðàæàåì ñòðîêó â plainTextEdit
 
-    ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
-    //ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
+    //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
+    ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
 
-    ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
-   // ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
+    //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+line+".png"));
+    ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+line+".png"));
 
     NUM++;
     sendmesage=line+" : "+sendmesage.mid(sendmesage.indexOf(":")+1,sendmesage.length());
@@ -282,11 +282,11 @@ void chatroom::on_pushButton_2_clicked()  /// belonges to the Id search
          num++;
          ui->listWidget->addItem(ID);
 
-         ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
-       //  ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
+         //ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
+         ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
 
-        ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
-      //   ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
+        //ui->listWidget->item(num)->setIcon(QIcon("C:/Users/pourya/Desktop/client.jpeg"));
+         ui->listWidget->item(num)->setIcon(QIcon("C:C:\\Users\\user\\Desktop\\project\\converso-main\\client.jpeg"));
 
          ui->groupBox_2->setEnabled(true);
          g.exec("INSERT INTO contacts VALUES('"+line+"','"+ID+"') ");
@@ -322,8 +322,8 @@ ui->listWidget_2->blockSignals(true);
      QString s=m.data(m.index(i,2)).toString();
      ui->listWidget_2->addItem(s);
       pic=m.data(m.index(i,0)).toString();
-      ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+pic+".png"));
-   //   ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png"));
+      //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+pic+".png"));
+      ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png"));
 
         NUM++;
 
@@ -486,14 +486,19 @@ void chatroom::updateButtonVisibility()
 }
 
 
-void chatroom::onStyleChanged(QFont &font, QColor &color){
+void chatroom::onStyleChanged(QFont &font, QColor &color)
+{
     ui->lineEdit->setFont(font);
     QPalette palatte;
 
-   ui->lineEdit->setStyleSheet(QString("color:%1").arg(color.name()));
+    if (ui->actiondark->isChecked())
+        ui->listWidget_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground.jpg);"
+                                        "background-attachment:fixed;"+QString("color:%1").arg(color.name()));
+    else
+        ui->listWidget_2->setStyleSheet("background-image: url(:/new/prefix1/chatbackground_light.png);"
+                                        "background-attachment:fixed;"+QString("color:%1").arg(color.name()));
+
+    ui->lineEdit->setStyleSheet(QString("color:%1").arg(color.name()));
     ui->listWidget_2->setFont(font);
-    ui->listWidget_2->setStyleSheet(QString("color:%1").arg(color.name()));
-
-
 }
 
