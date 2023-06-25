@@ -104,6 +104,7 @@ chatroom::chatroom(QWidget *parent) :
             &dlg, SLOT(open()));
 
 
+
     connect(&dlg, SIGNAL(styleChanged(QFont&,QColor&)),
             this, SLOT(onStyleChanged(QFont&,QColor&)));
 
@@ -304,9 +305,10 @@ void chatroom::handleEnter_2() /// this is related to pushButton 2
 
 void chatroom::on_listWidget_currentRowChanged(int currentRow)
 {
-ui->listWidget_2->blockSignals(true);
+  ui->listWidget_2->blockSignals(true);
     NUM=0;
  ui->listWidget_2->clear();
+   ui->listWidget_2->blockSignals(false);
   QSqlQuery p;
 
    p.exec("SELECT * FROM message WHERE (sender='"+line+"' and recipient='"+ui->listWidget->currentItem()->text()+"') or (sender='"+ui->listWidget->currentItem()->text()+"' and recipient='"+line+"' ) ORDER BY (second+minute*60+hour*3600+day*86400+month*2592000+year*31104000)");
@@ -443,6 +445,7 @@ void chatroom::on_listWidget_2_currentRowChanged(int currentRow)
    else
         ui->pushButton_13->setEnabled(true);
 
+
 }
 
 
@@ -485,9 +488,17 @@ void chatroom::updateButtonVisibility()
     ui->groupBox_6->setVisible(anyItemSelected);
 }
 
+<<<<<<< HEAD
 
 void chatroom::onStyleChanged(QFont &font, QColor &color)
 {
+=======
+QFont f;
+QColor c;
+void chatroom::onStyleChanged(QFont &font, QColor &color){
+    f=font;
+    c=color;
+>>>>>>> bb9cde506fbd8f253b727943c8227d36b6324b31
     ui->lineEdit->setFont(font);
     QPalette palatte;
 
@@ -501,4 +512,18 @@ void chatroom::onStyleChanged(QFont &font, QColor &color)
     ui->lineEdit->setStyleSheet(QString("color:%1").arg(color.name()));
     ui->listWidget_2->setFont(font);
 }
+void chatroom::on_actionbackground_triggered(){
 
+    QString filename =QFileDialog::getOpenFileName(this,tr("Open Image"),".",("File (  *.png *.jpg *.jpeg)"));
+    if(!filename.isEmpty())
+    {
+
+          QImage image(filename);
+        ui->listWidget_2->setFont(f);
+
+          ui->listWidget_2->setStyleSheet(QString("color:%1").arg(c.name())+";border-image: url('"+filename+"');");
+
+
+          NUM++;
+    }
+}

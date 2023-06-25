@@ -41,7 +41,7 @@ private slots:
 
     void on_actiondark_triggered();
 
-
+    void on_actionbackground_triggered();
 
     void on_pushButton_3_clicked();
 
