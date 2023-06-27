@@ -14,6 +14,11 @@
 #include <QStyle>
 #include "QFile"
 #include "QTextStream"
+#include "QGraphicsPixmapItem"
+#include "QPainter"
+#include "QBitmap"
+#include "QGraphicsScene"
+#include "QGraphicsView"
 
 int num=-1;
 chatroom::chatroom(QWidget *parent) :
@@ -124,7 +129,19 @@ chatroom::chatroom(QWidget *parent) :
 
 
         //ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
-        ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
+        //ui->listWidget->item(num)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png"));
+
+        QIcon icon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png");
+
+        const int desired_size = 40;
+        QPixmap pixmap(desired_size, desired_size);
+        pixmap.fill(Qt::gray);
+        QPainter painter(&pixmap);
+        QSize icon_size = icon.actualSize(QSize(desired_size, desired_size));
+        int x = (desired_size - icon_size.width()) / 2;
+        int y = (desired_size - icon_size.height()) / 2;
+        painter.drawPixmap(x, y, icon.pixmap(icon_size));
+        ui->listWidget->item(num)->setIcon(QIcon(pixmap));
 
     }
     ////////////////////////////////////////////////////////////////
@@ -343,14 +360,28 @@ void chatroom::on_listWidget_currentRowChanged(int currentRow)
   QSqlQueryModel m;
   m.setQuery(p);
 
- for(int i=0;i<m.rowCount();i++){
+ for(int i=0;i<m.rowCount();i++)
+ {
 
     QString pic;
      QString s=m.data(m.index(i,2)).toString();
      ui->listWidget_2->addItem(s);
       pic=m.data(m.index(i,0)).toString();
+
       //ui->listWidget_2->item(NUM)->setIcon(QIcon("D:/project2/converso/image_profile/"+pic+".png"));
-      ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png"));
+      //ui->listWidget_2->item(NUM)->setIcon(QIcon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png"));
+
+      QIcon icon("C:/Users/user/Desktop/project/converso-main/image_profile/"+pic+".png");
+
+      const int desired_size = 60;
+      QPixmap pixmap(desired_size, desired_size);
+      pixmap.fill(Qt::gray);
+      QPainter painter(&pixmap);
+      QSize icon_size = icon.actualSize(QSize(desired_size, desired_size));
+      int x = (desired_size - icon_size.width()) / 2;
+      int y = (desired_size - icon_size.height()) / 2;
+      painter.drawPixmap(x, y, icon.pixmap(icon_size));
+      ui->listWidget_2->item(NUM)->setIcon(QIcon(pixmap));
 
         NUM++;
 
@@ -397,6 +428,9 @@ void chatroom::on_actionlight_triggered()
     ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(255,255,255);color: rgb(0,0,0);");
     ui->label->setStyleSheet("background-color: rgb(255,255,255); color: rgb(0, 0, 0); ""font: 13pt ""MS Shell Dlg 2 ");
     ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/more_options.png);");
+    ui->pushButton_13->setStyleSheet("color: rgb(0,0,0);");
+    ui->pushButton_16->setStyleSheet("color: rgb(0,0,0);");
+    ui->pushButton_15->setStyleSheet("color: rgb(0,0,0);");
 
 
 }
@@ -429,6 +463,9 @@ void chatroom::on_actiondark_triggered()
     ui->listWidget->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";background-color: rgb(0, 0, 0);color: rgb(255, 255, 255);");
     ui->label->setStyleSheet("background-color: rgb(0, 0, 0); color: rgb(255,255,255); ""font: 13pt ""MS Shell Dlg 2 ");
     ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/more_options_dark.png);");
+    ui->pushButton_13->setStyleSheet("color: rgb(255,255,255);");
+    ui->pushButton_16->setStyleSheet("color: rgb(255,255,255);");
+    ui->pushButton_15->setStyleSheet("color: rgb(255,255,255);");
 }
 
 void chatroom::on_pushButton_3_clicked()
