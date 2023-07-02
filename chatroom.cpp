@@ -125,7 +125,10 @@ chatroom::chatroom(QWidget *parent) :
     {
         num++;
         QString s=cont.data(cont.index(i,0)).toString();
-        ui->listWidget->addItem(s);
+        if (s==line)
+            ui->listWidget->addItem("saved message");
+        else
+            ui->listWidget->addItem(s);
 
 
         //ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
@@ -133,6 +136,7 @@ chatroom::chatroom(QWidget *parent) :
 
         QIcon icon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png");
 
+        //just for the beuty:
         const int desired_size = 40;
         QPixmap pixmap(desired_size, desired_size);
         pixmap.fill(Qt::gray);
@@ -141,6 +145,8 @@ chatroom::chatroom(QWidget *parent) :
         int x = (desired_size - icon_size.width()) / 2;
         int y = (desired_size - icon_size.height()) / 2;
         painter.drawPixmap(x, y, icon.pixmap(icon_size));
+        //
+
         ui->listWidget->item(num)->setIcon(QIcon(pixmap));
 
     }
@@ -161,7 +167,7 @@ chatroom::chatroom(QWidget *parent) :
 }
 
 
-int GBS=0; /// flag for emoji status.
+int GBS=0; /// flag for emoji status. group box status
 int GBS_2=0; /// flag for moreOptions for chat setting status.
 int LS=1;
 
