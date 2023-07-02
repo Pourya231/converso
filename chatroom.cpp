@@ -14,7 +14,7 @@
 #include <QStyle>
 #include "QFile"
 #include "QTextStream"
-
+#include "QBuffer"
 int num=-1;
 chatroom::chatroom(QWidget *parent) :
     QMainWindow(parent),
@@ -26,7 +26,7 @@ chatroom::chatroom(QWidget *parent) :
     ui->lineEdit_2->setReadOnly(true);
      connect(ui->pushButton_12,SIGNAL(clicked()),this,SLOT(openimage()));
     socket = new QTcpSocket(this);
-    socket->connectToHost("87.248.155.130", 15226);
+    socket->connectToHost("127.0.0.1",4563);
        // ui->->setReadOnly(true);
      //   ui->groupBox_2->setEnabled(false);
      ui->pushButton->hide();
@@ -64,8 +64,7 @@ chatroom::chatroom(QWidget *parent) :
      outt << quint16(0) << sendmesage;
      outt.device()->seek(0);
      outt << quint16(arrBlock.size() - sizeof(quint16));
-
-    socket->write(arrBlock);
+     socket->write(arrBlock);
     first=0;
     ui->listWidget->setIconSize(QSize(60,60));
     ui->listWidget_2->setIconSize(QSize(80,80));
@@ -174,6 +173,14 @@ void chatroom::openimage()
            QTextStream in(&file);
            file.resize(0);
            in<<"picture"<<endl;
+
+
+           QByteArray bytearray;
+           QBuffer buffer(&bytearray);
+
+           buffer.open(QIODevice::WriteOnly);
+           image.save(&buffer,"PNG");
+           socket->write(bytearray);
            NUM++;
      }
 
@@ -240,8 +247,7 @@ void chatroom::on_pushButton_clicked() /// belongs to the chat
     QString sendmesage;
     QString client_send;
     client_send=ui->listWidget->currentItem()->text();
-    sendmesage=client_send + ":" + ui->lineEdit->text(); ;
-
+    sendmesage="mess."+client_send + ":" + ui->lineEdit->text();
     QByteArray  arrBlock;
     QDataStream out(&arrBlock, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_5_0);
