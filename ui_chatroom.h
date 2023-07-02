@@ -39,9 +39,9 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout_3;
     QGroupBox *groupBox;
-    QLineEdit *lineEdit_2;
     QGridLayout *gridLayout;
     QLineEdit *lineEdit_3;
+    QLabel *label_3;
     QListWidget *listWidget;
     QPushButton *pushButton_2;
     QGroupBox *groupBox_2;
@@ -111,9 +111,6 @@ public:
         groupBox->setMinimumSize(QSize(321, 681));
         groupBox->setMaximumSize(QSize(400, 16777215));
         groupBox->setStyleSheet(QString::fromUtf8(""));
-        lineEdit_2 = new QLineEdit(groupBox);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(100, 460, 113, 22));
         gridLayout = new QGridLayout(groupBox);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         lineEdit_3 = new QLineEdit(groupBox);
@@ -122,17 +119,27 @@ public:
         lineEdit_3->setStyleSheet(QString::fromUtf8("font: 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 0, 0);"));
 
-        gridLayout->addWidget(lineEdit_3, 0, 0, 1, 1);
+        gridLayout->addWidget(lineEdit_3, 1, 0, 1, 2);
+
+        label_3 = new QLabel(groupBox);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setMinimumSize(QSize(301, 31));
+        label_3->setMaximumSize(QSize(1666666, 31));
+        label_3->setStyleSheet(QString::fromUtf8("font: 11pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);"));
+
+        gridLayout->addWidget(label_3, 0, 0, 1, 3);
 
         listWidget = new QListWidget(groupBox);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
-        listWidget->setMinimumSize(QSize(301, 611));
+        listWidget->setMinimumSize(QSize(301, 571));
         listWidget->setStyleSheet(QString::fromUtf8("font: 18pt \"MS Shell Dlg 2\";\n"
 "background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);"));
         listWidget->setFrameShape(QFrame::NoFrame);
 
-        gridLayout->addWidget(listWidget, 1, 0, 1, 2);
+        gridLayout->addWidget(listWidget, 2, 0, 2, 3);
 
         pushButton_2 = new QPushButton(groupBox);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
@@ -141,7 +148,7 @@ public:
 "background-color: rgb(110, 0, 0);\n"
 "color: rgb(255, 255, 255);"));
 
-        gridLayout->addWidget(pushButton_2, 0, 1, 1, 1);
+        gridLayout->addWidget(pushButton_2, 1, 2, 1, 1);
 
 
         gridLayout_3->addWidget(groupBox, 0, 0, 1, 1);
@@ -400,6 +407,7 @@ public:
         actionchannel->setText(QApplication::translate("chatroom", "channel", nullptr));
         groupBox->setTitle(QString());
         lineEdit_3->setPlaceholderText(QApplication::translate("chatroom", "sreach ID", nullptr));
+        label_3->setText(QApplication::translate("chatroom", "user:", nullptr));
         pushButton_2->setText(QApplication::translate("chatroom", "connect", nullptr));
         groupBox_2->setTitle(QString());
         groupBox_5->setTitle(QString());

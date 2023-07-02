@@ -28,7 +28,7 @@ chatroom::chatroom(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->pushButton_13->setEnabled(false);
-    ui->lineEdit_2->setReadOnly(true);
+    ///ui->lineEdit_2->setReadOnly(true);
      connect(ui->pushButton_12,SIGNAL(clicked()),this,SLOT(openimage()));
     socket = new QTcpSocket(this);
     socket->connectToHost("87.248.155.130", 15226);
@@ -56,12 +56,12 @@ chatroom::chatroom(QWidget *parent) :
      QTextStream out(&file1);
 
      line=out.readLine();
-     ui->lineEdit_2->setText(line);
+     ///ui->lineEdit_2->setText(line);
  //  QString filepath;
 
      QString sendmesage;
 
-     sendmesage=ui->lineEdit_2->text();
+     ///sendmesage=ui->lineEdit_2->text();
 
      QByteArray  arrBlock;
      QDataStream outt(&arrBlock, QIODevice::WriteOnly);
@@ -155,6 +155,7 @@ chatroom::chatroom(QWidget *parent) :
     /*connect(ui->groupBox_6, &QListWidget::itemClicked, this, &chatroom::checkSelectedItem);
     connect(ui->groupBox_6, &QGroupBox:: this, &chatroom::updateButtonVisibility);*/
 
+    ui->label_3->setText(line);
 
 
 }
@@ -431,6 +432,7 @@ void chatroom::on_actionlight_triggered()
     ui->pushButton_13->setStyleSheet("color: rgb(0,0,0);");
     ui->pushButton_16->setStyleSheet("color: rgb(0,0,0);");
     ui->pushButton_15->setStyleSheet("color: rgb(0,0,0);");
+    ui->label_3->setStyleSheet("font: 18pt ""MS Shell Dlg 2""; color: rgb(0,0,0);");
 
 
 }
@@ -466,6 +468,8 @@ void chatroom::on_actiondark_triggered()
     ui->pushButton_13->setStyleSheet("color: rgb(255,255,255);");
     ui->pushButton_16->setStyleSheet("color: rgb(255,255,255);");
     ui->pushButton_15->setStyleSheet("color: rgb(255,255,255);");
+    ui->label_3->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";color: rgb(255,255,255);");
+
 }
 
 void chatroom::on_pushButton_3_clicked()
