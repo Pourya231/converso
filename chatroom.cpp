@@ -28,7 +28,7 @@ chatroom::chatroom(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->pushButton_13->setEnabled(false);
-    ui->lineEdit_2->setReadOnly(true);
+    ///ui->lineEdit_2->setReadOnly(true);
      connect(ui->pushButton_12,SIGNAL(clicked()),this,SLOT(openimage()));
     socket = new QTcpSocket(this);
     socket->connectToHost("192.168.43.204", 4563);
@@ -56,12 +56,12 @@ chatroom::chatroom(QWidget *parent) :
      QTextStream out(&file1);
 
      line=out.readLine();
-     ui->lineEdit_2->setText(line);
+     ///ui->lineEdit_2->setText(line);
  //  QString filepath;
 
      QString sendmesage;
 
-     sendmesage=ui->lineEdit_2->text();
+     ///sendmesage=ui->lineEdit_2->text();
 
      QByteArray  arrBlock;
      QDataStream outt(&arrBlock, QIODevice::WriteOnly);
@@ -125,7 +125,10 @@ chatroom::chatroom(QWidget *parent) :
     {
         num++;
         QString s=cont.data(cont.index(i,0)).toString();
-        ui->listWidget->addItem(s);
+        if (s==line)
+            ui->listWidget->addItem("saved message");
+        else
+            ui->listWidget->addItem(s);
 
 
        // ui->listWidget->item(num)->setIcon(QIcon("D:/project2/converso/image_profile/"+s+".png"));
@@ -134,6 +137,7 @@ chatroom::chatroom(QWidget *parent) :
       // QIcon icon("C:/Users/user/Desktop/project/converso-main/image_profile/"+s+".png");
        QIcon icon("D:/project2/converso/image_profile/"+s+".png");
 
+        //just for the beuty:
         const int desired_size = 40;
         QPixmap pixmap(desired_size, desired_size);
         pixmap.fill(Qt::gray);
@@ -142,6 +146,8 @@ chatroom::chatroom(QWidget *parent) :
         int x = (desired_size - icon_size.width()) / 2;
         int y = (desired_size - icon_size.height()) / 2;
         painter.drawPixmap(x, y, icon.pixmap(icon_size));
+        //
+
         ui->listWidget->item(num)->setIcon(QIcon(pixmap));
 
     }
@@ -156,12 +162,13 @@ chatroom::chatroom(QWidget *parent) :
     /*connect(ui->groupBox_6, &QListWidget::itemClicked, this, &chatroom::checkSelectedItem);
     connect(ui->groupBox_6, &QGroupBox:: this, &chatroom::updateButtonVisibility);*/
 
+    ui->label_3->setText(line);
 
 
 }
 
 
-int GBS=0; /// flag for emoji status.
+int GBS=0; /// flag for emoji status. group box status
 int GBS_2=0; /// flag for moreOptions for chat setting status.
 int LS=1;
 
@@ -433,6 +440,7 @@ void chatroom::on_actionlight_triggered()
     ui->pushButton_13->setStyleSheet("color: rgb(0,0,0);");
     ui->pushButton_16->setStyleSheet("color: rgb(0,0,0);");
     ui->pushButton_15->setStyleSheet("color: rgb(0,0,0);");
+    ui->label_3->setStyleSheet("font: 18pt ""MS Shell Dlg 2""; color: rgb(0,0,0);");
 
 
 }
@@ -468,6 +476,8 @@ void chatroom::on_actiondark_triggered()
     ui->pushButton_13->setStyleSheet("color: rgb(255,255,255);");
     ui->pushButton_16->setStyleSheet("color: rgb(255,255,255);");
     ui->pushButton_15->setStyleSheet("color: rgb(255,255,255);");
+    ui->label_3->setStyleSheet("font: 18pt ""MS Shell Dlg 2"";color: rgb(255,255,255);");
+
 }
 
 void chatroom::on_pushButton_3_clicked()
