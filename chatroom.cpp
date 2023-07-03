@@ -193,15 +193,7 @@ void chatroom::openimage()
            image=image.scaled(300,300);
            ui->listWidget_2->addItem("");
            ui->listWidget_2->item(NUM)->setIcon(QIcon(filename));
-           QFile file("C:/Users/pourya/desktop/typesend.txt");
-           if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
-           {
-             exit(1);
 
-           }
-           QTextStream in(&file);
-           file.resize(0);
-           in<<"picture"<<endl;
            NUM++;
      }
 
@@ -291,15 +283,7 @@ void chatroom::on_pushButton_clicked() /// belongs to the chat
     s.exec("INSERT INTO message  VALUES('"+line+"','"+girande+"','"+sendmesage+"',"+QString::number(second)+","+QString::number(minute)+","+QString::number(hour)+","+QString::number(day)+","+QString::number(month)+","+QString::number(year)+")");
 
     ui->lineEdit->setText("");
-    QFile file("C:/Users/pourya/desktop/typesend.txt");
-    if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-      exit(1);
 
-    }
-    QTextStream in(&file);
-    file.resize(0);
-    in<<"message"<<endl;
 
 }
 
