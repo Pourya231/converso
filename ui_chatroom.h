@@ -33,6 +33,9 @@ public:
     QAction *actionlight;
     QAction *actiondark;
     QAction *actionstyle;
+    QAction *actionbackground;
+    QAction *actiongroup;
+    QAction *actionchannel;
     QWidget *centralwidget;
     QGridLayout *gridLayout_3;
     QGroupBox *groupBox;
@@ -45,6 +48,7 @@ public:
     QGridLayout *gridLayout_5;
     QGroupBox *groupBox_5;
     QLabel *label;
+    QLabel *label_2;
     QListWidget *listWidget_2;
     QGroupBox *groupBox_6;
     QGridLayout *gridLayout_6;
@@ -72,6 +76,7 @@ public:
     QMenu *menusetting;
     QMenu *menudark_light_mood;
     QMenu *menuabout;
+    QMenu *menunew;
 
     void setupUi(QMainWindow *chatroom)
     {
@@ -91,6 +96,12 @@ public:
         actiondark->setCheckable(true);
         actionstyle = new QAction(chatroom);
         actionstyle->setObjectName(QString::fromUtf8("actionstyle"));
+        actionbackground = new QAction(chatroom);
+        actionbackground->setObjectName(QString::fromUtf8("actionbackground"));
+        actiongroup = new QAction(chatroom);
+        actiongroup->setObjectName(QString::fromUtf8("actiongroup"));
+        actionchannel = new QAction(chatroom);
+        actionchannel->setObjectName(QString::fromUtf8("actionchannel"));
         centralwidget = new QWidget(chatroom);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_3 = new QGridLayout(centralwidget);
@@ -154,6 +165,16 @@ public:
 
         gridLayout_5->addWidget(groupBox_5, 0, 0, 1, 1);
 
+        label_2 = new QLabel(groupBox_2);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setMinimumSize(QSize(841, 31));
+        label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/new/prefix1/chatbackground_light.png);\n"
+"\n"
+"font: 18pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 0, 0);"));
+
+        gridLayout_5->addWidget(label_2, 1, 0, 1, 1);
+
         listWidget_2 = new QListWidget(groupBox_2);
         listWidget_2->setObjectName(QString::fromUtf8("listWidget_2"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -161,12 +182,13 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(listWidget_2->sizePolicy().hasHeightForWidth());
         listWidget_2->setSizePolicy(sizePolicy);
-        listWidget_2->setMinimumSize(QSize(841, 421));
+        listWidget_2->setMinimumSize(QSize(841, 400));
         listWidget_2->setStyleSheet(QString::fromUtf8("background-image: url(:/new/prefix1/chatbackground_light.png);\n"
+"\n"
 "font: 18pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);"));
 
-        gridLayout_5->addWidget(listWidget_2, 1, 0, 1, 1);
+        gridLayout_5->addWidget(listWidget_2, 2, 0, 1, 1);
 
         groupBox_6 = new QGroupBox(groupBox_2);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
@@ -198,7 +220,7 @@ public:
         gridLayout_6->addWidget(pushButton_16, 0, 2, 1, 1);
 
 
-        gridLayout_5->addWidget(groupBox_6, 2, 0, 1, 1);
+        gridLayout_5->addWidget(groupBox_6, 3, 0, 1, 1);
 
         groupBox_4 = new QGroupBox(groupBox_2);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
@@ -266,7 +288,7 @@ public:
         gridLayout_4->addWidget(pushButton_4, 0, 7, 1, 1);
 
 
-        gridLayout_5->addWidget(groupBox_4, 3, 0, 1, 1);
+        gridLayout_5->addWidget(groupBox_4, 4, 0, 1, 1);
 
         groupBox_3 = new QGroupBox(groupBox_2);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
@@ -324,7 +346,7 @@ public:
         gridLayout_2->addWidget(pushButton, 0, 4, 1, 1);
 
 
-        gridLayout_5->addWidget(groupBox_3, 4, 0, 1, 1);
+        gridLayout_5->addWidget(groupBox_3, 5, 0, 1, 1);
 
 
         gridLayout_3->addWidget(groupBox_2, 0, 1, 1, 1);
@@ -332,24 +354,30 @@ public:
         chatroom->setCentralWidget(centralwidget);
         menuBar = new QMenuBar(chatroom);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1211, 25));
+        menuBar->setGeometry(QRect(0, 0, 1211, 26));
         menusetting = new QMenu(menuBar);
         menusetting->setObjectName(QString::fromUtf8("menusetting"));
         menudark_light_mood = new QMenu(menusetting);
         menudark_light_mood->setObjectName(QString::fromUtf8("menudark_light_mood"));
         menuabout = new QMenu(menuBar);
         menuabout->setObjectName(QString::fromUtf8("menuabout"));
+        menunew = new QMenu(menuBar);
+        menunew->setObjectName(QString::fromUtf8("menunew"));
         chatroom->setMenuBar(menuBar);
 
         menuBar->addAction(menusetting->menuAction());
+        menuBar->addAction(menunew->menuAction());
         menuBar->addAction(menuabout->menuAction());
         menusetting->addAction(menudark_light_mood->menuAction());
         menusetting->addAction(actionstyle);
+        menusetting->addAction(actionbackground);
         menudark_light_mood->addAction(actionlight);
         menudark_light_mood->addAction(actiondark);
         menudark_light_mood->addSeparator();
         menuabout->addAction(actioncontact_us);
         menuabout->addAction(actionAboutUs);
+        menunew->addAction(actiongroup);
+        menunew->addAction(actionchannel);
 
         retranslateUi(chatroom);
 
@@ -367,12 +395,16 @@ public:
         actionlight->setText(QApplication::translate("chatroom", "light", nullptr));
         actiondark->setText(QApplication::translate("chatroom", "dark", nullptr));
         actionstyle->setText(QApplication::translate("chatroom", "style", nullptr));
+        actionbackground->setText(QApplication::translate("chatroom", "background", nullptr));
+        actiongroup->setText(QApplication::translate("chatroom", "group", nullptr));
+        actionchannel->setText(QApplication::translate("chatroom", "channel", nullptr));
         groupBox->setTitle(QString());
         lineEdit_3->setPlaceholderText(QApplication::translate("chatroom", "sreach ID", nullptr));
         pushButton_2->setText(QApplication::translate("chatroom", "connect", nullptr));
         groupBox_2->setTitle(QString());
         groupBox_5->setTitle(QString());
         label->setText(QString());
+        label_2->setText(QApplication::translate("chatroom", "pined message:", nullptr));
         groupBox_6->setTitle(QString());
         pushButton_13->setText(QApplication::translate("chatroom", "delete message", nullptr));
         pushButton_15->setText(QApplication::translate("chatroom", "edith message", nullptr));
@@ -398,6 +430,7 @@ public:
         menusetting->setTitle(QApplication::translate("chatroom", "setting", nullptr));
         menudark_light_mood->setTitle(QApplication::translate("chatroom", "dark/light mood", nullptr));
         menuabout->setTitle(QApplication::translate("chatroom", "help", nullptr));
+        menunew->setTitle(QApplication::translate("chatroom", "new", nullptr));
     } // retranslateUi
 
 };

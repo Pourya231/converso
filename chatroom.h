@@ -57,6 +57,10 @@ private slots:
       void onStyleChanged(QFont &font, QColor &color);
 
 
+      void on_pushButton_16_clicked();
+
+      void on_actiongroup_triggered();
+
 private:
 
     QTcpSocket *socket;
